@@ -1,0 +1,104 @@
+#import "../template.typ": *
+
+#show: project.with(
+  title: "微积分 Homework #1",
+  authors: (
+  (name: "Yulun Wu", email: "memset0@outlook.com", phone: "3230104585"),
+  ),
+  date: "September 19, 2023",
+)
+
+= 习题1-1 5(1)
+
+#prob[求函数的定义域 $y = (x-2) sqrt(display((1 + x) / (1 - x)))$。]
+
+应满足：
+
+- $1-x != 0 arrow.r.double x != 1$
+- $d(1+x)(1-x) >= 0 arrow.r.double -1<=x<=1$
+
+综上，$-1<=x<1$。
+
+= 习题1-1 5(3)
+
+#prob[求函数的定义域 $y = display(sqrt(x) / sin(pi x))$。]
+
+应满足：
+
+- $x >= 0$
+- $sin(pi x) != 0 arrow.r.double x in.not ZZ$
+
+综上，$x in {x | x > 0 and x in.not ZZ}$。
+
+= 习题1-1 5(5)
+
+#prob[求函数的定义域 $y = arcsin(1-x) + lg(lg x)$。]
+
+应满足
+
+- $x>0$
+- $lg x > 0 arrow.r.double x>1$
+- $1 - x arrow.r.double -1 <= 1-x <= 1 arrow.r.double 0 <= x <= 2$
+
+综上，$1 < x <= 2$。
+
+= 习题1-1 19(1)
+
+#prob[求下列函数的反函数 $y=display((1-x)/(1+x))$。]
+
+定义域 $x in (-oo, 1) union (1, oo)$。
+
+= 习题1-1 19(3)
+
+#prob[求下列函数的反函数 $y=display(cases(
+	x\, quad& x<1,
+	x^2\, quad& 1<=x<=4,
+	2^x\, quad& x>4,
+))$]
+
+= 习题1-1 20
+
+#prob[设 $phi(x) = display(cases(
+	0\, quad& x<=0,
+	x\, quad& x>0,
+))$ 及 $psi(x) = display(cases(
+	0\, quad& x<=0,
+	-x^2\, quad& x>0, 
+))$。求 $phi(phi(x))$，$psi(psi(x))$，$phi(psi(x))$，$psi(phi(x))$。]
+
+$
+phi(phi(x))
+&= cases(phi(0)\, quad& x<=0, phi(x)\, quad& x>0) quad
+&&= cases(0\, quad& x<=0, x\, quad& x>0) quad
+&&= phi(x) \
+
+psi(psi(x))
+&= cases(psi(0)\, quad& x<=0, psi(-x^2)\, quad& x>0) quad
+&&= cases(0\, quad& x<=0, 0\, quad& x>0) quad
+&&= 0 \
+
+phi(psi(x))
+&= cases(phi(0)\, quad& x<=0, phi(-x^2)\, quad& x>0) quad
+&&= cases(0\, quad& x<=0, 0\, quad& x>0) quad
+&&= 0 \
+
+psi(phi(x))
+&= cases(psi(0)\, quad& x<=0, psi(x)\, quad& x>0) quad
+&&= cases(0\, quad& x<=0, -x^2\, quad& x>0) quad
+&&= psi(x) \
+$
+
+= 习题1-1 22
+
+#prob[设 $f_n (x)$ 为连续 $n$ 个 $f(x)$ 的复合，若 $f(x) = display(x/sqrt(1+x^2))$，求 $f_n (x)$。]
+
+下归纳证明 $f_n (x) = display(x / sqrt(1 + n x^2))$：
+
+- 当 $n = 1$ 时显然成立；
+- 假设 $n = k$ 时成立，下证明 $n=k+1$ 时也成立：
+
+$
+f_(k+1)(x) = (f_k (x)) / sqrt(1 + f_k^2 (x)) = display(x / sqrt(1 + k x^2)) / display(sqrt(1 + display(x^2 / (1 + k x^2)))) = display(x / sqrt(1 + k x^2)) / display(sqrt(display((1 + (k+1)x^2) / (1 + k x^2)))) = x / sqrt(1 + (k+1)x^2)
+$
+
+故原命题得证。
