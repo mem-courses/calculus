@@ -10,29 +10,29 @@
 
 = 习题1-1 5(1)
 
-#prob[求函数的定义域 $y = (x-2) sqrt(display((1 + x) / (1 - x)))$。]
+#prob[求函数的定义域 $y = (x-2) sqrt(display((1 + x) / (1 - x)))$．]
 
 应满足：
 
 - $1-x != 0 arrow.r.double x != 1$
 - $d(1+x)(1-x) >= 0 arrow.r.double -1<=x<=1$
 
-综上，$-1<=x<1$。
+综上，$-1<=x<1$．
 
 = 习题1-1 5(3)
 
-#prob[求函数的定义域 $y = display(sqrt(x) / sin(pi x))$。]
+#prob[求函数的定义域 $y = display(sqrt(x) / sin(pi x))$．]
 
 应满足：
 
 - $x >= 0$
 - $sin(pi x) != 0 arrow.r.double x in.not ZZ$
 
-综上，$x in {x | x > 0 and x in.not ZZ}$。
+综上，$x in {x | x > 0 and x in.not ZZ}$．
 
 = 习题1-1 5(5)
 
-#prob[求函数的定义域 $y = arcsin(1-x) + lg(lg x)$。]
+#prob[求函数的定义域 $y = arcsin(1-x) + lg(lg x)$．]
 
 应满足
 
@@ -40,13 +40,13 @@
 - $lg x > 0 arrow.r.double x>1$
 - $1 - x arrow.r.double -1 <= 1-x <= 1 arrow.r.double 0 <= x <= 2$
 
-综上，$1 < x <= 2$。
+综上，$1 < x <= 2$．
 
 = 习题1-1 19(1)
 
-#prob[求下列函数的反函数 $y=display((1-x)/(1+x))$。]
+#prob[求下列函数的反函数 $y=display((1-x)/(1+x))$．]
 
-易证明原函数是 $(-oo, -1) union (-1, oo)$ 到 $(-oo, -1) union (-1, oo)$ 的单射，故反函数存在。
+易证明原函数是 $(-oo, -1) union (-1, oo)$ 到 $(-oo, -1) union (-1, oo)$ 的单射，故反函数存在．
 
 令 $x = y', y = x'$，则有
 
@@ -62,7 +62,7 @@ arrow.r.double
 y' = (1 - x') / (1 + x')
 $
 
-故原函数的反函数为 $display(y = (1 - x) / (1 + x))$。
+故原函数的反函数为 $display(y = (1 - x) / (1 + x))$．
 
 = 习题1-1 19(3)
 
@@ -72,11 +72,11 @@ $
 	2^x\, quad& x>4,
 ))$]
 
-当 $x in (-oo, 1)$ 时，$y = x in (-oo, 1)$；故这一部分的反函数为 $y = x,space x in (-oo, 1)$。
+当 $x in (-oo, 1)$ 时，$y = x in (-oo, 1)$；故这一部分的反函数为 $y = x,space x in (-oo, 1)$．
 
-当 $x in [1, 4]$ 时，$y = x^2 in [1, 16]$；故这一部分的反函数为 $y = sqrt(x),space x in [1, 16]$。
+当 $x in [1, 4]$ 时，$y = x^2 in [1, 16]$；故这一部分的反函数为 $y = sqrt(x),space x in [1, 16]$．
 
-当 $x in (4, +oo)$ 时，$y = 2^x in (16, oo)$；故这一部分的反函数为 $y = log_2(x),space x in (16, oo)$。
+当 $x in (4, +oo)$ 时，$y = 2^x in (16, oo)$；故这一部分的反函数为 $y = log_2(x),space x in (16, oo)$．
 
 综上，原函数是 $RR$ 到 $RR$ 的单射，故反函数存在，为 $ y = cases(
 	x\, quad& x<1,
@@ -92,7 +92,7 @@ $
 ))$ 及 $psi(x) = display(cases(
 	0\, quad& x<=0,
 	-x^2\, quad& x>0, 
-))$。求 $phi(phi(x))$，$psi(psi(x))$，$phi(psi(x))$，$psi(phi(x))$。]
+))$．求 $phi(phi(x))$，$psi(psi(x))$，$phi(psi(x))$，$psi(phi(x))$．]
 
 $
 phi(phi(x))
@@ -118,7 +118,7 @@ $
 
 = 习题1-1 22
 
-#prob[设 $f_n (x)$ 为连续 $n$ 个 $f(x)$ 的复合，若 $f(x) = display(x/sqrt(1+x^2))$，求 $f_n (x)$。]
+#prob[设 $f_n (x)$ 为连续 $n$ 个 $f(x)$ 的复合，若 $f(x) = display(x/sqrt(1+x^2))$，求 $f_n (x)$．]
 
 下归纳证明 $f_n (x) = display(x / sqrt(1 + n x^2))$：
 
@@ -129,4 +129,4 @@ $
 f_(k+1)(x) = (f_k (x)) / sqrt(1 + f_k^2 (x)) = display(x / sqrt(1 + k x^2)) / display(sqrt(1 + display(x^2 / (1 + k x^2)))) = display(x / sqrt(1 + k x^2)) / display(sqrt(display((1 + (k+1)x^2) / (1 + k x^2)))) = x / sqrt(1 + (k+1)x^2)
 $
 
-故原命题得证。
+故原命题得证．
