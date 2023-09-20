@@ -5,7 +5,7 @@
   authors: (
   (name: "Yulun Wu", email: "memset0@outlook.com", phone: "3230104585"),
   ),
-  date: "September 19, 2023",
+  date: "September 20, 2023",
 )
 
 = 习题1-1 5(1)
@@ -46,7 +46,23 @@
 
 #prob[求下列函数的反函数 $y=display((1-x)/(1+x))$。]
 
-定义域 $x in (-oo, 1) union (1, oo)$。
+易证明原函数是 $(-oo, -1) union (-1, oo)$ 到 $(-oo, -1) union (-1, oo)$ 的单射，故反函数存在。
+
+令 $x = y', y = x'$，则有
+
+$
+x' = (1 - y') / (1 + y')
+arrow.r.double
+x' (1 + y') = 1 - y'
+arrow.r.double
+x' + x' dot y' = 1 - y' \
+arrow.r.double
+(x' + 1) y' = 1 - x'
+arrow.r.double
+y' = (1 - x') / (1 + x')
+$
+
+故原函数的反函数为 $display(y = (1 - x) / (1 + x))$。
 
 = 习题1-1 19(3)
 
@@ -55,6 +71,18 @@
 	x^2\, quad& 1<=x<=4,
 	2^x\, quad& x>4,
 ))$]
+
+当 $x in (-oo, 1)$ 时，$y = x in (-oo, 1)$；故这一部分的反函数为 $y = x,space x in (-oo, 1)$。
+
+当 $x in [1, 4]$ 时，$y = x^2 in [1, 16]$；故这一部分的反函数为 $y = sqrt(x),space x in [1, 16]$。
+
+当 $x in (4, +oo)$ 时，$y = 2^x in (16, oo)$；故这一部分的反函数为 $y = log_2(x),space x in (16, oo)$。
+
+综上，原函数是 $RR$ 到 $RR$ 的单射，故反函数存在，为 $ y = cases(
+	x\, quad& x<1,
+	sqrt(x)\, quad& 1<=x<=16,
+	log_2(x)\, quad& x>16
+) $
 
 = 习题1-1 20
 
