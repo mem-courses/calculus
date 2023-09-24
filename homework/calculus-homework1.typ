@@ -1,7 +1,7 @@
 #import "../template.typ": *
 
 #show: project.with(
-  title: "微积分 Homework #1",
+  title: "Calculus Homework #1",
   authors: (
   (name: "Yulun Wu", email: "memset0@outlook.com", phone: "3230104585"),
   ),
@@ -130,3 +130,76 @@ f_(k+1)(x) = (f_k (x)) / sqrt(1 + f_k^2 (x)) = display(x / sqrt(1 + k x^2)) / di
 $
 
 故原命题得证．
+
+= 习题1-1 24
+
+#prob[证明定义于对称区间 $(-tau, tau)$ 内的任何函数 $f(x)$ 可以表示成一个偶函数与一个奇函数之和的形式．]
+
+构造偶函数 $g_(x)$ 和奇函数 $h_(x)$ 满足：
+
+$
+forall x>0\, &quad f(x) = g(x) + h(x) \
+forall x<0\, &quad f(x) = g(-x) - h(-x) \
+$
+
+可以得到，$forall x>0$，
+
+$
+f(x) &= g(x) + h(x) \
+f(-x) &= g(x) - h(x) \
+$
+
+解得
+
+$
+cases(
+	g(x) &= 1/2 (f(x) + f(-x)),
+	h(x) &= 1/2 (f(x) - f(-x)),
+)\, quad quad x>0
+$
+
+根据奇偶函数的定义，可以得到 $g$ 和 $h$
+
+$
+g(x) &= cases(
+	1/2 (f(x) + f(-x))\,quad&0<x<tau,
+	0\,quad&x=0,
+	1/2 (f(x) + f(-x))\,quad&-tau<x<0,
+)\
+h(x) &= cases(
+	1/2 (f(x) - f(-x))\,quad&0<x<tau,
+	f(0)\,quad&x=0,
+	1/2 (f(x) - f(-x))\,quad&-tau<x<0,
+)\
+$
+
+故原命题得证．
+
+= 习题1-1 27 (2)
+
+#prob[判断函数的有界性：$f(x) = display(x/(1+x^2))$]
+
+下证明：$|f(x)|<=1/2$ 对 $x in RR$ 均成立．
+
+$
+|f(x)| = |x|/(1+x^2) <= 1/2
+arrow.r.double
+x^2 - 2|x| + 1 >= 0
+arrow.r.double 
+(|x| - 1)^2 >= 0
+$
+
+对于 $x in RR$ 显然成立．故 $f$ 为有界函数．
+
+
+= 习题1-1 27 (4)
+
+#prob[判断函数的有界性：$f(x) = e^(1/x)$]
+
+对于任意正常数 $M$，取 $display(x_0 = 1/display(ln(M) + 1))$，则有
+
+$
+f(x_0) = e^display(ln(M)+1) = e dot M > M
+$
+
+故 $f$ 为无界函数．
