@@ -116,6 +116,20 @@ psi(phi(x))
 &&= psi(x) \
 $
 
+= 课堂例题 9/21 8:32
+
+#prob[证明：$f(x) = display(1/x)$ 在 $(0,1)$ 上无界．]
+
+$forall M_0 in R_(>0), quad exists x_1 = display(1 / (M_0 + 1)) in (0,1) > M_0$．
+
+故 $f(x)$ 在 $(0,1)$ 上无界．
+
+= 课堂例题 9/21 9:31
+
+#prob[设 $f(0) = 0$ 且 $x != 0$ 时 $a f(x) + b f(display(1/x)) = display(c/x)$，其中 $a,b,c$ 为常数，且 $a != b$，证明 $f(x)$ 是奇函数．]
+
+TBD
+
 = 习题1-1 22
 
 #prob[设 $f_n (x)$ 为连续 $n$ 个 $f(x)$ 的复合，若 $f(x) = display(x/sqrt(1+x^2))$，求 $f_n (x)$．]
