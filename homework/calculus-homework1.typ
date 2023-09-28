@@ -2,10 +2,12 @@
 
 #show: project.with(
   title: "Calculus Homework #1",
-  authors: (
-  (name: "Yulun Wu", email: "memset0@outlook.com", phone: "3230104585"),
-  ),
-  date: "September 20, 2023",
+  authors: ((
+		name: "Yulun Wu (#47)",
+		email: "memset0@outlook.com",
+		phone: "3230104585"
+	),),
+  date: "September 24, 2023",
 )
 
 = 习题1-1 5(1)
