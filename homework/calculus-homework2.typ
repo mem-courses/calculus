@@ -169,7 +169,7 @@ n = (1+h_n)^n > (n(n+1))/2 h_n^2
 => h_n < sqrt(2/(n+1))
 $
 
-由于 $display(lim_(n->oo) sqrt(2/(n+1))) =0$，由单调有界定理得 $display(lim_(n->oo) h_n) = 0$，即 $display(lim_(n->oo) root(n,n) = 1)$．
+由于 $display(lim_(n->oo) sqrt(2/(n+1))) =0$，由夹逼定理得 $display(lim_(n->oo) h_n) = 0$，即 $display(lim_(n->oo) root(n,n) = 1)$．
 
 - 再证明原命题，不妨令 $p<=q$，有
 
