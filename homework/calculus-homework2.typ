@@ -16,7 +16,7 @@ $forall eps>0$，要使
 
 $
 |sqrt(n+1)-sqrt(n)-0|<eps
-<=> sqrt(n+1)<sqrt(n)+eps
+<=> sqrt(n+1)<sqrt(n)+eps \
 <=> n+1<n+2sqrt(n) dot eps+eps^2
 <=> 2sqrt(n) dot eps > 1-eps^2
 $
@@ -40,7 +40,6 @@ $
 $
 a^n
 =(t+1)^n
-=t^n + binom(n,1) t^(n-1) + binom(n,2) t^(n-2) + dots.c + binom(n,n-2) t^2 + binom(n,n-1) t + 1
 > t^n+n t^(n-1)
 $
 
@@ -142,10 +141,49 @@ $
 
 #prob[利用夹逼定理计算极限：$ lim_(n->oo)(sqrt(1 dot 2)/(n^2+1)+sqrt(2 dot 3)/(n^2+2)+dots.c+sqrt(n(n+1))/(n^2+n)) $]
 
+由于
+$ k/(n(n+1))<k/(n^2+k)<sqrt(k(k+1))/(n^2+k)<(k+1)/(n^2+k)<(k+1)/(n^2) $
+
+且
+$ sum_(k=1)^n k/(n(n+1)) = (1/2n(n+1))/(n(n+1)) = 1/2 $
+$ sum_(k=1)^n (k+1)/n^2 = (1/2(n+1)(n+2))/n^2 = (n^2+3n+2)/(2n^2) $
+$
+lim_(n->oo) (n^2+3n+2)/(2n^2)
+= lim_(n->oo) (1+3/n+2/n^2)/2 = 1/2
+$
+
+故由夹逼定理得 $display(lim_(n->oo)[1^2/n^3+2^2/n^3+dots.c+(n-1)^2/n^3] = 1/2)$。
+
+
 = 习题1-2 8(3)
 
 #prob[利用夹逼定理计算极限：$ lim_(n->oo)root(n,n^p+n^q) quad(p,q in ZZ_+) $]
 
+- 先证明 $display(lim_(n->oo)) root(n,n) = 1$
+
+设 $root(n,n) = 1+h_n$，显然 $h_n$，且有
+$
+n = (1+h_n)^n > (n(n+1))/2 h_n^2
+=> h_n < sqrt(2/(n+1))
+$
+
+由于 $display(lim_(n->oo) sqrt(2/(n+1))) =0$，由单调有界定理得 $display(lim_(n->oo) h_n) = 0$，即 $display(lim_(n->oo) root(n,n) = 1)$。
+
+- 再证明原命题，不妨令 $p<=q$，有
+
+$
+root(n,2 n^p)<=root(n,n^p+n^q)<=root(n,2 n^q)
+$
+
+其中 $display(lim_(n->oo) root(n,2) =1)$，且 $p,q$ 是定常数，则 $display(lim_(n->oo) root(n,2 n^p) = 1^(p+1) = 1)$，同理 $display(lim_(n->oo) root(n,2 n^q) = 1)$。由夹逼定理得 $display(lim_(n->oo)root(n,n^p+n^q)) = 1$。
+
 = 习题1-2 8(5)
 
 #prob[利用夹逼定理计算极限：$ lim_(n->oo)1/sqrt(n!) $]
+
+由于 $n <= n! <= n^n$，所以
+$
+1/sqrt(n^n) <= 1/sqrt(n!) <= 1/sqrt(n)
+$
+
+且 $display(lim_(n->oo)1/sqrt(n)=0)$，$display(lim_(n->oo)1/sqrt(n^n)=0)$，由夹逼定理知 $display(lim_(n->oo)1/sqrt(n!)=0)$。
