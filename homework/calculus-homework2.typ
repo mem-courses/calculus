@@ -56,7 +56,7 @@ $
 由于 $display(n/((t+1)^n) < n/(t^n+n t^(n-1)))$，只需使
 
 $
-n/(t^n+n t^(n-1))) < eps
+n/(t^n+n t^(n-1)) < eps
 <=> 1/(t^(n-1) (1+t/n)) < eps
 $
 
