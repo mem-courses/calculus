@@ -66,3 +66,4 @@
 #let dp = math.display
 #let sp = math.space
 #let eps = math.epsilon
+#let sim = " ~ "

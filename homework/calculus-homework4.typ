@@ -7,7 +7,7 @@
 		email: "memset0@outlook.com",
 		phone: "3230104585"
 	),),
-  date: "October 20, 2023",
+  date: "October 19, 2023",
 )
 
 = 课堂例题 10.17
@@ -15,6 +15,76 @@
 #prob[求极限：$ lim_(x->pi)(sin m x)/(sin n x) $]
 
 *（细节有点多的）*
+
+= P55 习题1-3 11
+
+#prob[
+	1. 由 $display(lim_(x->-oo)(sqrt(x^2-x+1) - a_1 x - b_1) = 0)$，求常数 $a_1$，$b_1$。
+	2. 由 $display(lim_(x->+oo)(sqrt(x^2-x+1) - a_2 x - b_2) = 0)$，求常数 $a_2$，$b_2$。
+]
+
+1. 已知
+  
+  $
+  lim_(x->-oo) sqrt(x^2-x+1)/(-x)
+  = lim_(x->-oo) sqrt((x^2-x+1)/x^2)
+  = lim_(x->-oo) sqrt(1 - 1/x + 1/x^2)
+  = 1
+  $
+  
+  所以 $x->-oo$ 时，$sqrt(x^2-x+1) sim -x$。已知 $display(lim_(x->-oo)(-x - a_1 x - b_1) = 0)$，可得 $a_1 = -1$，$b_1 = 0$。
+
+2. 同理可得 $x->+oo$ 时，$sqrt(x^2-x+1) sim x$。已知 $display(lim_(x->+oo)(x - a_2 x - b_2) = 0)$，可得 $a_2 = 1$，$b_2 = 0$。
+  
+*（注意符号）*
+
+= P55 习题1-3 12(1)
+
+#prob[证明关系：$ cos x = 1 - 1/2 x^2 + o(x^2) quad (x->0) $]
+
+即证：$ cos x - 1 + 1/2 x^2 = o(x^2) quad (x->0) $
+
+已知
+
+$
+lim_(x->0) (cos x - 1 + 1/2 x^2)/(x^2)
+= lim_(x->0) (sum_(n>=2)((-1)^n x^(2n))/((2n)!))/x^2
+= lim_(x->0) sum_(n>=2)((-1)^n x^(2(n-1)))/((2n)!)
+= 0
+$
+
+故原命题得证。
+
+= P55 习题1-3 12(2)
+
+#prob[证明关系：$ sqrt(x+sqrt(x+sqrt(x))) sim root(8,x) quad (x->0^+) $]
+
+令 $u=root(4,x)$，已知 $display(lim_(x->0^+) u=0^+)$。
+
+$
+& lim_(x->0^+) sqrt(x+sqrt(x+sqrt(x)))/root(8,x)
+= sqrt(lim_(x->0^+) (x+sqrt(x+sqrt(x)))/root(4,x))\
+=& sqrt(lim_(u->0^+) (u^4 + sqrt(u^4 + u^2)) / u)
+= sqrt(lim_(u->0^+) (u^3 + sqrt(u^2 + 1)))
+= 1
+$
+
+= P55 习题1-3 12(5)
+
+#prob[证明关系：$ o(x^n) + o(x^m) = o(x^m) quad (x->0,space n>m>0) $]
+
+
+= P55 习题1-3 16(1)
+
+#prob[利用等价量替换计算极限：$ lim_(x->0)(sqrt(1+tan^2 x)-1)/(x sin x) $]
+
+= P55 习题1-3 16(2)
+
+#prob[利用等价量替换计算极限：$ lim_(x->0)(sin(tan^2 x))/(root(n,1+x^2)-1) $]
+
+= P55 习题1-3 16(3)
+
+#prob[利用等价量替换计算极限：$ lim_(x->0^+)((1-sqrt(cos x)) tan x)/((1-cos x)^(3/2)) $]
 
 = 课堂例题 10.19
 
