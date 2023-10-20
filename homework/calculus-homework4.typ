@@ -7,7 +7,7 @@
 		email: "memset0@outlook.com",
 		phone: "3230104585"
 	),),
-  date: "October 19, 2023",
+  date: "October 20, 2023",
 )
 
 = 课堂例题 10.17
@@ -73,6 +73,10 @@ $
 
 #prob[证明关系：$ o(x^n) + o(x^m) = o(x^m) quad (x->0,space n>m>0) $]
 
+$
+lim_(x->0) frac(o(x^n) + o(x^m), x^m)
+= lim_(x->0) x^(n-m) frac(o(x^n), x^n)
+$
 
 = P55 习题1-3 16(1)
 
