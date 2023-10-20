@@ -58,11 +58,11 @@ $x=0$ 处是原函数的跳跃间断点。
 #prob[指出下列函数的间断点，并指出间断点是属于哪一类型：$ f(x) = lim_(n->oo)(x^n)/(1+x^n)quad (x>=0) $]
 
 $
-f(x)
-= lim_(n->oo)1/(1+x^(-n))
-= cases(
-	1\,quad&x=0,
-	0\,quad&0<x<1,
+f(x) = cases(
+	0\,quad& x=0,
+	display(lim_(n->oo)1/(1+x^(-n)))\,quad&x>0
+) sp = cases(
+	0\,quad&0<=x<1,
 	1/2\,quad&x=1,
 	1\,quad&x>1,
 )

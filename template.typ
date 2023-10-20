@@ -63,4 +63,6 @@
 #let cas(..args) = math.cases(..args)
 #let dxarrow(..args) = xarrow(math.display(..args))
 
+#let dp = math.display
+#let sp = math.space
 #let eps = math.epsilon
