@@ -21,11 +21,19 @@ sin(u pm v) = sin u cos v pm cos u sin v quad quad
 cos(u pm v) = cos u cos v mp sin u sin v
 $
 
+=== 倍角公式
+
+$
+sin 2theta &= 2 sin theta cos theta\
+cos 2theta &= cos^2 theta - sin^2 theta = 2 cos^2 theta - 1 = 1 - 2 sin^2 theta\
+$
+
 === 半角公式
 
 $
 sin theta/2 = pm sqrt((1-cos theta)/2) quad quad 
-cos theta/2 = pm sqrt((1+cos theta)/2)
+cos theta/2 = pm sqrt((1+cos theta)/2)\
+tan theta/2 = (sin theta)/(1 + cos theta) = (1 - cos theta)/(sin theta)
 $
 
 === 和差化积
