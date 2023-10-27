@@ -20,7 +20,7 @@ $f(x) = 2^x - 4x$ 是初等函数，在 $RR$ 上连续．已知 $f(0) = 1>0,sp f
 
 #prob[若 $f(x)$ 在 $[a,b]$ 上连续，$x_1,x_2,dots.c,x_n in [a,b]$，证明至少存在一点 $xi in [a,b]$，使 $ f(xi) = (f(x_1)+f(x_2)+dots.c+f(x_n))/n $]
 
-设 $M = min{f(x_1),f(x_2),dots.c,f(x_n)},sp N = max{f(x_1),f(x_2),dots.c,f(x_n)}$．所以 $M<=f(xi)<=N$．而由于 $f(x)$ 在 $[a,b]$ 上连续，根据 *介值定理*，对于 $f(x)$ 在 $M$ 到 $N$ 的任意实数 $c$ 都有至少存在一个 $xi$ 使得 $f(xi)=c$．故一定存在 $xi in [a,b]$ 满足题意．
+设 $M = min{f(x_1),f(x_2),dots.c,f(x_n)}$，$N = max{f(x_1),f(x_2),dots.c,f(x_n)}$。已知 $f(x)$ 在 $[a,b]$ 上连续，由于 $M<=f(xi)<=N$，根据 *介值定理*，对于 $f(x)$ 在 $M$ 到 $N$ 的任意实数 $c$ 都有至少存在一个 $xi$ 使得 $f(xi)=c$．故一定存在 $xi in [a,b]$ 满足题意．
 
 = P72 习题1-4 12(1)
 
