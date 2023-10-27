@@ -20,3 +20,6 @@
 #let st = "s.t. "
 #let pm = math.plus.minus
 #let mp = math.minus.plus
+
+#let dx = "d" + math.italic("x")
+#let Dx = math.Delta + math.italic("x")
