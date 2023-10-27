@@ -100,7 +100,7 @@ $
 
 == 有界集
 
-既有上界，又有下界的数集称为 *有界集*．因此 $ A "有界" quad<==>quad exists M_1,M_2 in RR,sp st forall x in A ,sp M_2<=x<=M_1. $
+既有上界，又有下界的数集称为 *有界集*．因此 $ A "有界" quad <==> quad exists M_1, M_2 in RR,sp st forall x in A,sp M_2 <= x <= M_1 . $
 
 等价于 $ A "有界" quad<==>quad exists M>0,sp st forall x in A ,sp |x|<=M. $
 
@@ -162,8 +162,8 @@ $
 #prof[
 	1. 证明：取 $eps=(A-B)/2$，于是存在 $N_1,N_2 in NN_+$，使得
 		#block(width: 100%)[$ cases(
-			forall n>N_1\,sp |a_n-A|<eps => a_n>A-eps=(A+B)/2,
-			forall n>N_2\,sp |b_n-B|<eps => b_n<B+eps=(A+B)/2,
+			forall n>N_1\,sp |a_n-A|<eps => a_n>A-eps = (A+B)/2,
+			forall n>N_2\,sp |b_n-B|<eps => b_n<B+eps = (A+B)/2,
 		) $]
 		取 $N=max{N_1,N_2}$，当 $n>N$ 时，有 $a_n>(A+B)/2>b_n$．
 ]
