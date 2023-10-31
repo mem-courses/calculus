@@ -3,7 +3,7 @@
 #show: project.with(
   title: "Calculus Note #1",
   authors: ((
-		name: "Yulun Wu (#47)",
+		name: "memset0",
 		email: "memset0@outlook.com",
 		phone: "3230104585"
 	),),
