@@ -26,6 +26,8 @@
 #let pm = math.plus.minus
 #let mp = math.minus.plus
 
+#let dd = math.upright("d")
+#let textd = math.upright("d")
 #let dx = math.upright("d") + math.italic("x")
 #let dy = math.upright("d") + math.italic("y")
 #let du = math.upright("d") + math.italic("u")
@@ -34,5 +36,8 @@
 #let Dy = math.Delta + math.italic("y")
 #let Du = math.Delta + math.italic("u")
 #let Dv = math.Delta + math.italic("v")
+#let ddy = math.attach(math.upright("d"), tr: "2") + math.italic("y")
+#let dddy = math.attach(math.upright("d"), tr: "3") + math.italic("y")
+#let dny = math.attach(math.upright("d"), tr: "n") + math.italic("y")
 
 #let arccot = math.op("arccot")

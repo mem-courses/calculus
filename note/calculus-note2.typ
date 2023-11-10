@@ -31,16 +31,32 @@
 
 若 $f'(x_0) = 0$，切线与 $x$ 轴平行，且称 $x_0$ 为驻点。
 
+== 高阶导数
+
+若函数 $y=f(x)$ 的导数 $y'=f'(x)$ 可导，则称 $f'(x)$ 的导数为 $f(x)$ 的二阶导数，记作 $y''$ 或 $display(ddy/(dx^2))$。
+
+函数 $y=f(x)$ 的 $n$ 阶导数可以记为 $y^((n))$ 或 $display(dny/(dx^n))$。
+
 = 求导
 
 == 基本初等函数的求导公式
 
-TBD
+$
+& (C)'=0 quad quad quad quad quad quad quad quad quad quad && (x^mu)' = mu x^(mu - 1)\
+& (sin x)' = cos x && (cos x)' = -sin x\
+& (tan x)' = sec^2 x && (cot x)' = -csc^2 x\
+& (sec x)' = sec x tan x && (csc x)' = -csc x cot x\
+& (a^x)' = a^x ln a && (e^x)' = e^x\
+& (log_a x)' = display(1/(x ln a)) && (ln x)' = display(1/x)\
+& (arcsin x)' = display(1/sqrt(1-x^2)) && (arccos x)' = -display(1/sqrt(1-x^2))\
+& (arctan x)' = display(1/(1+x^2)) && (arccot x)' = -display(1/(1+x^2))\
+$
 
-#note[
+#note[#def[定理]初等函数在定义区间内可导，且导数仍为初等函数。]
+
+#prof[
   #def[证明思路]通过构造性定义和两个重要极限得到 $(C)'=0$、$(sin x)' = cos x$、$(ln x)' = 1/x$，再利用求导法则得到其他基本初等函数的求导公式。
 ]
-
 
 == 四则运算求导法则
 
@@ -79,7 +95,7 @@ $
 f'(x) = 1/([f^(-1)(y)]') sp "或表示为" sp dy/dx = 1/(sp dx/dy sp)
 $
 
-#prof[
+#note[
   1. 设 $y = arcsin x$，则 $x = sin y,sp y in (display(-pi/2\,pi/2))$，则：
 
   $
@@ -112,8 +128,30 @@ $
   由于 $u=g(x)$ 在点 $x$ 可导，所以 $u=g(x)$ 在点 $x$ 连续 $=>$ 当 $Dx->0$ 时 $Du->0$，同时有 $alpha->0$。
 
   $=> display(Dy/Dx = lim_(Dx->0) Dy/Dx = lim)$
+
+  我们可以用类似 $display(Dy/Dx = Dy/Du dot Du/Dx)$ 的语言来表述，但这不严谨（有可能 $Du=0$）。
 ]
 
-#warn[
-  不能直接用 $display(dy/dx = dy/du dot du/dx)$ 来证明，理由：可能 $du = 0$ 不能作分母。
-]
+== 高阶导数的求导法则
+
+=== 常用的高阶导数公式
+
+$
+& (1/(a+x))^((n)) = (-1)^n (n!)/(a+x)^(n+1) quad quad quad quad
+&& (1/(a-x))^((n)) = (n!)/(a-x)^(n+1)\
+$
+
+=== 莱布尼茨（Leibniz）公式
+
+设函数 $u=u(x)$ 及 $v=v(x)$ 均有 $n$ 阶导数，则有：
+
+$
+(u v)^((n))
+= & u^((n)) v
++ n u^((n-1)) v'
++ (n(n-1))/2 u^((n-2)) v''
++ dots.c
++\ &(n(n-1)dots.c(n-k+1))/(k!) u^((n-k)) v^((k))
++ dots.c
++ u v^((n))
+$
