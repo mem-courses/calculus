@@ -13,6 +13,11 @@
 #let prof(..x) = { prob(bgcolor: luma(252), border: luma(135), ..x) }
 
 
+#let def(x) = { text("【" + x + "】", weight: "bold") }
+#let deft(x) = { text("【" + x + "】", weight: "bold", fill: rgb("#FFFFFF")) }
+#let bb(x) = { text(x, weight: "bold") }
+
+
 #let dp = math.display
 #let sp = math.space
 #let eps = math.epsilon
@@ -21,5 +26,13 @@
 #let pm = math.plus.minus
 #let mp = math.minus.plus
 
-#let dx = "d" + math.italic("x")
+#let dx = math.upright("d") + math.italic("x")
+#let dy = math.upright("d") + math.italic("y")
+#let du = math.upright("d") + math.italic("u")
+#let dv = math.upright("d") + math.italic("v")
 #let Dx = math.Delta + math.italic("x")
+#let Dy = math.Delta + math.italic("y")
+#let Du = math.Delta + math.italic("u")
+#let Dv = math.Delta + math.italic("v")
+
+#let arccot = math.op("arccot")
