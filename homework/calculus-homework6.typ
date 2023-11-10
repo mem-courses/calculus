@@ -173,7 +173,7 @@ y &= e^(x ln x) + e^(1/x ln x)\ => y'
 $
 
 = P100 习题2-1 72
-#prob[设 $display(y = arctan phi(x)/psi(x))$，求 $display(dy/dx)$。]
+#prob[设 $display(y = arctan phi(x)/psi(x))$，求 $display(dy/dx)$．]
 
 $ y'
 = display((phi(x)/psi(x))')/(1 + display((phi(x)/psi(x))^2))
@@ -181,7 +181,7 @@ $ y'
 $
 
 = P100 习题2-1 81(1)
-#prob[求 $display(y = sin x)$ 在点 $display(x = pi/4)$ 的切线方程与法线方程。]
+#prob[求 $display(y = sin x)$ 在点 $display(x = pi/4)$ 的切线方程与法线方程．]
 
 $ dy/dx = cos x $
 
@@ -189,28 +189,28 @@ $ dy/dx = cos x $
 
 - 切线方程为：$display(y-sqrt(2)/2 = sqrt(2)/2 (x - pi/4) => y = sqrt(2)/2 x + sqrt(2)/2 - (pi sqrt(2))/8)$；
 
-- 法线方程为：$display(y-sqrt(2)/2 = -sqrt(2) (x - pi/4) => y = -sqrt(2) x + sqrt(2)/2 + (pi sqrt(2))/4)$。
+- 法线方程为：$display(y-sqrt(2)/2 = -sqrt(2) (x - pi/4) => y = -sqrt(2) x + sqrt(2)/2 + (pi sqrt(2))/4)$．
 
 = P100 习题2-1 81(3)
-#prob[求 $display(e^(x y) - x^2 + y^3 = 0)$ 在点 $display(x = 0)$ 的切线方程与法线方程。]
+#prob[求 $display(e^(x y) - x^2 + y^3 = 0)$ 在点 $display(x = 0)$ 的切线方程与法线方程．]
 
 $
 => (dd e^(x y))/dx - (dd x^2)/dx + (dd y^3)/dx = 0
 => e^(x y) (y + x dy/dx)- 2x + 3 y^2 dy/dx = 0
 $
 
-当 $x=0$ 时，$y=-1$，此时 $display(dy/dx = 1/3)$。
+当 $x=0$ 时，$y=-1$，此时 $display(dy/dx = 1/3)$．
 
 故原函数在点 $x=0$ 的
 
 - 切线方程为：$display(y+1 = 1/3(x - 0) => y = x/3 - 1)$；
 
-- 法线方程为：$display(y+1 = -3(x - 0) => y = -3x - 1)$。
+- 法线方程为：$display(y+1 = -3(x - 0) => y = -3x - 1)$．
 
 = P100 习题2-1 82(1)
 #prob[求导数：$display(y = |x^3|)$]
 
-当 $x>=0$ 时，$y' =(x^3)' = 3 x^2$；当 $x<=0$ 时，$y' = (- x^3)' = -3 x^2$。
+当 $x>=0$ 时，$y' =(x^3)' = 3 x^2$；当 $x<=0$ 时，$y' = (- x^3)' = -3 x^2$．
 
 注意到当 $x=0$ 时，$y'_+ = y'_- = 0$，故原函数导数在 $RR$ 上存在，且为：
 
@@ -224,9 +224,9 @@ $ y' = cases(
 
 当 $x>=1$ 或 $x<=0$ 时，$y' = (x^2 (x-1))' = 2x (x-1) + x^2 = 3x^2 - 2x$；
 
-当 $0<=x<=1$ 时，$y' = (-x^2 (x-1))' = 2x - 3x^2$。
+当 $0<=x<=1$ 时，$y' = (-x^2 (x-1))' = 2x - 3x^2$．
 
-注意到 $x=1$ 时 $y'_+ != y'_-$，故原函数 $y$ 在点 $x=1$ 处不可导。在其余值域上的导数为：
+注意到 $x=1$ 时 $y'_+ != y'_-$，故原函数 $y$ 在点 $x=1$ 处不可导．在其余值域上的导数为：
 
 $ y' = cases(
 	3x^2 - 2x \, quad x>1,
@@ -240,7 +240,7 @@ $ y' = cases(
 	x^2\,quad& x<=0,
 ))$]
 
-当 $x>0$ 时，$f'(x) = 3x^2$；当 $x<=0$ 时 $f'(x) = 2x$。
+当 $x>0$ 时，$f'(x) = 3x^2$；当 $x<=0$ 时 $f'(x) = 2x$．
 
 注意到 $x=1$ 时，$f'_+(x) = f'_-(x) = 0$，故原函数导数在 $RR$ 上存在，且为：
 
@@ -255,8 +255,8 @@ $ f'(x) = cases(
 	0\,quad& x=0,
 ))$]
 
-当 $x!=0$ 时，$display(f'(x) = 2x cos(1/x) + x^2 (-sin(1/x)) (-1/x^2) = 2x cos(1/x) + sin(1/x))$。
+当 $x!=0$ 时，$display(f'(x) = 2x cos(1/x) + x^2 (-sin(1/x)) (-1/x^2) = 2x cos(1/x) + sin(1/x))$．
 
-另有 $display(lim_(x->0) f'(x) = lim_(x->0) sin(1/x))$ 不存在，故 $f(x)$ 在点 $x=0$ 处不可导。
+另有 $display(lim_(x->0) f'(x) = lim_(x->0) sin(1/x))$ 不存在，故 $f(x)$ 在点 $x=0$ 处不可导．
 
-故原函数 $f(x)$ 的导数为 $f'(x) = display(2x cos (1/x) + sin (1/x)) quad (x!=0)$。
+故原函数 $f(x)$ 的导数为 $f'(x) = display(2x cos (1/x) + sin (1/x)) quad (x!=0)$．
