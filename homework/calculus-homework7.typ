@@ -134,32 +134,114 @@ $
 = P102 习题2-1 107
 #prob[令 $x=sin t$，化简方程 $display((1-x^2) ddy/(dx^2) - x dy/dx - y = 0)$．]
 
+已知，$x = sin t$，那么 $dx = cos t dd t$．所以有，
+
+- $display( dy/dx = dy/dx dot dx/dt = dy/dt dot 1/(cos t) )$；
+
+- $display( ddy/(dx^2) = (dd(dy/dx))/dx = dd(1/(cos t) dot dy/dt)/(cos t dt) = 1/(cos t) ((sin t)/(cos^2 t) dot dy/dt + 1/(cos t) dot ddy/(dt^2)) )$．
+
+代入得：
+
+$
+&(1-sin^2 t)/(cos t) ((sin t)/(cos^2 t) dot dy/dt + 1/(cos t) dot ddy/(dt^2)) - sin t dot dy/dt dot 1/(cos t) - y = 0\
+=> &(ddy)/(dt^2) + tan t dy/dt - tan t dy/dt - y = 0 
+quad quad => y = ddy/(dt^2)
+$
+
 = P113 习题2-2 17
 #prob[设 $display(cases(x = a(t - sin t), y = a(1 - cos t)))$，求 $display(dy/dx)$，$display(ddy/(dx^2))$．]
+
+由已知，$dx = a(1-cos t) dt,sp dy = a sin t dt$，所以
+
+- $display(dy/dx = dy/dt dot dt/dx = (a sin t dt)/(a (1 - cos t) dt) = (sin t)/(1 - cos t) )$；
+
+- $display(ddy/(dx^2) = (dd (dy/dx))/dx = (dd((sin t)/(1-cos t)))/(a(1-cos t) dt) = 1/(a (1-cos t)) dot (cos t(1 - cos t) - sin^2 t)/((1 - cos t)^2) = -1/(a (1-cos t)^2) )$．
 
 = P113 习题2-2 19
 #prob[设 $display(cases(x = e^(2t), y = e^(3t)))$，求 $display(dddy/(dx^3))$．]
 
+由已知，$display(cases(2t = ln x, 3t = ln y) => 3/2 ln x = ln y => y = x^(3/2))$．所以，$ dy/dx = 3/2 x^(1/2) quad => (ddy)/(dx^2) = 3/2 dot 1/2 x^(-1/2) quad => (dd^3 y)/(dx^3) = 3/2 dot 1/2 (-1/2) x^(-3/2) = -3/8 y^(-3/2) $
+
 = P113 习题2-2 1
 #prob[求微分：$ y = x/sqrt(1-x^2) $]
 
+$
+dy &= (x dd(sqrt(1-x^2)) - sqrt(1-x^2) dx)/(1-x^2)
+= ((x d(1-x^2))/(2 sqrt(1-x^2)) - sqrt(1-x^2) dx)/(1-x^2)\
+&= (-(2 x^2 dx)/(2 sqrt(1-x^2)) - sqrt(1-x^2) dx)/(1-x^2)
+= (-x^2 dx - (1-x^2) dx)/((1-x^2)^(3/2))\
+&= -(1-x^2)^(-3/2) dx
+$
+
 = P113 习题2-2 5
-#prob[求微分：$ y = 1/(2a) ln (|x + a|)/(|x - a|) $]
+#prob[求微分：$ y = 1/(2a) ln (abs(x+a))/(abs(x-a)) $]
+
+$
+dy = abs(x-a)/(2a abs(x+a)) dd(abs(x+a)/abs(x-a))
+= abs(x-a)/(2a abs(x+a)) (abs(x+a) dd(abs(x-a)) - abs(x-a) dd(abs(x+a)))/((x-a)^2)
+$
+
+此时需根据 $x+a$ 与 $x-a$ 的正负性进行分类讨论，若 $x+a$ 与 $x-a$ 符号相同，则
+
+$
+dy = (x-a)/(2a(x+a)) ((x+a)dx - (x-a)dx)/((x-a)^2) = dx/(x^2-a^2)
+$
+
+若 $x+a$ 与 $x-a$ 的符号不同，则
+
+$
+dy = -(x-a)/(2a(x+a)) (-(x+a) dx + (x-a) dx)/((x-a)^2) = dx/(x^2-a^2)
+$
+
+综上，解得微分为 $display(dy = dx/(x^2 - a^2))$。
 
 = P113 习题2-2 10
 #prob[设 $x^(2/3) + y^(2/3) = a^(2/3)$，求 $dy$．]
 
+由已知，
+
+$
+2/3 x^(-1/3) dx + 2/3 y^(-1/3) dy = 0
+quad => dy = -(x^(-1/3))/(y^(-1/3)) dx
+quad => dy = -root(3,y/x) dx
+$
+
 = P113 习题2-2 11
 #prob[求由方程 $y=f(x+y)$ 所确定的函数 $y=y(x)$ 的微分 $dy$，其中 $f$ 可微．]
+
+由已知，
+
+$
+dy = f'(x+y) dd(x+y) = f'(x+y) (dx + dy)
+quad => dy = (f'(x+y))/(1-f'(x+y)) dx
+$
 
 = P113 习题2-2 22
 #prob[利用微分求近似值：$arctan 1.05$．]
 
+设 $f(x)=arctan x$，有 $display(f'(x) = 1/(1+x^2))$。那么
+
+$
+arctan 1.05 = f(1.05) approx f(1) + 0.05 f'(1) = arctan 1 + 1/40 = pi/4 + 1/40
+$
+
 = P113 习题2-2 23
 #prob[利用微分求近似值：$lg 11$．]
 
+设 $f(x) = lg x$，有 $f'(x) = display(1/(x ln 10))$。那么
+
+$
+lg 11 = f(11) approx f(10) + f'(10) (11 - 10) = 1 + 1/(10 ln 10) approx 1.04
+$
+
 = P114 习题2-2 27
-#prob[设测量出求得直径 $D_0 = 20 "cm"$，其绝对误差（限）$delta_D = 0.05 "cm"$，求算出的球的体积 $V_0$ 的绝度误差 $delta_V$ 和相对误差 $delta_v^*$．]
+#prob[设测量出求得直径 $D_0 = 20 "cm"$，其绝对误差（限）$delta_D = 0.05 "cm"$，求算出的球的体积 $V_0$ 的绝度误差 $delta_V$ 和相对误差 $delta_V^*$．]
+
+根据球体体积公式，$V = 4/3 pi D^3$，那么 $V' = 4 pi D^2$。所以
+
+- $delta_V = V' delta_D = 4 pi D^2 delta_D = 80pi "cm"^3$；
+
+- $display(delta_V^* = V'/V delta_D = D/3 delta_D = 1/3)$。
 
 = P114 第二章综合题 3
 #prob[
@@ -171,6 +253,12 @@ $
 #prob[
   设 $phi(x)$ 在点 $a$ 连续，$f(x) = |x-a| phi(x)$，求 $f'_+(a)$，$f'_-(a)$．当满足什么条件时，$f'(a)$ 存在．
 ]
+
+当 $x>a$ 时，$f'(x) = ((x-a)phi(x))' = phi(x) + (x-a) phi'(x)$；
+
+当 $x<a$ 时，$f'(x) = ((a-x)phi(x))' = -phi(x) + (a-x) phi'(x)$；
+
+所以 $f'_+(a) = phi(a),sp f'_-(a) = -phi(a)$。故当且仅当 $f'_+(a) = f'_(a) <=> phi(a) = 0$ 时，$f'(a)$ 存在。
 
 = P114 第二章综合题 10
 #prob[设函数 $f(x)$ 具有一阶连续导数，试证明：$F(x) = (1 + |sin x|) f(x)$ 在点 $x=0$ 处可导的充分必要条件是 $f(0) = 0$．]
