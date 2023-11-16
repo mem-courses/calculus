@@ -182,19 +182,19 @@ $
 
 3. （除法）若 $b_n != 0$ 且 $B != 0$，则 $display(lim_(n->oo) a_n/b_n = A/B)$．
 
-#warn[四则运算法则可以被有限次嵌套使用．注意要求极限都存在，故不能直接从 $display(lim_(n->oo) (a_n-b_n) = 0)$ 推出 $display(lim_(n->oo) a_n = lim_(n->oo) b_n)$。]
+#warn[四则运算法则可以被有限次嵌套使用．注意要求极限都存在，故不能直接从 $display(lim_(n->oo) (a_n-b_n) = 0)$ 推出 $display(lim_(n->oo) a_n = lim_(n->oo) b_n)$．]
 
 === 夹逼定理
 
 设数列 ${a_n}, {x_n}, {y_n}$，如果存在 $N in NN_+$ 使得：$ forall n>N, x_n<=a_n<=y_n $ 并且 $ lim_(n->oo)x_n = lim_(n->oo)y_n = c $ 那么 ${a_n}$ 收敛于 $c$．
 
-#note[这是常用的计算数列极限的手段，特别是能猜出这个极限的时候。]
+#note[这是常用的计算数列极限的手段，特别是能猜出这个极限的时候．]
 
 === 单调有界定理
 
-如果数列 ${a_n}$ 单增有上界或者单减有下界，那么 ${a_n}$ 收敛。
+如果数列 ${a_n}$ 单增有上界或者单减有下界，那么 ${a_n}$ 收敛．
 
-#note[这是常用的证明数列存在的证据，特别是不知道这个极限的时候。]
+#note[这是常用的证明数列存在的证据，特别是不知道这个极限的时候．]
 
 = 函数的极限
 
@@ -202,7 +202,7 @@ $
 
 === 函数在无穷处的极限
 
-$display(lim_(x->+oo) f(x) = A)$ 的定义：设 $f(x)$ 的定义域为 $RR$。如果对于任意 $eps>0$，存在实数 $X$ 使得 $forall x>X$，$|f(x)-A|<eps$，那么称 $f(x)$ 当 $x$ 趋于正无穷时收敛与 $A$ 处的极限，也记作 $f(+oo)$。（$display(lim_(x->-oo) f(x) = A)$ 的定义同理）
+$display(lim_(x->+oo) f(x) = A)$ 的定义：设 $f(x)$ 的定义域为 $RR$．如果对于任意 $eps>0$，存在实数 $X$ 使得 $forall x>X$，$|f(x)-A|<eps$，那么称 $f(x)$ 当 $x$ 趋于正无穷时收敛与 $A$ 处的极限，也记作 $f(+oo)$．（$display(lim_(x->-oo) f(x) = A)$ 的定义同理）
 
 $
 lim_(x->oo) f(x) = A <==>
@@ -226,7 +226,7 @@ quad quad quad
 lim_(x->oo) (1 + 1/x)^x = e
 $
 
-#warn[注意取到极限的位置。如其实 $display(lim_(x->oo) (sin x) / x = 0 != 1)$。]
+#warn[注意取到极限的位置．如其实 $display(lim_(x->oo) (sin x) / x = 0 != 1)$．]
 
 == 性质
 
@@ -240,7 +240,7 @@ $
 1. $display(lim_(x->x_0) (f(x) pm g(x)) = A pm B)$；
 2. $display(lim_(x->x_0) f(x) g(x) = A B)$；
 3. 若 $B!=0$ 且 $g$ 在 $x_0$ 的一个领域内不为 $0$，则 $display(lim_(x->x_0) f(x)/g(x) = A/B)$；
-4. 如果 $display(lim_(y->A) F(y) = C)$，并且存在 $x_0$ 的一个领域使得 $f(x) != A$，那么我们有 $display(lim_(x->x_0) F(f(x)) = C)$。
+4. 如果 $display(lim_(y->A) F(y) = C)$，并且存在 $x_0$ 的一个领域使得 $f(x) != A$，那么我们有 $display(lim_(x->x_0) F(f(x)) = C)$．
 
 === 夹逼定理
 
@@ -248,7 +248,7 @@ $
 
 === 阶与等价
 
-设 $alpha,beta$ 是同一变化过程中的无穷小。
+设 $alpha,beta$ 是同一变化过程中的无穷小．
 
 - 若 $lim display(beta/alpha) = 0$，则称 $beta$ 是比 $alpha$ *高阶* 的无穷小，记作 $beta = o(alpha)$；
 
@@ -258,16 +258,16 @@ $
 
 - 若 $lim display(beta/alpha^k) = C != 0$，则称 $beta$ 是 $alpha$ 的 *$k$ 阶* 无穷小；
 
-- 若 $lim display(beta/alpha) = 1$，则称 $beta$ 是 $alpha$ 的 *等价* 无穷小，记作 $alpha sim beta$。
+- 若 $lim display(beta/alpha) = 1$，则称 $beta$ 是 $alpha$ 的 *等价* 无穷小，记作 $alpha sim beta$．
 
 
 === 等价替换
 
-如果 $display(f(x) sim g(x)\,quad (x->x_0))$ 且 $display(lim_(x->x_0) f(x)/h(x) = A "或" oo)$；那么 $display(lim_(x->x_0) g(x)/h(x) = A "或" oo)$。
+如果 $display(f(x) sim g(x)\,quad (x->x_0))$ 且 $display(lim_(x->x_0) f(x)/h(x) = A "或" oo)$；那么 $display(lim_(x->x_0) g(x)/h(x) = A "或" oo)$．
 
 #note[
 	【常用的等价无穷小】
-	当 $x->0$ 时，$sin x sim x sim tan x,sp 1 - cos x sim 1/2 x^2,sp cos x sim 1$。
+	当 $x->0$ 时，$sin x sim x sim tan x,sp 1 - cos x sim 1/2 x^2,sp cos x sim 1$．
 ]
 
 == 函数的连续性
@@ -277,4 +277,4 @@ $
 1. 称 $f(x)$ 在 $x_0$ 处 *连续*，如果 $display(lim_(x->x_0) f(x)) = f(x_0)$；
 2. 称 $f(x)$ 在 $x_0$ 处 *左连续*，如果 $display(lim_(x->x_0^-) f(x)) = f(x_0)$；
 3. 称 $f(x)$ 在 $x_0$ 处 *右连续*，如果 $display(lim_(x->x_0^+) f(x)) = f(x_0)$；
-4. 称 $f(x)$ 在集合 $D$ 上连续，如果 $f(x)$ 在 $D$ 上所有点都连续。
+4. 称 $f(x)$ 在集合 $D$ 上连续，如果 $f(x)$ 在 $D$ 上所有点都连续．
