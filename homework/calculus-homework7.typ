@@ -98,13 +98,13 @@ $
 
 令 $x=0$ 可解得：
 
-$ y|_(x=0) = x_0 + a - 2sqrt(a x_0) + (1-sqrt(a/x_0)) (-x_0) = a - sqrt(a x_0) $
+$ y"|"_(x=0) = x_0 + a - 2sqrt(a x_0) + (1-sqrt(a/x_0)) (-x_0) = a - sqrt(a x_0) $
 
 令 $y=0$ 可解得：
 
-$ x|_(y=0) = x_0 + (2 sqrt(a x_0) - x_0 - a)/(1-sqrt(a/x_0)) = sqrt(a x_0) $
+$ x"|"_(y=0) = x_0 + (2 sqrt(a x_0) - x_0 - a)/(1-sqrt(a/x_0)) = sqrt(a x_0) $
 
-截距之和等于 $display(y|_(x=0) + x|_(y=0) = a)$，故命题得证．
+截距之和等于 $display(y"|"_(x=0) + x"|"_(y=0) = a)$，故命题得证．
 
 = P101 习题2-1 99
 #prob[设 $y=x f(ln x)$，求 $display(dy/dx)$，$display(ddy/(dx^2))$．]
@@ -330,5 +330,35 @@ $
   连续且可导，并求出此时的 $f'(x)$．
 ]
 
+当 $x=1$ 时，$display(f(x) = (1+alpha+beta)/(1+1) = (1+alpha+beta)/2)$。
+
+当 $x-1>0$ 时，有 $e^(n(x-1))->+oo$，代入得：
+$ f(x) = lim_(n->oo) (x^2 e^(n(x-1)) + alpha x + beta)/(1+e^(n(x-1))) = x^2 $
+
+当 $x-1<0$ 时，有 $e^(n(x-1))->0^+$，代入得：
+$ f(x) = lim_(n->oo) (x^2 e^(n(x-1)) + alpha x + beta)/(1+e^(n(x-1))) = alpha x + beta $
+
+要使 $f(x)$ 连续，应有 $display(f(1) = lim_(x->1^+) f(x) = lim_(x->1^-) f(x))$，解得 $alpha+beta=1$。
+
+要使 $f(x)$ 可导，应有 $f'_+(1) = f'_-(1)$，解得 $alpha=2$。
+
+综上，$alpha=2,beta=1$。容易验证，此时 $f(x)$ 连续且可导，且 $f'(x) = 2x$。
+
 = P128 习题3-1 1
 #prob[检验罗尔定理对于函数 $f(x) = (x-1)(x-2)(x-3)$ 是否成立．]
+
+由已知，$ f'(x) = (x-1)(x-2) + (x-1)(x-3) + (x-2)(x-3) = 3x^2-12x+11 $
+
+令 $f'(x) = 0$，有 $Delta = sqrt(12^2-4 times 3 times 11) = 2sqrt(3)$，解得 $x_1=1-sqrt(3)/6\,sp x_2 =1 + sqrt(3)/6$。
+
+所以 $f(x)$ 在 $(-oo,1-sqrt(3)/6)$ 上单增，$(1-sqrt(3)/6,1+sqrt(3)/6)$ 上单减，$(1+sqrt(3)/6,+oo)$ 上单增。
+
+不妨令 $a<b$，由单调函数的性质得：
+
+- 对于 $a in (-oo,1-sqrt(3)/6)$，应有 $b in (1-sqrt(3)/6,+oo)$，此时 $(a,b)$ 包含 $f'(x)=0$ 的点 $x=1-sqrt(3)/6$；
+
+- 对于 $a in (1-sqrt(3)/6,1+sqrt(3)/6)$，应有 $b in (1+sqrt(3)/6,+oo)$，此时 $(a,b)$ 包含 $f'(x)=0$ 的点 $x=1+sqrt(3)/6$；
+
+- 对于 $a in (1+sqrt(3)/6,+oo)$，不存在 $b$ 使得 $f(a) = f(b)$。
+
+综上，已验证罗尔定理对于 $f(x)$ 成立。
