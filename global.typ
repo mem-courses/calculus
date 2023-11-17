@@ -18,6 +18,26 @@
 #let bb(x) = { text(x, weight: "bold") }
 
 
+#let badge(content, fill: rgb("#000000")) = box(
+	fill: fill,
+	radius: 4pt,
+	inset: 1pt,
+	outset: 3pt,
+	text(
+		content,
+		weight: "bold",
+		size: 10pt,
+		fill: rgb("#ffffff")
+	)
+)
+
+#let ac = badge("Correct", fill: rgb("#25ad40"))
+#let pc = badge("Partially Correct", fill: rgb("#01bab2"))
+#let wa = badge("Wrong Answer", fill: rgb("#ff4f4f"))
+#let un = badge("Unknown", fill: rgb("#5c5c5c"))
+
+
+
 #let dp = math.display
 #let sp = math.space
 #let eps = math.epsilon
