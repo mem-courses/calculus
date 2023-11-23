@@ -127,21 +127,58 @@ $
 = P139 习题3-2 3(3)
 #prob[求极限：$display(lim_(x->0) [(1)/(ln(x+sqrt(1+x^2)))-1/(ln(1+x))])$。]
 $ "原式"
-= lim_(x->0) (ln(1+x) - ln(x+sqrt(1+x^2)))/(ln(1+x) ln(x+sqrt(1+x^2)))
-= lim_(x->0) (ln(1+x) - ln(x) - ln(1+sqrt(1+1/(x^2))))/(x(ln x+))
 $
 
 = P139 习题3-2 3(5)
 #prob[求极限：$display(lim_(x->+oo) x^2 e^(-0.1x))$。]
+$ "原式"
+= lim_(x->+oo) (x^2)/(e^(0.1x))
+= lim_(x->+oo) (2x)/(0.1 e^(0.1x))
+= lim_(x->+oo) (2)/(0.01 e^(0.1x))
+= 0
+$
+
 = P139 习题3-2 3(7)
 #prob[求极限：$display(lim_(x->1^-) ln x ln (1-x))$。]
+$ "原式"
+&= lim_(x->1^-) (ln(1-x))/(1/(ln x))
+= lim_(x->1^-) (-1/(1-x))/(-1/(x ln^2 x))
+= lim_(x->1^-) (x ln^2 x)/(1-x)
+= lim_(x->1^-) (ln^2 x + 2 ln x)/(-1)
+= 0
+$
+
 = P139 习题3-2 4(2)
-#prob[求极限：$display(lim_(x->pi/4) (tan x)^(tan (pi x)/2))$。]
+#prob[求极限：$display(lim_(x->pi/4) (tan x)^(tan 2x))$。]
+$ "原式"
+&= exp lim_(x->pi/4) (ln tan x)/(1/(tan 2x))
+= exp lim_(x->pi/4) (1/(tan x cos^2 x))/((-2)/(tan^2 2x cos^2 2x))
+= exp lim_(x->pi/4) (tan^2 2x cos^2 2x)/(-2 tan x cos^2 x)\
+&= exp (- (lim_(x->pi/2) tan x cos x)^2)
+= exp (- (lim_(x->0) tan (pi/2-x) sin x)^2)\
+&= exp (- (lim_(x->0) (tan (pi/2-x))/(1/x))^2)
+= exp (- (lim_(x->0) (-1/(cos^2 (pi/2-x)))/(-1/(x^2)))^2)\
+&= exp (- (lim_(x->0) (x^2)/(sin^2 x))^2)
+= 1/e
+$
+
 = P139 习题3-2 4(4)
 #prob[求极限：$display(lim_(x->+oo) (2/pi arctan x)^x)$。]
+$ "原式"
+
+$
+
 = P139 习题3-2 4(5)
 #prob[求极限：$display(lim_(x->0) [(1+x)^(1/x)/e]^(1/x))$。]
+$ "原式"
+$
+
 = P139 习题3-2 6(1)
 #prob[求极限：$display(lim_(n->oo) tan^n (pi/4 + 2/n))$。]
+$ "原式"
+$
+
 = P139 习题3-2 6(4)
 #prob[求极限：$display(lim_(x->0) [a/x - (1/(x^2)-a^2) ln(1+a x)])$。]
+$ "原式"
+$
