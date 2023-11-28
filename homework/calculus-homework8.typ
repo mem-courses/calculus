@@ -1,7 +1,7 @@
 #import "../template.typ": *
 
 #show: project.with(
-  title: "Calculus Homework #7",
+  title: "Calculus Homework #8",
   authors: ((
     name: "Yulun Wu (#47)",
     email: "memset0@outlook.com",
