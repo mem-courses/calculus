@@ -1,0 +1,6 @@
+{
+	"files.exclude": {
+		"**/*.pdf": true
+	},
+	// "explorer.excludeGitIgnore": true
+}
