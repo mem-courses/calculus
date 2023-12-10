@@ -20,6 +20,10 @@
 
 2. $int x^alpha dx = display(1/(alpha+1)) x^(alpha+1) + C, sp (alpha != -1,sp alpha in CC)$
 
+#warn[
+  注意 $alpha!=-1$ 的限制，否则应为下一种情况。
+]
+
 3. $int 1/x dx = ln |x| + C$
 
 #warn[
@@ -74,3 +78,46 @@ $
 
 这又被称为不定积分的 *线性运算法则*。
 
+== 第一换元法（凑微分法）
+
+#def[例1]求：$display(int (dx)/(x^2 + a^2))$。
+
+#prof[
+  $
+  int (dx)/(x^2+a^2)
+  = 1/(a^2) int (dx)/((x/a)^2 + 1)
+  = 1/a int (dd(x/a))/((x/a)^2 + 1)
+  = 1/a arctan(x/a) + C
+  $
+]
+
+#def[例2]求：$display(int (dx)/(x^2 - a^2))$。
+
+#prof[
+  $
+  int (dx)/(x^2-a^2)
+  &= int 1/(2a) ((x+a) - (x-a))/((x+a)(x-a)) dx
+  = 1/(2a) (int (dd(x-a))/(x-a) - int (dd(x+a))/(x+a))\
+  &= 1/(2a) (ln|x-a| - ln|x+a|) + C
+  $
+]
+
+#note[
+  特别地，可以将这两道例题的结论作为公式使用：
+  $
+  int (dx)/(x^2+2x-1)
+  = int (dx)/((x+1)^2 - (sqrt(2))^2)
+  = 1/(2 sqrt(2)) ln lr("|" (x+1-sqrt(2))/(x+1+sqrt(2)) "|") + C
+  $
+]
+
+#def[例3]求：$display(int sec^6 x dx)$
+
+#prof[
+  $
+  int sec^6 x dx
+  &= int (tan^2 x + 1)^2 sec^2 x dx
+  = int (tan^4 x + 2 tan^2 x + 1)^2 dd(tan x)\
+  &= 1/5 tan^5 x + 2/3 tan^3 x + tan x + C
+  $
+]
