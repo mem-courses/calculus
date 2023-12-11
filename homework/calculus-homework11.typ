@@ -15,8 +15,8 @@
 = P192 习题4-1 1
 $
 int (1-x)(1-2x)(1-3x) dx
-= int (1-6x+11x^2-6x^3) dx
-= -3/2 x^4 + 11/3 x^3 - 3 x^2 + x + C
+&= int (1-6x+11x^2-6x^3) dx\
+&= -3/2 x^4 + 11/3 x^3 - 3 x^2 + x + C\
 $
 = P192 习题4-1 3
 $
@@ -74,9 +74,9 @@ $
 = P203 习题4-2 7
 $
 int dx/sqrt(2-3x^2)
-= 1/sqrt(2) int dx/sqrt(1-(sqrt(3/2) x)^2)
-= 1/sqrt(3) int (dd(sqrt(3/2) x))/sqrt(1-(sqrt(3/2) x)^2) 
-= 1/sqrt(3) arcsin(sqrt(3/2) x) + C
+&= 1/sqrt(2) int dx/sqrt(1-(sqrt(3/2) x)^2)
+= 1/sqrt(3) int (dd(sqrt(3/2) x))/sqrt(1-(sqrt(3/2) x)^2) \
+&= 1/sqrt(3) arcsin(sqrt(3/2) x) + C
 $
 = P203 习题4-2 8
 $
@@ -254,42 +254,76 @@ $
 = P203 习题4-2 33
 $
 int cos^2 x dx
+= int (1+cos 2x)/2 dx
+= 1/4 int (1+cos 2x) dd(2x)
+= 1/2 x + 1/4 sin 2x + C
 $
 = P203 习题4-2 34
 $
 int tan^3 x dx
+&= int (sin^3 x)/(cos^3 x) dx
+= - int (1 - cos^2 x)/(cos^3 x) dd(cos x)\
+&= int (1/(cos x) - 1/(cos^3 x)) dd(cos x)
+= 1/(4 cos^4 x) - 1/(2 cos^2 x) + C
 $
 = P203 习题4-2 35
 $
 int dx/(cos^4 x)
 $
 = P203 习题4-2 36
+令 $t=e^x$，则有 $dt=e^x dx=t dx$。
 $
 int dx/(1 + e^x)
+= int 1/(1+t) dot (dt)/t
+= int ((t+1)-t)/(t(t+1)) dt
+= int (1/t - 1/(t+1)) dt
+= ln |t/(t+1)| + C
 $
 = P203 习题4-2 37
+令 $t=root(3,1-x)$，则有 $dt=display(-dx/(3 (root(3,1-x))^2) = -dx/(3t^2))$。
 $
 int x^2 root(3,1-x) dx
+&= int (1-t^3)^2 t (-3t^2) dt
+= int (-3t^9 + 6t^6 - 3t^3) dt\
+&= -3/10 t^10 + 6/7 t^7 - 3/4 t^4 + C\
+&= -3/10 (1-x)^(10/3) + 6/7 (1-x)^(7/3) - 3/4 (1-x)^(4/3) + C
 $
 = P203 习题4-2 38
+令 $t=1-5x^2$，则有 $dt=-10x dx$。
 $
 int x^3 (1-5x^2)^10 dx
+&= int 1/5(1-t) t^10 dt
+= 1/5 int (t^10 - t^11) dt\
+&= 1/55 t^11 - 1/60 t^12 + C
+= 1/55 (1-5x^2)^11 - 1/60 (1-5x^2)^12 + C
 $
 = P203 习题4-2 39
+令 $t=1-x^2$，则 $dt=-2x dx$。
 $
 int x^5/sqrt(1-x^2) dx
+&= -1/2 int (1-t)^2/sqrt(t) dt
+= -1/2 int (t^(-1/2) - 2 t^(1/2) + t^(3/2)) dt\
+&= - t^(1/2) + 2/3 t^(3/2) - 1/5 t^(5/2) + C\
+&= - (1-x^2)^(1/2) + 2/3 (1-x^2)^(3/2) - 1/5 (1-x^2)^(5/2) + C
 $
 = P203 习题4-2 40
+令 $t=2-5x^3$，则 $dt=-15 x^2 dx$
 $
 int x^5 (2-5x^3)^(2/3) dx
+&= -1/75 int (2-t) t^(2/3) dt
+= -1/75 int (2 t^(2/3) - t^(5/3)) dt\
+&= -1/75  (6/5 t^(5/3) - 3/8 t^(8/3)) + C\
+&= -2/125 (2-5x^3)^(5/3) + 1/200 (2-5x^3)^(8/3) + C
 $
 = P204 习题4-2 41
 $
 int dx/((2x^2+1) sqrt(x^2 + 1))
 $
 = P204 习题4-2 42
+令 $t=ln x$，则 $dt=display(dx/x)$。
 $
 int (ln x dx)/(x sqrt(1 + ln x))
+= int (t)/sqrt(1+t) dt
 $
 = P204 习题4-2 43
 $
