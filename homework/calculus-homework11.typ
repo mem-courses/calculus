@@ -269,6 +269,10 @@ $
 = P203 习题4-2 35
 $
 int dx/(cos^4 x)
+&= int (sin^2 x + cos^2 x)/(cos^4 x) dx
+= int (tan^2 x + 1)/(cos^2 x) dx\
+&= int (tan^2 x + 1) dd(tan x)
+= 1/3 tan^3 x + tan x + C
 $
 = P203 习题4-2 36
 令 $t=e^x$，则有 $dt=e^x dx=t dx$。
@@ -318,22 +322,48 @@ $
 = P204 习题4-2 41
 $
 int dx/((2x^2+1) sqrt(x^2 + 1))
+&= int (dd (tan t))/((2 tan^2 t + 1) sqrt(tan^2 t + 1))
+= int (cos^3 t)/(2 sin^2 t + cos^2 t) dd(tan t)\
+&= int (cos t)/(2 sin^2 t + cos^2 t) dt
+= int 1/(sin^2 t + 1) dd(sin t)\
+&= arctan sin t + C
 $
 = P204 习题4-2 42
-令 $t=ln x$，则 $dt=display(dx/x)$。
+令 $t=ln x$，则 $dt=display(dx/x)$。再令 $u=sqrt(1+t)$，则 $du = display(1/(2 u)) dt$，$t=u^2-1$
 $
 int (ln x dx)/(x sqrt(1 + ln x))
-= int (t)/sqrt(1+t) dt
+&= int (t)/sqrt(1+t) dt
+= int (u^2 - 1)/u (2u du)
+= 2 int (u^2 - 1) du\
+&= 2/3 u^3 - 2 u + C
+= 2/3 (1+t)^(3/2) - 2 (1+t)^(1/2) + C\
+&= 2/3 (1+ln x)^(3/2) - 2 (1+ln x)^(1/2) + C\
 $
 = P204 习题4-2 43
 $
-int dx/sqrt((x-a)(b-x)) quad (a<x<b)
+int dx/sqrt((x-a)(b-x))
+&= int dx/sqrt(((a-b)/2)^2 - (x-(a+b)/2)^2)
+= int (dd((2x)/(a-b) - (a+b)/(a-b)))/sqrt(1-((2x)/(a-b) - (a+b)/(a-b))^2)\
+&= arcsin ((2x)/(a-b) - (a+b)/(a-b)) + C
 $
 = P204 习题4-2 44
+令 $t = e^x$，则 $dt = t dx$。再令 $u=sqrt(1+t)$，则 $du = display(1/(2 u)) dt$。
 $
 int dx/sqrt(1 + e^x)
+&= int t/sqrt(1+t) dt
+= int (u^2-1)/u (2u du)
+= 2 int (u^2 - 1) du\
+&= 2/3 u^3 - 2 u + C
+= 2/3 (sqrt(1+t))^3 - 2 sqrt(1+t) + C\
+&= 2/3 (1+e^x)^(3/2) - 2 (1+e^x)^(1/2) + C
 $
 = P204 习题4-2 45
+令 $t=sqrt(e^x-1)$，则 $dt = display((e^x)/(2 sqrt(e^x-1))) dx$，且 $x = ln(t^2 + 1)$。
 $
 int (x e^x)/sqrt(e^x - 1) dx
+&= 2 int ln(t^2 + 1) dt
+= 2 (t ln(t^2 + 1) - int t dd(ln(t^2 + 1)))\
+&= 2 (t ln(t^2 + 1) - int (2t^2)/(t^2 + 1) dt)\
+&= 2t ln(t^2 + 1) - 4t + 4 arctan t + C\
+&= 2x sqrt(e^x - 1) - 4 sqrt(e^x - 1) + 4 arctan sqrt(e^x - 1) + C
 $
