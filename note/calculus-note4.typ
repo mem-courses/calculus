@@ -58,6 +58,35 @@
   这一部分来源于三角函数的微分公式。
 ]
 
+16. $int tan x dx  = - ln |cos x| + C$
+
+17. $int cot x dx = ln |sin x| + C$
+
+18. $int sec x dx = ln |sec x + tan x| + C$
+
+19. $int csc x dx = ln |csc x - cot x| + C$
+
+#prof[
+  求 $int sec x dx$：
+
+  #def[解法一]
+  $
+  int sec x dx
+  &= int (cos x)/(cos^2 x) dx
+  = int (dd sin x)/(1-sin^2 x)
+  = 1/2 int (1/(1+sin x) + 1/(1-sin x)) dd sin x\
+  &= 1/2 ln(ln|1 + sin x| - ln|1 - sin x|) + C
+  = 1/2 ln |(1+sin x)/(1-sin x)| + C
+  $
+  #def[解法二]
+  $
+  int sec x dx
+  = int (sec x (sec x + tan x))/(sec x + tan x) dx
+  = int (sec^2 x + sec x tan x)/(sec x + tan x) dx
+  = ln |sec x + tan x| + C
+  $
+]
+
 == 不定积分的性质
 
 根据不定积分的定义，有
@@ -70,17 +99,45 @@
 
 #def[性质4]若 $f(x)$ 的原函数存在，则 $int alpha f(x) dx = alpha int f(x) dx,sp (alpha != 0,sp alpha in CC)$。
 
-#def[推论1]若函数 $f_1(x),f_2(x),dots.c,f_m(x)$ 的原函数存在，$k_1,k_2,dots.c,k_m$ 均不为 $0$ 且是常数，那么
+#def[推论1]若函数 $f_1 (x),f_2 (x),dots.c,f_m (x)$ 的原函数存在，$k_1,k_2,dots.c,k_m$ 均不为 $0$ 且是常数，那么
 
 $
-int sum_(i=0)^m k_i f_i(x) dx = sum_(i=1)^m k_i int f_i(x) dx
+int sum_(i=0)^m k_i f_i (x) dx = sum_(i=1)^m k_i int f_i (x) dx
 $
 
 这又被称为不定积分的 *线性运算法则*。
 
 == 第一换元法（凑微分法）
 
-#def[例1]求：$display(int (dx)/(x^2 + a^2))$。
+=== 三角函数积分常用方法
+
+1. 分项积分：利用积化和差、分式分项、$1 = sin^2 x + cos^2 x,sp tan^2 x + 1 = sec^2 x$ 等方法统一变量。
+
+2. 降低幂次：利用倍角公式，如：$cos^2 x = 1/2 (1 + cos 2x),sp sin^2 x = 1/2 (1 - cos 2x)$。
+
+3. 统一函数：利用三角公式、配元换元等方法。
+
+#def[例1]求：$display(int sec^6 x dx)$
+
+#prof[
+  $
+  int sec^6 x dx
+  &= int (tan^2 x + 1)^2 sec^2 x dx
+  = int (tan^4 x + 2 tan^2 x + 1)^2 dd(tan x)\
+  &= 1/5 tan^5 x + 2/3 tan^3 x + tan x + C
+  $
+]
+
+=== 有理函数积分常用方法
+
+1. 万能凑幂法：$display(cases(
+    display(int f(x^n) x^(n-1) dx = 1/n int f(x^n) dd x^n),
+    display(int f(x^n) 1/x dx = 1/n int f(x^n) 1/(x^n) dd x^n), 
+  ))$。
+
+2. 对分母因式分解后化成多个小分式分别处理。
+
+#def[例2]求：$display(int (dx)/(x^2 + a^2))$。
 
 #prof[
   $
@@ -91,7 +148,7 @@ $
   $
 ]
 
-#def[例2]求：$display(int (dx)/(x^2 - a^2))$。
+#def[例3]求：$display(int (dx)/(x^2 - a^2))$。
 
 #prof[
   $
@@ -102,22 +159,109 @@ $
   $
 ]
 
-#note[
-  特别地，可以将这两道例题的结论作为公式使用：
+== 第二换元法
+
+常用代换：
+
+1. $sqrt(a^2 - x^2) => "令 " x = a cos t$，$sqrt(x^2 + a^2) => "令 " x = a tan t$，$sqrt(x^2 - a^2) => "令 " x = a csc t$。可以脱去根号。
+
+
+
+#def[例4]求：$int sqrt(a^2 - x^2) dx sp (a>0)$。
+
+#prof[
+  令 $display(x = a sin t\,sp t in (-pi/2,pi/2))$，则
   $
-  int (dx)/(x^2+2x-1)
-  = int (dx)/((x+1)^2 - (sqrt(2))^2)
-  = 1/(2 sqrt(2)) ln lr("|" (x+1-sqrt(2))/(x+1+sqrt(2)) "|") + C
+  sqrt(a^2 - x^2) = sqrt(a^2 - a^2 sin^2 t) = a cos t
+  quad quad 
+  dx = a cos t dt
+  $
+  $
+  => "原式"
+  &= int a cos t a cos t dt 
+  = a^2 int cos^2 t dt
+  = a^2 (t/2 + (sin 2t)/4) + C\
+  &= a^2/2 arcsin x/a + 1/2 x sqrt(a^2 - x^2) + C\
   $
 ]
 
-#def[例3]求：$display(int sec^6 x dx)$
+#def[例5]求：$display(int (dx)/sqrt(x^2 + a^2)) sp (a>0)$。
+
+#prof[
+  令 $display(x = a tan t\,sp t in (-pi/2,pi/2))$，则
+  $
+  sqrt(x^2 + a^2) = sqrt(a^2 tan^23 t + a^2) = a sec t
+  quad quad quad
+  dx = a sec^2 t dt
+  $
+  $
+  => "原式"
+  &= int (a sec^2 t)/(a sec t) dt
+  = int sec t dt
+  = ln |sec + tan t| + C_1\
+  &= ln |(sqrt(x^2 + a^2) + x)/a| + C_1
+  = ln (x + sqrt(x^2 + a^2)) + C quad (C = C_1 - ln a)
+  $
+]
+
+#def[例6]求：$display(int dx / sqrt(x^2 - a^2)) sp (a > 0)$。
+
+#prof[
+  当 $x>a$ 时，令 $x = a sec t,sp t in display((0, pi/2))$，则
+  $
+  sqrt(x^2 - a^2) = sqrt(a^2 sec^2 t - a^2) = a tan t
+  quad quad quad
+  dx = a sec t tan t dt
+  $
+  $
+  => "原式"
+  = int (a sec t tan t)/(a tan t) dt 
+  = int sec t dt
+  = ln |sec t + tan t| + C_1
+  = ln |x + sqrt(x^2 - a^2)| + C
+  $
+  当 $x< -a$ 时，令 $x = -u$，则
+  $
+  "原式"
+  &= - int du/sqrt(u^2 - a^2)
+  = - ln |-x + sqrt(x^2 - a^2)| + C
+  = - ln |(a^2)/(-x - sqrt(x^2 - a^2))| + C\
+  &= ln |x + sqrt(x^2 - a^2)| + C
+  $
+  综上，$display(int dx / sqrt(x^2 - a^2)) = ln |x + sqrt(x^2 - a^2)| + C sp (a>0)$。
+]
+
+== 分部积分法
+
+$
+int u dd v = u v - int v dd u
+$
+
+#[def例7]求：$int sqrt(x^2 + a^2) dx sp (a>0)$。
 
 #prof[
   $
-  int sec^6 x dx
-  &= int (tan^2 x + 1)^2 sec^2 x dx
-  = int (tan^4 x + 2 tan^2 x + 1)^2 dd(tan x)\
-  &= 1/5 tan^5 x + 2/3 tan^3 x + tan x + C
+  int sqrt(x^2 + a^2) dx
+  &= x sqrt(x^2 + a^2) - int (x^2)/sqrt(x^2 + a^2) dx
+  = x sqrt(x^2 + a^2) - int ((x^2 + a^2) - a^2)/sqrt(x^2 + a^2) dx\
+  &= x sqrt(x^2 + a^2) - int sqrt(x^2 + a^2) dx + a^2 int dx/sqrt(x^2 + a^2)
+  $
+  $
+  => int sqrt(x^2 + a^2) dx
+  = 1/2 x sqrt(x^2 + a^2) + (a^2)/2 ln (x+sqrt(x^2 + a^2)) + C
   $
 ]
+
+
+
+= 有理函数的积分
+
+== 有理函数
+
+$
+R(x) = (P(x))/(Q(x)) = (a_0 x^n + a_1 x^(n-1) + dots.c + a_n)/(b_0 x^m + b_1 x^(m-1) + dots.c + b_m)
+$
+当 $m<=n$ 时，$R(x)$ 为假分式；当 $m>n$ 时 $R(x)$ 为真分式。
+$
+"有理函数" = "多项式" + "真分式"
+$
