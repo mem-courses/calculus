@@ -195,6 +195,22 @@ $
 = P204 习题4-2 57
 $
 int (x e^(arctan x))/((1+x^2)^(3/2)) dx
+&= int x/sqrt(1+x^2) dd(e^(arctan x))
+= (x e^(arctan x))/sqrt(1+x^2) - int e^(arctan x) dd(x/sqrt(1+x^2))\
+&= (x e^(arctan x))/sqrt(1+x^2) - int (e^(arctan x))/((1+x^2)^(3/2)) dx
+$
+其中：
+$
+int (e^(arctan x))/((1+x^2)^(3/2)) dx
+&= int 1/sqrt(1+x^2) dd(e^(arctan x))
+= (e^(arctan x))/sqrt(1+x^2) - int e^(arctan x) dd(1/sqrt(1+x^2))\
+&= (e^(arctan x))/sqrt(1+x^2) + int (x e^(arctan x))/((1+x^2)^(3/2)) dx
+$
+代入得：
+$
+int (x e^(arctan x))/((1+x^2)^(3/2)) dx
+= ((x-1) e^(arctan x))/sqrt(1+x^2) - int (x e^(arctan x))/((1+x^2)^(3/2)) dx\
+=> int (x e^(arctan x))/((1+x^2)^(3/2)) dx = ((x-1) e^(arctan x))/(2 sqrt(1 +x^2)) + C
 $
 = P204 习题4-2 58
 $
@@ -204,11 +220,26 @@ int sin(ln x) dx
 int cos(ln x) dx
 = x cos (ln x) - int x dd(cos (ln x))
 = x cos (ln x) + int sin (ln x) dx\
-=> int sin(ln x) dx = 1/2 x (sin(ln x) - cos(ln x))
+=> int sin(ln x) dx = 1/2 x (sin(ln x) - cos(ln x)) + C
 $
 = P204 习题4-2 59
 $
 int e^(2x) sin^2 x dx
+= int e^(2x) (1 - cos 2x)/2 dx
+= 1/4 e^(2x) - 1/2 int cos 2x e^(2x) dx
+$
+其中：
+$
+int cos 2x e^(2x) dx
+= 1/2 int cos 2x dd(e^(2x))
+= 1/2 int cos (ln t) dt
+= 1/4 t sin (ln t) + 1/4 t cos (ln t) + C
+$
+代入得：
+$
+int e^(2x) sin^2 x dx
+&= 1/4 e^(2x) - 1/8 t sin (ln t) -1/8 t cos (ln t) + C\
+&= 1/4 e^(2x) - 1/8 e^(2x) sin 2x - 1/8 e^(2x) cos 2x + C\
 $
 = P204 习题4-2 60
 $
@@ -230,6 +261,7 @@ $
 = P204 习题4-2 62
 $
 int (x e^x)/((x+1)^2) dx
+= (e^(x+1))/(x+1) + C
 $
 = P219 习题4-3 1
 $
@@ -238,28 +270,92 @@ $
 = P219 习题4-3 2
 $
 int (x dx)/((x+1)(x+2)(x+3))
+&= int x/2 (1/((x+1)(x+2)) - 1/((x+2)(x+3))) dx\
+&= int x/2 (1/(x+1) - 2/(x+2) + 1/(x+3)) dx\
+&= int 1/2 (1 - 1/(x+1) - 2 + 4/(x+2) + 1 - 3/(x+3) )dx\
+&= -1/2 ln |x+1| + 2 ln|x+2| - 3/2 ln|x+3| + C\
 $
 = P219 习题4-3 3
 $
-int (x^4)/(x^4 + 5 x^2 + 4)
+int (x^4)/(x^4 + 5 x^2 + 4) dx
+&= int (1)/(4 t^2 + 5 t + 1) dt
+= 1/3 int (4/(4t+1) - 1/(t+1)) dt\
+&= 1/3 int (dd(4t))/(4t+1) - 1/3 int (dt)/(t+1) 
+= 1/3 ln |(4t+1)/(t+1)| + C
+= 1/3 ln ((x^2+4)/(x^2+1)) + C
 $
 = P219 习题4-3 4
 $
 int (x^2 + 1)/((x+1)^2 (x-1)^2) dx
+&= 1/2 int ((x+1)^2 + (x-1)^2)/((x+1)^2 (x-1)^2) dx
+= 1/2 int (1/(x+1)^2 + 1/(x-1)^2) dx\
+&= -1/(2(x+1)) - 1/(2(x-1)) + C
 $
-= P219 习题4-3 5
+= P219 习题4-3 5 #ac
 $
 int x/((x+1)(x^2 + 1)) dx
+&= 1/2 int (x+1)/(x^2+1) dx - 1/2 int 1/(x+1) dx
+$
+其中：
+$
+int (x+1)/(x^2+1) dx
+= int x/(x^2+1) dx + int 1/(x^2+1) dx
+= 1/2 ln (x^2 + 1) + arctan x + C
+$
+代入得：
+$
+int x/((x+1)(x^2+1)) dx = 1/4 ln(x^2 + 1) +1/2 arctan x - 1/2 ln|x+1| + C
 $
 = P219 习题4-3 6
 $
 int dx/(x^3+1)
+&= 1/3 int (1/(x+1) - (x-2)/(x^2 - x + 1)) dx\
+&= 1/3 int 1/(x+1) dx - 1/3 int (x-1/2)/(x^2-x+1) dx + 1/2 int 1/(x^2-x+1) dx\
 $
-= P220 第四章综合题 25(1)
+其中：
+$
+int 1/(x^2-x+1) dx
+= int 1/((x-1/2)^2 + (sqrt(3)/2)^2) dd(x-1/2)
+= 2/sqrt(3) arctan ((2x-1)/sqrt(3)) + C
+$
+$
+int (x-1/2)/(x^2 - x + 1) dx
+= 1/2 int 1/((x-1/2)^2 + 3/4) dd((x-1/2)^2)
+= 1/2 ln|x^2-x+1| + C
+$
+代入得：
+$
+int dx/(x^3+1)
+= 1/3 ln|x+1| - 1/6 ln|x^2-x+1| + 1/sqrt(3) arctan ((2x-1)/sqrt(3)) + C
+$
+= P220 第四章综合题 25(1) #ac
 #prob[
   推导递推公式：若 $I_n=int sin^n x dx$，则 $I_n = display((-sin^(n-1) x cos x)/n + (n-1)/n I_(n-2)) quad (n in NN_+)$。
 ]
-= P220 第四章综合题 25(2)
+$
+I_n
+&= int sin^n x dx
+= - int sin^(n-1) x dd cos x
+= - cos x sin^(n-1) x + int cos x dd (sin^(n-1) x)\
+&= -cos x sin^(n-1) x + (n-1) int cos^2 x sin^(n-2) x dx\
+&= -cos x sin^(n-1) x + (n-1) int (1-sin^2 x) sin^(n-2) x dx\
+&= -cos x sin^(n-1) x + (n-1) int sin^(n-2) x dx - (n-1) int sin^n x dx\
+&= -cos x sin^(n-1) x + (n-1) I_(n-2) - (n-1) I_n\
+=> I_n
+&= -(cos x sin^(n-1) x)/n + (n-1)/n I_(n-2)
+$
+= P220 第四章综合题 25(2) #ac
 #prob[
-  推导递推公式：若 $I_n = int cos^n x dx$，则 $I_n = display((sin x cos^(n-1) x)/n + (n-1)/n I_(n-1)) quad (n in NN_+)$。
+  推导递推公式：若 $I_n = int cos^n x dx$，则 $I_n = display((sin x cos^(n-1) x)/n + (n-1)/n I_(n-2)) quad (n in NN_+)$。
 ]
+$
+I_n 
+&= int cos^n x dx
+= int cos^(n-1) x dd sin x
+= sin x cos^(n-1) x - int sin x dd(cos^(n-1) x)\
+&= sin x cos^(n-1) x +(n-1) int sin^2 cos^(n-2) x dx\
+&= sin x cos^(n-1) x + (n-1) int (1-cos^2 x) cos^(n-2)x dx\
+&= sin x cos^(n-1) x + (n-1) I_(n-2) - (n-1) I_n\
+=> I_n
+&= (sin x cos^(n-1) x)/n + (n-1)/n I_(n-2)
+$
