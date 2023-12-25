@@ -265,3 +265,65 @@ $
 $
 "有理函数" = "多项式" + "真分式"
 $
+
+= 定积分
+
+== 定积分存在的判定
+
+=== 可积的必要条件
+
+#def[定理1]若函数 $f(x)$ 在闭区间 $[a,b]$ 上可积，则 $f(x)$ 在 $[a,b]$ 上有界。
+
+=== 可积的充分条件
+
+#def[定理2]函数 $f(x)$ 在 $[a,b]$ 上连续 $=>$ $f(x)$ 在 $[a,b]$ 可积。
+
+#def[定理3]函数 $f(x)$ 在 $[a,b]$ 上有界且只有有限个间断点 $=>$ $f(x)$ 在 $[a,b]$ 可积。
+
+== 定积分的性质
+
+（设所列积分都存在。）
+
+#def[性质1]$display(int_a^b f(x) dx = -int_b^a f(x) dx)$。
+
+#def[推论1]$display(int_a^a f(x) dx = 0)$。
+
+#def[性质2]（定积分对区间的可加性）$display(int_a^b f(x) dx = int_a^c f(x) dx + int_c^b f(x) dx)$。
+
+#def[性质3]若在 $[a,b]$ 上 $f(x)>=0$，则 $display(int_a^b f(x) dx >= 0)$。
+
+#deft[性质3]特别地，若 $f(x)$ 在 $[a,b]$ 上连续，$f(x) >= 0$ 但 $f(x) equiv.not 0$，那么 $display(int_a^b f(x) dx > 0)$。
+
+#def[推论2]（定积分的基本不等式）$display(|f_a^b f(x) dx| <= f_a^b |f(x)| dx)$。
+
+#def[性质4]设 $display(M = max_([a,b]) f(x)\,sp m = min_([a,b]) f(x))$，则 $display(m(b-a) <= int_a^b f(x) dx <= M(b-a))$。
+
+#def[推论3]（定积分中值定理）若 $f(x)$ 在 $[a,b]$ 上连续，则至少存在一点 $xi in [a,b]$ 使
+$ int_a^b f(x) dx = f(xi) (b-a) $
+
+#prof[
+  设 $display(M = max_([a,b]) f(x)\,sp m = min_([a,b]) f(x))$，由性质 4 可得：
+  $
+  m <= 1/(b-a) int_a^b f(x) dx <= M
+  $
+  根据闭区间上的连续函数介值定理，至少存在一点 $xi in [a,b]$ 使 $display(f(xi) = 1/(b-a) int_a^b f(x) dx)$。
+]
+
+#def[推论4]（推广的定积分中值定理）设 $f(x),g(x)$ 在 $[a,b]$ 上连续，且 $g(x)$ 在 $[a,b]$ 上不变号，则至少存在一点 $xi in [a,b]$ 使得
+$
+int_a^b f(x) g(x) dx = f(xi) int_a^b g(x) dx
+$
+
+== 积分上限函数
+
+设函数 $f(x)$ 在区间 $[a,b]$ 上连续，并且设 $x$ 为 $[a,b]$ 上的一点，积分 $display(int_a^x f(t) dt)$ 是 $x$ 函数，记为 $Phi(x)$，即
+设函数 $f(x)$ 在区间 $[a,b]$ 上连续，并且设 $x$ 为 $[a,b]$ 上的一点，积分 $display(int_a^x f(t) dt)$ 是 $x$ 函数，记为 $Phi(x)$。则称 $Phi(x)$ 为 *积分上限函数*。
+
+#def[定理]若 $f(x)$ 在 $[a,b]$ 上连续，则变上限函数 $Phi(x)$ 在 $[a,b]$ 上可导，且 $Phi'(x) = f(x)$。
+
+== 牛顿-莱布尼茨公式
+
+设 $F(x)$ 是连续函数 $f(x)$ 在 $[a,b]$ 上的原函数，则
+$
+int_a^b f(x) dx = F(b) - F(a)
+$
