@@ -192,15 +192,15 @@ $ dy=f'(x)dx <==> dy/dx=f'(x) $
 
 1. 若 $x=phi(t),y=psi(t)$ 均可导且 $phi(t)!=0$，则：
   $ dy/dx
-  = (dd psi(t))/(dd phi(t))
+  = (dif psi(t))/(dif phi(t))
   = (psi'(t) dt)/(phi(t) dt)
   = (psi'(t))/(phi'(t))
   $
 
 2. 若 $x=phi(t),y=psi(t)$ 均二阶可导且 $phi(t)!=0$，则：
   $ ddy/(dx^2)
-  = (dd (display(dy/dx)))/dx
-  = (dd (display((psi'(t))/(phi'(t)))))/(dd phi(t))
+  = (dif (display(dy/dx)))/dx
+  = (dif (display((psi'(t))/(phi'(t)))))/(dif phi(t))
   = display((psi''(t)phi'(t) - psi'(t)phi''(t))/((phi'(t))^2)dt)/(phi'(t)dt)
   = (psi''(t)phi'(t) - psi'(t)phi''(t))/((phi'(t))^3)
   $
@@ -225,7 +225,7 @@ $
   ))$，所以
 
   $ dy/dx
-  = display(dy/(dd theta))/display(dx/(dd theta))
+  = display(dy/(dif theta))/display(dx/(dif theta))
   = display(2a cos^3 theta - 4a sin^2 theta cos theta)/display(4a sin theta cos^2 theta - 2a sin^3 theta)
   $
 

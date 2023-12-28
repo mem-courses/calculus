@@ -40,7 +40,7 @@ $
 = P203 习题4-2 2 #ac
 $
 int (2x-3)^10 dx
-= 1/2 int (2x-3)^10 dd(2x-3)
+= 1/2 int (2x-3)^10 dif(2x-3)
 = 1/22 (2x-3)^11 + C
 $
 = P203 习题4-2 3 #ac
@@ -52,14 +52,14 @@ $
 = P203 习题4-2 4 #ac
 $
 int dx/(5x-2)^(5/2)
-= 1/5 int (5x-2)^(-5/2) dd(5x-2)
+= 1/5 int (5x-2)^(-5/2) dif(5x-2)
 = -2/15 (5x-2)^(-3/2) + C
 $
 = P203 习题4-2 5 #ac
 $
 int dx/(2+3x^2)
 = 1/2 int dx/((3/2) x^2 + 1)
-= 1/2 dot sqrt(2)/sqrt(3) int (dd(sqrt(3)/sqrt(2) x))/((sqrt(3)/sqrt(2) x)^2 + 1)
+= 1/2 dot sqrt(2)/sqrt(3) int (dif(sqrt(3)/sqrt(2) x))/((sqrt(3)/sqrt(2) x)^2 + 1)
 = 1/sqrt(6) arctan(sqrt(6)/2 x) + C
 $
 = P203 习题4-2 6 #ac
@@ -67,7 +67,7 @@ $
 int dx/(2-3x^2)
 &= -1/3 int dx/(x^2 - 2/3)
 = -1/3 dot 1/(2 dot sqrt(2)/sqrt(3)) int ((x+sqrt(2/3)) - (x-sqrt(2/3)))/(x^2 - 2/3) dx\
-&= -1/(2 sqrt(6)) (int dd(x-sqrt(2/3))/(x-sqrt(2/3)) + int dd(x+sqrt(2/3))/(x+sqrt(2/3))) 
+&= -1/(2 sqrt(6)) (int dif(x-sqrt(2/3))/(x-sqrt(2/3)) + int dif(x+sqrt(2/3))/(x+sqrt(2/3))) 
 = -1/(2 sqrt(6)) ln lr(| (x-sqrt(2/3))/(x+sqrt(2/3)) |) + C\
 &= -1/(2 sqrt(6)) ln lr(| (sqrt(3) x - sqrt(2))/(sqrt(3) x + sqrt(2)) |) + C
 $
@@ -75,28 +75,28 @@ $
 $
 int dx/sqrt(2-3x^2)
 &= 1/sqrt(2) int dx/sqrt(1-(sqrt(3/2) x)^2)
-= 1/sqrt(3) int (dd(sqrt(3/2) x))/sqrt(1-(sqrt(3/2) x)^2) \
+= 1/sqrt(3) int (dif(sqrt(3/2) x))/sqrt(1-(sqrt(3/2) x)^2) \
 &= 1/sqrt(3) arcsin(sqrt(3/2) x) + C
 $
 = P203 习题4-2 8 #ac
 $
 int (tan x)/sqrt(cos x) dx
 = int sin x cos^(-3/2) x dx
-= - int cos^(-3/2) x dd(cos x)
+= - int cos^(-3/2) x dif(cos x)
 = - 2/sqrt(cos x) + C
 $
 = P203 习题4-2 9 #ac
 $
 int (e^(-x) + e^(-2x)) dx
 = int e^(-x) (1 + e^(-x)) dx
-= - int (1 + e^(-x)) dd(e^(-x))
+= - int (1 + e^(-x)) dif(e^(-x))
 = - e^(-x) - 1/2 e^(-2x) + C
 $
 = P203 习题4-2 10 #ac
 $
 int dx/(1 + cos x)
 &= int dx/(sin^2(1/2 x) + cos^2(1/2 x) + cos^2(1/2 x) - sin^2(1/2 x))\
-&= int (dd (1/2 x))/(cos^2 (1/2 x))
+&= int (dif (1/2 x))/(cos^2 (1/2 x))
 = tan(1/2 x) + C
 $
 #note[
@@ -105,60 +105,60 @@ $
 = P203 习题4-2 11 #ac
 $
 int (x dx)/sqrt(1 - x^2)
-= -1/2 int dd(1 - x^2)/sqrt(1 - x^2)
+= -1/2 int dif(1 - x^2)/sqrt(1 - x^2)
 = -1/2 (2 sqrt(1 - x^2)) + C
 = -sqrt(1 - x^2) + C
 $
 = P203 习题4-2 12 #ac
 $
 int x^2 root(3, 1 + x^3) dx
-= 1/3 int (1 + x^3)^(1/3) dd(1 + x^3)
+= 1/3 int (1 + x^3)^(1/3) dif(1 + x^3)
 = 1/4 (1 + x^3)^(4/3) + C
 $
 = P203 习题4-2 13 #pc
 $
 int x/(3 - 2 x^2) dx
-= -1/2 int dd(3 - 2 x^2)/(3 - 2 x^2)
+= -1/2 int dif(3 - 2 x^2)/(3 - 2 x^2)
 = -1/2 ln |3 - 2 x^2| + C
 $
 #warn[
   系数别算漏了，这里既有幂次贡献的 $2$，也有系数贡献的 $2$。
   $
   int x/(3 - 2 x^2) dx
-  = -1/4 int dd(3 - 2 x^2)/(3 - 2 x^2)
+  = -1/4 int dif(3 - 2 x^2)/(3 - 2 x^2)
   = -1/4 ln |3 - 2 x^2| + C
   $
 ]
 = P203 习题4-2 14 #ac
 $
 int (x dx)/((1 + x^2)^2)
-= 1/2 int (dd(1 + x^2))/((1 + x^2)^2)
+= 1/2 int (dif(1 + x^2))/((1 + x^2)^2)
 = -1/(2(1 + x^2)) + C
 $
 = P203 习题4-2 15 #ac
 $
 int (x dx)/(4 + x^4)
-= 1/2 int (dd (x^2))/((x^2)^2 + 2^2)
-= 1/4 int (dd (1/2 x^2))/((1/2 x^2)^2 + 1)
+= 1/2 int (dif (x^2))/((x^2)^2 + 2^2)
+= 1/4 int (dif (1/2 x^2))/((1/2 x^2)^2 + 1)
 = 1/4 arctan (1/2 x^2) + C
 $
 = P203 习题4-2 16 #ac
 $
 int (x dx)/(sqrt(x) (1 + x))
-&= 2 int x/(1 + x) dd(sqrt(x))
-= 2 int (1 - 1/(1 + (sqrt(x))^2)) dd(sqrt(x))\
+&= 2 int x/(1 + x) dif(sqrt(x))
+= 2 int (1 - 1/(1 + (sqrt(x))^2)) dif(sqrt(x))\
 &= 2 sqrt(x) - 2 arctan(sqrt(x)) + C
 $
 = P203 习题4-2 17 #ac
 $
 int 1/x^2 sin 1/x dx
-= - int sin 1/x dd(1/x)
+= - int sin 1/x dif(1/x)
 = cos 1/x + C
 $
 = P203 习题4-2 18 #ac
 $
 int (x^3)/(x^8 - 2) dx
-= 1/4 int dd(x^4)/((x^4)^2 - (sqrt(2))^2)
+= 1/4 int dif(x^4)/((x^4)^2 - (sqrt(2))^2)
 = 1/(8 sqrt(2)) ln lr(| (x^4 - sqrt(2))/(x^4 + sqrt(2)) |) + C
 $
 = P203 习题4-2 19 #ac
@@ -173,7 +173,7 @@ $
 = P203 习题4-2 20 #ac
 $
 int dx/(x (1 + 2 ln x))
-= 1/2 int dd(1 + 2ln x)/(1 + 2 ln x)
+= 1/2 int dif(1 + 2ln x)/(1 + 2 ln x)
 = 1/2 ln|1 + 2 ln x| + C
 $
 = P203 习题4-2 21 #ac
@@ -186,20 +186,20 @@ $
 $
 int dx/(e^x + e^(-x))
 = int (e^x)/(e^(2x) + 1) dx
-= int 1/((e^x)^2 + 1) dd(e^x)
+= int 1/((e^x)^2 + 1) dif(e^x)
 = arctan e^x + 1
 $
 = P203 习题4-2 23 #ac
 $
 int dx/(x ln x ln(ln x))
-= int dd(ln x)/(ln x ln(ln x))
-= int dd(ln (ln x))/(ln (ln x))
+= int dif(ln x)/(ln x ln(ln x))
+= int dif(ln (ln x))/(ln (ln x))
 = ln lr(|ln(ln x)|) + C
 $
 = P203 习题4-2 24 #ac
 $
 int (ln^2 x)/x dx
-= int (ln^2 x) dd(ln x)
+= int (ln^2 x) dif(ln x)
 = 1/3 ln^3 x
 $
 = P203 习题4-2 25 #ac
@@ -214,35 +214,35 @@ $
 = P203 习题4-2 26 #ac
 $
 int (arctan x)/(1+x^2) dx
-= int arctan x dd(arctan x)
+= int arctan x dif(arctan x)
 = 1/2 arctan^2 x + C
 $
 = P203 习题4-2 27 #ac
 $
 int dx/((arcsin x)^2 sqrt(1-x^2))
-= int (arcsin x)^(-2) dd(arcsin x)
+= int (arcsin x)^(-2) dif(arcsin x)
 = - 1/(arcsin x)  + C
 $
 = P203 习题4-2 28 #ac
 $
 int (x^2+1)/(x^4+1) dx
 &= int (1+1/x^2)/(x^2 + 1/(x^2)) dx
-= int 1/((x-1/x)^2 + 2) dd(x-1/x)\
+= int 1/((x-1/x)^2 + 2) dif(x-1/x)\
 &= 1/sqrt(2) arctan(1/sqrt(2) (x-1/x)) + C
 = 1/sqrt(2) arctan(x/sqrt(2) - 1/(x sqrt(2))) + C
 $
 = P203 习题4-2 29 #wa
 $
 int (cos x dx)/sqrt(2 + cos 2x)
-= int (dd (sin x))/sqrt(3 - 2 sin^2 x)
-= -1/2 int (dd(3 - 2 sin^2 x))/sqrt(3 - 2 sin^2 x)
+= int (dif (sin x))/sqrt(3 - 2 sin^2 x)
+= -1/2 int (dif(3 - 2 sin^2 x))/sqrt(3 - 2 sin^2 x)
 = - sqrt(3 - 2 sin^2 x) + C
 $
 #warn[
   $
   int (cos x dx)/sqrt(2 + cos 2x)
-  &= int (dd (sin x))/sqrt(3 - 2 sin^2 x)
-  = 1/sqrt(3) dot sqrt(3)/sqrt(2) int (dd(sqrt(2)/sqrt(3) x))/(sqrt(1-(sqrt(2)/sqrt(3) x)^2))\
+  &= int (dif (sin x))/sqrt(3 - 2 sin^2 x)
+  = 1/sqrt(3) dot sqrt(3)/sqrt(2) int (dif(sqrt(2)/sqrt(3) x))/(sqrt(1-(sqrt(2)/sqrt(3) x)^2))\
   &= 1/sqrt(2) arcsin (sqrt(2)/sqrt(3) x) + C
   $
 ]
@@ -250,8 +250,8 @@ $
 $
 int (x dx)/sqrt(1 + x^2 + sqrt((1 + x^2)^3))
 &= int (x dx)/sqrt((1+x^2)(1 + sqrt(1 + x^2)))
-= int 1/sqrt(1 + sqrt(1 + x^2)) dd(sqrt(1 + x^2))\
-&= int 1/sqrt(1 + sqrt(1 + x^2)) dd(sqrt(1 + x^2) + 1)
+= int 1/sqrt(1 + sqrt(1 + x^2)) dif(sqrt(1 + x^2))\
+&= int 1/sqrt(1 + sqrt(1 + x^2)) dif(sqrt(1 + x^2) + 1)
 = 2 sqrt(sqrt(1 + x^2) + 1) + C
 $
 = P203 习题4-2 31 #ac
@@ -259,14 +259,14 @@ $
 int (x^2)/(1 + x) dx
 &= int ((x+1)^2 - 2 (x+1) + 1)/(x+1) dx
 = int (x + 1 - 2 + 1/(x+1)) dx\
-&= int (x-1) dx + int (dd(x+1))/(x+1)
+&= int (x-1) dx + int (dif(x+1))/(x+1)
 = 1/2 x^2 - x + ln|1+x| + C
 $
 = P203 习题4-2 32 #ac
 $
 int dx/(x^2 + x - 2)
 &= int dx/((x+1/2)^2 - (3/2)^2)
-= int (dd(x+1/2))/((x+1/2)^2 - (3/2)^2)\
+= int (dif(x+1/2))/((x+1/2)^2 - (3/2)^2)\
 &= (1/3 ln lr(| (x+1/2-3/2)/(x+1/2+3/2) |)) + C
 = 1/3 ln lr(| (x-1)/(x+2) |) + C
 $
@@ -274,23 +274,23 @@ $
 $
 int cos^2 x dx
 = int (1+cos 2x)/2 dx
-= 1/4 int (1+cos 2x) dd(2x)
+= 1/4 int (1+cos 2x) dif(2x)
 = 1/2 x + 1/4 sin 2x + C
 $
 = P203 习题4-2 34 #wa
 $
 int tan^3 x dx
 &= int (sin^3 x)/(cos^3 x) dx
-= - int (1 - cos^2 x)/(cos^3 x) dd(cos x)\
-&= int (1/(cos x) - 1/(cos^3 x)) dd(cos x)
+= - int (1 - cos^2 x)/(cos^3 x) dif(cos x)\
+&= int (1/(cos x) - 1/(cos^3 x)) dif(cos x)
 = 1/(4 cos^4 x) - 1/(2 cos^2 x) + C
 $
 #warn[
   $
   int tan^3 x dx
   &= int (sin^3 x)/(cos^3 x) dx
-  = - int (1 - cos^2 x)/(cos^3 x) dd(cos x)\
-  &= int (1/(cos x) - 1/(cos^3 x)) dd(cos x)
+  = - int (1 - cos^2 x)/(cos^3 x) dif(cos x)\
+  &= int (1/(cos x) - 1/(cos^3 x)) dif(cos x)
   = 1/(2 cos^2 x) + ln|cos x| + C
   $
 ]
@@ -299,7 +299,7 @@ $
 int dx/(cos^4 x)
 &= int (sin^2 x + cos^2 x)/(cos^4 x) dx
 = int (tan^2 x + 1)/(cos^2 x) dx\
-&= int (tan^2 x + 1) dd(tan x)
+&= int (tan^2 x + 1) dif(tan x)
 = 1/3 tan^3 x + tan x + C
 $
 = P203 习题4-2 36 #ac
@@ -352,10 +352,10 @@ $
 = P204 习题4-2 41 #ac
 $
 int dx/((2x^2+1) sqrt(x^2 + 1))
-&= int (dd (tan t))/((2 tan^2 t + 1) sqrt(tan^2 t + 1))
-= int (cos^3 t)/(2 sin^2 t + cos^2 t) dd(tan t)\
+&= int (dif (tan t))/((2 tan^2 t + 1) sqrt(tan^2 t + 1))
+= int (cos^3 t)/(2 sin^2 t + cos^2 t) dif(tan t)\
 &= int (cos t)/(2 sin^2 t + cos^2 t) dt
-= int 1/(sin^2 t + 1) dd(sin t)\
+= int 1/(sin^2 t + 1) dif(sin t)\
 &= arctan (sin (arctan x)) + C
 $
 = P204 习题4-2 42 #ac
@@ -374,7 +374,7 @@ $
 $
 int dx/sqrt((x-a)(b-x))
 &= int dx/sqrt(((a-b)/2)^2 - (x-(a+b)/2)^2)
-= int (dd((2x)/(a-b) - (a+b)/(a-b)))/sqrt(1-((2x)/(a-b) - (a+b)/(a-b))^2)\
+= int (dif((2x)/(a-b) - (a+b)/(a-b)))/sqrt(1-((2x)/(a-b) - (a+b)/(a-b))^2)\
 &= arcsin ((2x)/(a-b) - (a+b)/(a-b)) + C
 $
 #warn[
@@ -382,7 +382,7 @@ $
   $
   int dx/sqrt((x-a)(b-x))
   &= int dx/sqrt(((a-b)/2)^2 - (x-(a+b)/2)^2)
-  = - int (dd((2x)/(a-b) - (a+b)/(a-b)))/sqrt(1-((2x)/(a-b) - (a+b)/(a-b))^2)\
+  = - int (dif((2x)/(a-b) - (a+b)/(a-b)))/sqrt(1-((2x)/(a-b) - (a+b)/(a-b))^2)\
   &= - arcsin ((2x)/(a-b) - (a+b)/(a-b)) + C
   $
 
@@ -419,7 +419,7 @@ $
 $
 int (x e^x)/sqrt(e^x - 1) dx
 &= 2 int ln(t^2 + 1) dt
-= 2 (t ln(t^2 + 1) - int t dd(ln(t^2 + 1)))\
+= 2 (t ln(t^2 + 1) - int t dif(ln(t^2 + 1)))\
 &= 2 (t ln(t^2 + 1) - int (2t^2)/(t^2 + 1) dt)\
 &= 2t ln(t^2 + 1) - 4t + 4 arctan t + C\
 &= 2x sqrt(e^x - 1) - 4 sqrt(e^x - 1) + 4 arctan sqrt(e^x - 1) + C

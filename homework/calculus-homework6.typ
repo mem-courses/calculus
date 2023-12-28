@@ -195,7 +195,7 @@ $ dy/dx = cos x $
 #prob[求 $display(e^(x y) - x^2 + y^3 = 0)$ 在点 $display(x = 0)$ 的切线方程与法线方程．]
 
 $
-=> (dd e^(x y))/dx - (dd x^2)/dx + (dd y^3)/dx = 0
+=> (dif e^(x y))/dx - (dif x^2)/dx + (dif y^3)/dx = 0
 => e^(x y) (y + x dy/dx)- 2x + 3 y^2 dy/dx = 0
 $
 

@@ -30,7 +30,7 @@ $
 #prob[设 $e^(x y) - x^2 + y^3 = 0$，求 $lr(display(dy/dx)|)_(x=0)$．]
 
 $
-=> (dd e^(x y))/dx - (dd x^2)/dx + (dd y^3)/dx = 0
+=> (dif e^(x y))/dx - (dif x^2)/dx + (dif y^3)/dx = 0
 => e^(x y) (y + x dy/dx)- 2x + 3 y^2 dy/dx = 0
 $
 
@@ -134,11 +134,11 @@ $
 = P102 习题2-1 107
 #prob[令 $x=sin t$，化简方程 $display((1-x^2) ddy/(dx^2) - x dy/dx - y = 0)$．]
 
-已知，$x = sin t$，那么 $dx = cos t dd t$．所以有，
+已知，$x = sin t$，那么 $dx = cos t dif t$．所以有，
 
 - $display( dy/dx = dy/dx dot dx/dt = dy/dt dot 1/(cos t) )$；
 
-- $display( ddy/(dx^2) = (dd(dy/dx))/dx = dd(1/(cos t) dot dy/dt)/(cos t dt) = 1/(cos t) ((sin t)/(cos^2 t) dot dy/dt + 1/(cos t) dot ddy/(dt^2)) )$．
+- $display( ddy/(dx^2) = (dif(dy/dx))/dx = dif(1/(cos t) dot dy/dt)/(cos t dt) = 1/(cos t) ((sin t)/(cos^2 t) dot dy/dt + 1/(cos t) dot ddy/(dt^2)) )$．
 
 代入得：
 
@@ -155,18 +155,18 @@ $
 
 - $display(dy/dx = dy/dt dot dt/dx = (a sin t dt)/(a (1 - cos t) dt) = (sin t)/(1 - cos t) )$；
 
-- $display(ddy/(dx^2) = (dd (dy/dx))/dx = (dd((sin t)/(1-cos t)))/(a(1-cos t) dt) = 1/(a (1-cos t)) dot (cos t(1 - cos t) - sin^2 t)/((1 - cos t)^2) = -1/(a (1-cos t)^2) )$．
+- $display(ddy/(dx^2) = (dif (dy/dx))/dx = (dif((sin t)/(1-cos t)))/(a(1-cos t) dt) = 1/(a (1-cos t)) dot (cos t(1 - cos t) - sin^2 t)/((1 - cos t)^2) = -1/(a (1-cos t)^2) )$．
 
 = P113 习题2-2 19
 #prob[设 $display(cases(x = e^(2t), y = e^(3t)))$，求 $display(dddy/(dx^3))$．]
 
-由已知，$display(cases(2t = ln x, 3t = ln y) => 3/2 ln x = ln y => y = x^(3/2))$．所以，$ dy/dx = 3/2 x^(1/2) quad => (ddy)/(dx^2) = 3/2 dot 1/2 x^(-1/2) quad => (dd^3 y)/(dx^3) = 3/2 dot 1/2 (-1/2) x^(-3/2) = -3/8 y^(-3/2) $
+由已知，$display(cases(2t = ln x, 3t = ln y) => 3/2 ln x = ln y => y = x^(3/2))$．所以，$ dy/dx = 3/2 x^(1/2) quad => (ddy)/(dx^2) = 3/2 dot 1/2 x^(-1/2) quad => (dif^3 y)/(dx^3) = 3/2 dot 1/2 (-1/2) x^(-3/2) = -3/8 y^(-3/2) $
 
 = P113 习题2-2 1
 #prob[求微分：$ y = x/sqrt(1-x^2) $]
 
 $
-dy &= (x dd(sqrt(1-x^2)) - sqrt(1-x^2) dx)/(1-x^2)
+dy &= (x dif(sqrt(1-x^2)) - sqrt(1-x^2) dx)/(1-x^2)
 = ((x d(1-x^2))/(2 sqrt(1-x^2)) - sqrt(1-x^2) dx)/(1-x^2)\
 &= (-(2 x^2 dx)/(2 sqrt(1-x^2)) - sqrt(1-x^2) dx)/(1-x^2)
 = (-x^2 dx - (1-x^2) dx)/((1-x^2)^(3/2))\
@@ -177,8 +177,8 @@ $
 #prob[求微分：$ y = 1/(2a) ln (abs(x+a))/(abs(x-a)) $]
 
 $
-dy = abs(x-a)/(2a abs(x+a)) dd(abs(x+a)/abs(x-a))
-= abs(x-a)/(2a abs(x+a)) (abs(x+a) dd(abs(x-a)) - abs(x-a) dd(abs(x+a)))/((x-a)^2)
+dy = abs(x-a)/(2a abs(x+a)) dif(abs(x+a)/abs(x-a))
+= abs(x-a)/(2a abs(x+a)) (abs(x+a) dif(abs(x-a)) - abs(x-a) dif(abs(x+a)))/((x-a)^2)
 $
 
 此时需根据 $x+a$ 与 $x-a$ 的正负性进行分类讨论，若 $x+a$ 与 $x-a$ 符号相同，则
@@ -212,7 +212,7 @@ $
 由已知，
 
 $
-dy = f'(x+y) dd(x+y) = f'(x+y) (dx + dy)
+dy = f'(x+y) dif(x+y) = f'(x+y) (dx + dy)
 quad => dy = (f'(x+y))/(1-f'(x+y)) dx
 $
 

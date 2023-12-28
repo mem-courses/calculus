@@ -73,8 +73,8 @@
   $
   int sec x dx
   &= int (cos x)/(cos^2 x) dx
-  = int (dd sin x)/(1-sin^2 x)
-  = 1/2 int (1/(1+sin x) + 1/(1-sin x)) dd sin x\
+  = int (dif sin x)/(1-sin^2 x)
+  = 1/2 int (1/(1+sin x) + 1/(1-sin x)) dif sin x\
   &= 1/2 ln(ln|1 + sin x| - ln|1 - sin x|) + C
   = 1/2 ln |(1+sin x)/(1-sin x)| + C
   $
@@ -91,9 +91,9 @@
 
 根据不定积分的定义，有
 
-#def[性质1]$dd/dx int f(x) dx = f(x)$ 或 $dd int f(x) dx = f(x) dx$
+#def[性质1]$dif/dx int f(x) dx = f(x)$ 或 $dif int f(x) dx = f(x) dx$
 
-#def[性质2]$int f'(x) dx = f(x) + C$ 或 $int dd f(x) = f(x) + C$
+#def[性质2]$int f'(x) dx = f(x) + C$ 或 $int dif f(x) = f(x) + C$
 
 #def[性质3]若 $f(x)$，$g(x)$ 的原函数都存在，则 $int (f(x) pm g(x)) dx = int f(x) dx + int g(x) dx$。
 
@@ -123,7 +123,7 @@ $
   $
   int sec^6 x dx
   &= int (tan^2 x + 1)^2 sec^2 x dx
-  = int (tan^4 x + 2 tan^2 x + 1)^2 dd(tan x)\
+  = int (tan^4 x + 2 tan^2 x + 1)^2 dif(tan x)\
   &= 1/5 tan^5 x + 2/3 tan^3 x + tan x + C
   $
 ]
@@ -131,8 +131,8 @@ $
 === 有理函数积分常用方法
 
 1. 万能凑幂法：$display(cases(
-    display(int f(x^n) x^(n-1) dx = 1/n int f(x^n) dd x^n),
-    display(int f(x^n) 1/x dx = 1/n int f(x^n) 1/(x^n) dd x^n), 
+    display(int f(x^n) x^(n-1) dx = 1/n int f(x^n) dif x^n),
+    display(int f(x^n) 1/x dx = 1/n int f(x^n) 1/(x^n) dif x^n), 
   ))$。
 
 2. 对分母因式分解后化成多个小分式分别处理。
@@ -143,7 +143,7 @@ $
   $
   int (dx)/(x^2+a^2)
   = 1/(a^2) int (dx)/((x/a)^2 + 1)
-  = 1/a int (dd(x/a))/((x/a)^2 + 1)
+  = 1/a int (dif(x/a))/((x/a)^2 + 1)
   = 1/a arctan(x/a) + C
   $
 ]
@@ -154,7 +154,7 @@ $
   $
   int (dx)/(x^2-a^2)
   &= int 1/(2a) ((x+a) - (x-a))/((x+a)(x-a)) dx
-  = 1/(2a) (int (dd(x-a))/(x-a) - int (dd(x+a))/(x+a))\
+  = 1/(2a) (int (dif(x-a))/(x-a) - int (dif(x+a))/(x+a))\
   &= 1/(2a) (ln|x-a| - ln|x+a|) + C
   $
 ]
@@ -234,7 +234,7 @@ $
 == 分部积分法
 
 $
-int u dd v = u v - int v dd u
+int u dif v = u v - int v dif u
 $
 
 #[def例7]求：$int sqrt(x^2 + a^2) dx sp (a>0)$。

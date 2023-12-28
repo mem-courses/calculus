@@ -46,8 +46,6 @@
 #let pm = math.plus.minus
 #let mp = math.minus.plus
 
-#let dd = math.upright("d")
-#let textd = math.upright("d")
 #let dx = math.upright("d") + math.italic("x")
 #let dy = math.upright("d") + math.italic("y")
 #let dt = math.upright("d") + math.italic("t")
