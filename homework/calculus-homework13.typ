@@ -12,7 +12,7 @@
 
 #let int = math.integral
 
-= P228 习题5-1 1(2)
+= P228 习题5-1 1(2) #ac
 #prob[
   利用定义求下列函数的定积分：
   $
@@ -20,43 +20,101 @@
   $
   （提示：把区间 $n$ 等分，取 $xi_i=sqrt(x_i x_(i-1))$。）
 ]
+对于 $n->oo$，取 $x_i=a+display(i/n (b-a))$，有 $Delta x_i = display(1/n (b-a))$。
 $
 int_a^b (dx)/(x^2)
-&= lim_(n->oo) sum_(i=1)^(n) 1/((a+(i-1)/n (b-a))(a+i/n (b-a)))\
-&= lim_(n->oo) sum_(i=1)^(n) (n^2)/((n a+(i-1)(b-a))(n a+i(b-a)))
+&= lim_(n->oo) 1/n (b-a) sum_(i=1)^n 1/(sqrt(x_i dot x_(i-1)))^2\
+&= lim_(n->oo) 1/n (b-a) sum_(i=1)^n 1/(x_i dot x_(i-1))\
+&= lim_(n->oo) 1/n (b-a) sum_(i=1)^n 1/(x_i - x_(i-1)) (1/(x_(i-1)) - 1/(x_i))\
+&= lim_(n->oo) sum_(i=1)^n (1/(x_(i-1)) - 1/(x_i))\
+&= 1/a - 1/b
 $
-= P228 习题5-1 2(2)
+
+= P228 习题5-1 2(2) #ac
 #prob[
   把极限用定积分形式表示：
   $
   lim_(n->oo) (n/(n^2+1^2) + n/(n^2+2^2) + dots.c + n/(n^2 + n^2))
   $
 ]
-= P228 习题5-1 2(4)
+$
+"原式"
+&= lim_(n->oo) 1/n sum_(i=1)^n (n^2)/(n^2+i^2)\
+&= lim_(n->oo) 1/n sum_(i=1)^n (1)/(1+(i/n)^2)\
+&= int_0^1 (dx)/(1+x^2)
+$
+
+= P228 习题5-1 2(4) #ac
 #prob[
   把极限用定积分形式表示：
   $
   lim_(n->oo) 1/n (sin pi/n + sin (2pi)/n + dots.c + sin (n-1)/n pi)
   $
 ]
+$
+"原式"
+= lim_(n->oo) 1/n sum_(i=0)^(n-1) sin(i/n dot pi)
+= int_0^1 sin (x pi) dx
+$
+
 = P236 习题5-2 1(2)
 #prob[
   利用定积分的性质，比较 $display(int_1^2 x^2 dx)$ 与 $display(int_1^2 x^3 dx)$ 的大小： 
 ]
+$
+int_1^2 x^2 dx - int_1^2 x^3 dx
+= int_1^2 x^2 (1-x) dx
+$
+对于函数 $psi(x) = x^2 (1-x)$，在 $[1,2]$ 上有 $psi(x) <= 0$，故 $display(int_1^2 psi(x) dx) < 0$，所以
+$
+int_1^2 x^2 dx < int_1^2 x^3 dx
+$
+
 = P236 习题5-2 1(3)
 #prob[
   利用定积分的性质，比较 $display(int_1^2 ln x dx)$ 与 $display(int_1^2 (ln x)^2 dx)$ 的大小： 
 ]
+$
+int_1^2 ln x dx - int_1^2 (ln x)^2 dx
+= int_1^2 ln x (1- ln x) dx
+$
+对于函数 $psi(x) = (ln x )(1 - ln x)$，在 $[1,2]$ 上有 $psi(x) >= 0$，故 $display(int_1^2 psi(x) dx) > 0$，所以
+$
+int_1^2 ln x dx > int_1^2 (ln x)^2 dx
+$
+
 = P236 习题5-2 3(1)
 #prob[
   利用定积分的性质证明：
-  $ (4 pi).3 <= int_0^(2pi) (dx)/(1+0.5cos x) <= 4pi $
+  $ (4 pi)/3 <= int_0^(2pi) (dx)/(1+0.5cos x) <= 4pi $
 ]
-= P236 习 题5-2 3(2)
+$
+forall x in [0,2pi],sp -1<=cos x<=1
+=> 2/3 = 1/(1+0.5) <= 1/(1+0.5 cos x) <= 1/(1-0.5) = 2
+$
+故
+$
+int_0^(2pi) (dx)/(1+0.5cos x) <= int_0^(2 pi) 2 dx = 4pi\
+int_0^(2pi) (dx)/(1+0.5cos x) >= int_0^(2 pi) 2/3 dx = (4pi)/3\
+$
+原不等式得证。
+
+= P236 习题5-2 3(2)
 #prob[
   利用定积分的性质证明：
   $ 1/(10 sqrt(2)) <= int_0^1 (x^9)/sqrt(1+x) dx <= 1/10 $
 ]
+$
+forall x in [0,1],sp 1<=sqrt(1+x)<=2
+=> x^9/sqrt(2) <= x^9/sqrt(1+x) <= x^9
+$
+故
+$
+int_0^1 (x^9)/sqrt(1+x) dx <= int_0^1 x^9 dx = 10\
+int_0^1 (x^9)/sqrt(1+x) dx >= int_0^1 x^9/sqrt(2) dx = 10/sqrt(2)\
+$
+原不等式得证。
+
 = P236 习题5-2 5(1)
 #prob[
   设函数 $f(x)$ 及 $g(x)$ 在 $[a,b]$ 上连续，证明：
@@ -69,16 +127,22 @@ $
 ]
 = P237 习题5-2 6
 #prob[
-  设函数 $f(x)$ 在 $[a,b]$ 上来连续，可微且 $f(a) = 0$，证明：
+  设函数 $f(x)$ 在 $[a,b]$ 上连续，可微且 $f(a) = 0$，证明：
   $ M^2 <= (b-a) int_a^b f'^2 (x) dx $
+  其中 $M = display(sup_(a<=x<=b) abs(f(x)))$
 ]
+设
+$
+F(x) = (x-a) int_a^x f'^2(t) dt sp (a<=x<=b)
+$
 = P237 习题5-2 9
 #prob[
   设函数 $f(x)$ 在 $[0, +oo)$ 上连续，单调递增且 $f(0) = 0$，试证函数
   $ F(x) = cases(
-    display(1/x int_0^x t^n f(t) dt\, quad& x>0 ("其中 "n>0)),
+    display(1/x int_0^x t^n f(t) dt\, quad& x>0 sp ("其中 " n>0)),
     display(0\,quad& x = 0),
   ) $
+  在 $[0,+oo)$ 上连续递增。
 ]
 = P237 习题5-2 10(2)
 #prob[
