@@ -268,7 +268,17 @@ $
 
 = 定积分
 
-== 定积分存在的判定
+== 定义
+
+若存在一常数 $I$，任给 $epsilon > 0$，存在 $delta > 0$，使得对任意的分割
+$
+T:sp a = x_0<x_1<x_2< dots.c < x_(i-1)<x_i<x_(i+1) < dots.c < x_n=b
+$
+只要 $max{Delta x_i:1<=i<=n} = lambda(T) < delta$，任给 $xi_i in [x_(i-1), x_i]$，都有
+$
+|sum_(i=1)^n f(xi_i) Delta x_i - I| < eps
+$
+成立，则称 $I$ 为 $f(x)$ 在区间 $[a,b]$ 上的定积分。
 
 === 可积的必要条件
 
@@ -279,6 +289,8 @@ $
 #def[定理2]函数 $f(x)$ 在 $[a,b]$ 上连续 $=>$ $f(x)$ 在 $[a,b]$ 可积。
 
 #def[定理3]函数 $f(x)$ 在 $[a,b]$ 上有界且只有有限个间断点 $=>$ $f(x)$ 在 $[a,b]$ 可积。
+
+#def[定理4]函数 $f(x)$ 在 $[a,b]$ 上单调 $=>$ $f(x)$ 在 $[a,b]$ 上可积。
 
 == 定积分的性质
 
@@ -317,9 +329,9 @@ $
 == 积分上限函数
 
 设函数 $f(x)$ 在区间 $[a,b]$ 上连续，并且设 $x$ 为 $[a,b]$ 上的一点，积分 $display(int_a^x f(t) dt)$ 是 $x$ 函数，记为 $Phi(x)$，即
-设函数 $f(x)$ 在区间 $[a,b]$ 上连续，并且设 $x$ 为 $[a,b]$ 上的一点，积分 $display(int_a^x f(t) dt)$ 是 $x$ 函数，记为 $Phi(x)$。则称 $Phi(x)$ 为 *积分上限函数*。
+设函数 $f(x)$ 在区间 $[a,b]$ 上连续，并且设 $x$ 为 $[a,b]$ 上的一点，积分 $display(int_a^x f(t) dt)$ 是 $x$ 函数，记为 $Phi(x)$。则称 $Phi(x)$ 为变上限的函数。
 
-#def[定理]若 $f(x)$ 在 $[a,b]$ 上连续，则变上限函数 $Phi(x)$ 在 $[a,b]$ 上可导，且 $Phi'(x) = f(x)$。
+#def[定理]（微积分学基本定理）若 $f(x)$ 在 $[a,b]$ 上连续，则变上限函数 $Phi(x)$ 在 $[a,b]$ 上可导，且 $Phi'(x) = f(x)$。
 
 == 牛顿-莱布尼茨公式
 
@@ -327,3 +339,26 @@ $
 $
 int_a^b f(x) dx = F(b) - F(a)
 $
+
+== 定积分的计算方法
+
+=== 换元法
+
+若函数 $f(x)$ 在 $[a,b]$ 上连续，作变量代换 $x = psi(t)$，$psi(t)$ 满足：
+1. $psi(a) = alpha,sp psi(b)=beta$ 且 $psi(t) in [a,b]$，$t in [alpha,beta] sp ("或 " [beta,alpha])$
+2. 在 $[alpha,beta] sp ("或 " [beta,alpha])$ 上有连续的导数 $psi'(t)$。
+则有定积分换元公式：
+$
+int_a^b f(x) dx = int_alpha^beta f(psi(t)) psi'(t) dt
+$
+
+=== 分部积分法
+
+若 $u=u(x),v=v(x)$ 在 $[a,b]$ 上具有连续的导函数，则
+$
+int_a^b u dv = u v |_a^b - int_a^b v du
+$
+
+== 几种简化的定积分计算方法
+
+=== 关于原点对称的微积分
