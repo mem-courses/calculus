@@ -148,7 +148,7 @@ $
 #prob[
   设函数 $f(x)$ 在 $[a,b]$ 上连续，可微且 $f(a) = 0$，证明：
   $ M^2 <= (b-a) int_a^b f'^2 (x) dx $
-  其中 $M = display(sup_(a<=x<=b) abs(f(x)))$
+  其中 $M = display(sup_(a<=x<=b) abs(f(x)))$。
 ]
 $
 (int_a^b f'(x) dx)^2 <= (b-a) int_a^b f'^2 (x) dx
@@ -173,11 +173,32 @@ $
   ) $
   在 $[0,+oo)$ 上连续递增。
 ]
+不会做。
+// 当 $x>0$ 时，有
+// $
+// & F'(x) = -1/(x^2) int_0^x t^n f(t) dt + 1/x dot x^n f(x)\
+// =>& F'(x) = -1/(x^2) dot x F(x) + 1/x dot x^n f(x)\
+// =>& x F'(x) + F(x) = x^n f(x) \
+// =>& (x F(x))' = x^n f(x) > 0
+// $
+// 其中 $f(x)$
+
 = P237 习题5-2 10(2)
 #prob[
   证明：
   $ lim_(n->oo) int_n^(n+p) (sin^2 x)/x dx = 0 $
 ]
+$
+0 = lim_(n->oo) int_n^(n+p) 0/x dx <= lim_(n->oo) int_n^(n+p) (sin^2 x)/x dx <= lim_(n->oo) int_n^(n+p) 1/x dx
+$
+$
+lim_(n->oo) int_n^(n+p) 1/x dx
+= lim_(n->oo) ln(abs(n+p)) - ln(abs(n))
+= lim_(n->oo) ln(abs((n+p)/n))
+= 0
+$
+由夹逼定理知，原极限为零，原命题得证。
+
 = P237 习题5-2 11(2)
 #prob[
   求导数：
@@ -240,7 +261,7 @@ x + c = x + 2 int_0^1 (x+c) dx
 $
 故 $f(x) = x - 1$。
 
-= P237 习题5-2 14
+= P237 习题5-2 14 #wa
 #prob[
   设 $f(x)$ 在 $[a,b]$ 上有连续的倒数，且 $f(a) = f(b) = 0$。证明：
   $
@@ -248,22 +269,9 @@ $
   4/((b-a)^2) int_a^b |f(x)| dx
   $
 ]
-= P238 习题5-2 16(5)
-#prob[
-  计算定积分：
-  $ int_(1/e)^e |ln x| dx $
-]
-= P247 习题5-3 1
-#prob[
-  计算下列定积分
+不会做。
 
-  (1) $display( int_e^(e^2) dx/(x ln^2 x) )$。
-]
-
-// #prob[(2) $display(  )$]
-// #prob[(2) $display(  )$]
-// #prob[(2) $display(  )$]
-// #prob[(2) $display(  )$]
-// #prob[(2) $display(  )$]
-// #prob[(2) $display(  )$]
-// #prob[(2) $display(  )$]
+= 其他题目
+见扫描件。
+== P238 习题5-2 16(5)
+== P238 习题5-3 1
