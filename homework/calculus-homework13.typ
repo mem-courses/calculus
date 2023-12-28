@@ -115,26 +115,55 @@ int_0^1 (x^9)/sqrt(1+x) dx >= int_0^1 x^9/sqrt(2) dx = 10/sqrt(2)\
 $
 原不等式得证。
 
-= P236 习题5-2 5(1)
+= P236 习题5-2 5(1) #ac
 #prob[
   设函数 $f(x)$ 及 $g(x)$ 在 $[a,b]$ 上连续，证明：
   $ (int_a^b f(x) g(x) dx)^2 <= int_a^b f^2 (x) dx dot int_a^b g^2 (x) dx $
 ]
+设变限积分
+$
+F(x) &= (int_a^x f(t) g(t) dt)^2 - (int_a^x f^2(t) dt) (int_a^x g^2(t) dt) quad (a<=x<=b)\
+=> F'(x) &= 2 f(x) g(x) (int_a^x f(t) g(t) dt) - f^2(x) (int_a^x f^2(t) dt) - g^2(x) (int_a^x g^2(t) dt)\
+&= int_a^x (f(t) f(x) (g(t) g(x) - f(t) f(x)) + g(t) g(x) (f(t) f(x) - g(t) g(x))) dt\
+&= - int_a^x (f(t) f(x) - g(t) g(x))^2 dt <= 0
+$
+故 $forall x in [a,b],sp F(x) <= F(a) = 0$。代入 $x=b$ 得 $F(b) <= 0$，即不等式成立。
+
 = P236 习题5-2 5(2)
 #prob[
   设函数 $f(x)$ 及 $g(x)$ 在 $[a,b]$ 上连续，证明：
   $ int_a^b (f(x) + g(x))^2 dx <= ((int_a^b f^2 (x) dx)^(1/2) + (int_a^b g^2 (x) dx)^(1/2))^2 $
 ]
+$
+int_a^b (f(x) + g(x))^2 dx <= ((int_a^b f^2 (x) dx)^(1/2) + (int_a^b g^2 (x) dx)^(1/2))^2\
+<=>\
+int_a^b f^2(x) dx + 2 int_a^b f(x) g(x) dx + int_a^b g^2(x) dx \
+<= int_a^b f^2(x) dx + 2 sqrt((int_a^b f(x) dx) (int_a^b g(x) dx)) int_a^b g^2(x) dx\
+<=>\
+(int_a^b f(x) g(x) dx)^2 <= (int_a^b f(x) dx) (int_a^b g(x) dx)
+$
+而该不等式已在习题 5-2 第 5(1) 题中证明，故原不等式得证。
+
 = P237 习题5-2 6
 #prob[
   设函数 $f(x)$ 在 $[a,b]$ 上连续，可微且 $f(a) = 0$，证明：
   $ M^2 <= (b-a) int_a^b f'^2 (x) dx $
   其中 $M = display(sup_(a<=x<=b) abs(f(x)))$
 ]
-设
 $
-F(x) = (x-a) int_a^x f'^2(t) dt sp (a<=x<=b)
+(int_a^b f'(x) dx)^2 <= (b-a) int_a^b f'^2 (x) dx
+<=> (int_a^b f'(x) dot 1 dx) <= (int_a^b f'^2 (x) dx) (int_a^b 1 dx)
 $
+由柯西不等式知成立。进一步地，设 $M$ 在 $x=t$ 时取到，则有：
+$
+M^2 <= (t-a) int_a^t f'^2(x) dx
+$
+而 $b-a>=t-a$，$f'^2(x) >= 0 => display(int_a^b f'^2(x) dx >= int_a^t f'^2(x) dx)$，故
+$
+M^2 <= (b-a) int_a^b f'^2(x) dx
+$
+即原不等式得证。
+
 = P237 习题5-2 9
 #prob[
   设函数 $f(x)$ 在 $[0, +oo)$ 上连续，单调递增且 $f(0) = 0$，试证函数
@@ -152,27 +181,65 @@ $
 = P237 习题5-2 11(2)
 #prob[
   求导数：
-  $ d/dx int_(sin x)^(cos x) cos(pi t^2) dt $
+  $ dif/dx int_(sin x)^(cos x) cos(pi t^2) dt $
 ]
+$
+"原式"
+&= - cos(pi cos^2 x) sin x - cos(pi sin^2 x) cos x
+$
+
 = P237 习题5-2 11(3)
 #prob[
   求导数：
-  $ d/dx int_(-x^2)^0 f(t^2) dt $
+  $ dif/dx int_(-x^2)^0 f(t^2) dt $
 ]
+$
+"原式" = - dif(-x^2)/dx f(x^4) = 2x f(x^4)
+$
+
 = P237 习题5-2 12(1)
 #prob[
   求极限：
   $ lim_(x->0) display(int_0^x cos t^2 dt)/x $
 ]
+$
+F'(x) = dif/dx (display(int_0^x cos t^2 dt))/x = cos x^2\
+=>
+lim_(x->0) display(int_0^x cos t^2 dt)/x
+= lim_(x->0) (display(int_0^x cos t^2 dt) - 0)/(x-0)
+= F'(0) = 1
+$
+
 = P237 习题5-2 12(3)
 #prob[
   求极限：
   $ lim_(x->0) display(int_0^x t e^t sin t dt)/(x^3 e^x) $
 ]
+$
+lim_(x->0) display(int_0^x t e^t sin t dt)/(x^3 e^x)
+&= lim_(x->0) display(dif/dx int_0^x t e^t sin t dt)/(e^x (x^3 + 3x^2))
+= lim_(x->0) (x e^x sin x)/(e^x (x^3 + 3x^2))\
+&= lim_(x->0) (sin x)/(x^2 + 3 x)
+= lim_(x->0) x/(x^2 + 3 x)
+= lim_(x->0) 1/(x + 3)
+= 1/3
+$
+
 = P237 习题5-2 13
 #prob[
   设 $f(x)$ 是连续函数，且 $f(x) = x + 2 display(int_0^1 f(x) dx)$，求 $f(x)$。
 ]
+$
+f(x) = x + 2 int_0^1 f(x) dx
+=> f'(x) = 1 => f(x) = x + c
+$
+其中 $c$ 是常数，代入可得：
+$
+x + c = x + 2 int_0^1 (x+c) dx
+=> c/2 = 1/2 + c => c = -1
+$
+故 $f(x) = x - 1$。
+
 = P237 习题5-2 14
 #prob[
   设 $f(x)$ 在 $[a,b]$ 上有连续的倒数，且 $f(a) = f(b) = 0$。证明：
