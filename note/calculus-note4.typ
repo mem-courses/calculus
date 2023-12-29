@@ -11,6 +11,7 @@
 )
 
 #let int = math.integral
+#let defas = sp + math.attach(math.upright("="), tl: "", t: "def", tr: "") + sp
 
 = 不定积分
 
@@ -264,7 +265,7 @@ $
 5. $int p(x) arcsin x dx$，令 $arcsin x = u, v' = p(x)$。
 6. $int p(x) arctan x dx$，令 $arctan x = u, v' = p(x)$。
 
-= 有理函数的积分
+= 有理函数的不定积分
 
 == 有理函数
 
@@ -374,3 +375,165 @@ $
 == 几种简化的定积分计算方法
 
 === 关于原点对称的定积分
+
+若 $f(x)$ 在区间 $[-a,a]$ 上来连续，则：
+$
+int_(-a)^a f(x) dx
+= int_0^a (f(x) + f(-x)) dx
+= cases(
+  0\,quad& "当 " f(x) "为奇函数",
+  2 int_0^a f(x) dx\,quad& "当 " f(x) "为偶函数",
+)\
+$
+
+=== 周期函数的定积分
+
+设 $f(x)$ 是周期为 $T$ 的周期函数，且连续，则
+$
+int_a^(a+T) f(x) dx = int_0^T dx quad (a "是任意常数")
+$
+
+=== $sin^n x,sp cos^n x$ 在 $[0,pi/2]$ 上的积分
+
+（Wallis 公式）对任意的自然数 $n sp (n>=2)$，有
+$
+int_0^(pi/2) sin^n x dx
+= int_0^(pi/2) cos^n x dx
+= cases(
+  display((n-1)/n dot (n-3)/(n-2) dots.c 1/2 dot pi/2 \,quad& 2 divides n),
+  display((n-1)/n dot (n-3)/(n-2) dots.c 2/3 \,quad& 2 divides.not n),
+)
+$
+（可通过递推的方式证明）
+
+== 反常积分
+
+=== 第一类反常积分（无穷区间上的反常积分）
+
+$
+int_a^(+oo) f(x) dx defas lim_(t->+oo) int_a^t f(x) dx\
+int_(-oo)^b f(x) dx defas lim_(t->-oo) int_t^b f(x) dx\
+$
+若右式的极限存在，则称该反常积分收敛，否则称该反常积分发散。
+
+进一步地，有
+$
+int_(-oo)^(+oo) f(x) dx defas int_a^(+oo) f(x) dx + int_(-oo)^a f(x) dx
+$
+称反常积分 $display(int_(-oo)^(+oo) f(x) dx)$ 收敛当且仅当右侧两个反常积分都收敛，否则称其发散。
+
+#def[例1]（第一 $p$ 反常积分）讨论 $display(int_a^(+oo) dx/(x^p))$ 的敛散性。
+
+当 $p!=1$ 时，有
+$
+int_a^(+oo) dx/(x^p)
+= lim_(t->+oo) int_a^t dx/(x^p)
+= lim_(t->+oo) lr((x^(-p+1))/(-p+1)|)_a^t
+= lim_(t->+oo) 1/(1-p) (t^(-p+1) - a^(-p+1))
+= cases(
+  display((a^(1-p))/(p-1)\,quad& p>1),
+  display(+oo\,quad& p<1)
+)
+$
+当 $p=1$ 时，有
+$
+int_a^(+oo) dx/x
+= lim_(t->+oo) int_a^t dx/x
+= lim_(t->+oo) lr(ln x |)_a^t
+= +oo
+$
+综上，反常积分 $display(int_a^(+oo) (dx)/(x^p))$，当 $p>1$ 时收敛，当 $p<=1$ 时发散。
+
+=== 第二类反常积分（无界函数的反常积分）
+
+设函数 $f(x)$ 在区间 $(a,b]$ 上连续，$display(lim_(x->a^+) f(x) = oo)$（称 $a$ 为瑕点）。于是任给 $0<epsilon<b-a$，$display(int_(a+epsilon)^b f(x) dx)$ 均存在，它是关于 $epsilon$ 的函数，则定义
+$
+int_a^b f(x) dx defas lim_(epsilon -> 0^+) int_(a+epsilon)^b f(x) dx
+$
+
+类似的，设函数 $f(x)$ 在区间 $[a,b)$ 上连续，$display(lim_(x->b^-) f(x) = oo)$（称 $b$ 为瑕点），则定义
+$
+int_a^b f(x) dx defas lim_(epsilon->0^+) int_a^(b-epsilon) f(x) dx
+$
+这两个反常积分收敛都是当且仅当右式的极限存在。
+
+进一步地，设函数 $f(x)$ 在区间 $[a,c) union (c,b]$ 上连续，$lim_(x->c) f(x) = oo$（称 $c$ 为瑕点），则定义
+$
+int_a^b f(x) dx defas int_a^c f(x) dx + int_c^b f(x) dx
+$
+该反常积分收敛当且仅当右侧两个反常积分都收敛，否则发散。
+
+#def[例2]（第二 $p$ 反常积分）讨论反常积分 $display(int_a^b (dx)/((b-a)^p) sp (b>a))$ 的敛散性。
+
+$x=b$ 是瑕点，当 $p!=1$ 时，有
+$
+int_a^b dx/((b-x)^p)
+&= lim_(epsilon->0^+) int_a^(b-epsilon) dx/((b-x)^p)
+= lim_(epsilon->0^+) lr(-(b-x)^(-p+1)/(-p+1)|)_a^(b-epsilon)
+= lim_(epsilon->0^+) ((b-a)^(1-p)-epsilon^(1-p))/(1-p)\
+&= cases(
+  ((b-a)^(1-p))/(1-p) \,quad& p<1,
+  +oo \,quad& p>1
+)
+$
+当 $p=1$ 时，有
+$
+int_a^b dx/(b-x)
+&= lim_(epsilon->0^+) int_a^(b-epsilon) dx/(b-x)
+= - lim_(epsilon->0^+) lr((ln|b-x|)|)_a^(b-epsilon)
+= lim_(epsilon->0^+) (ln(b-a)-ln(epsilon))
+= +oo
+$
+综上，反常积分 $display(int_a^b dx/((b-x)^p))$，当 $p>1$ 时收敛，当 $p<=1$ 时发散。
+
+实际上当该积分是 $p<=0$ 时是正常积分。从这个例子中可以看出，把正常积分看成反常积分处理一定是收敛的。当积分中含有参数时，参数取某些值时是正常积分，取某些值时是反常积分，则把积分看成反常积分，对解决问题是有利的。
+
+= 反常积分敛散性的判别
+
+== 关于第一类反常积分的敛散性判别
+
+#def[定理1.1]（比较判别法）设函数 $f(x),g(x)$ 在区间 $[a,+oo)$ 上连续，且有 $0 <= f(x) <= g(x)$，则
+
+#deft[定理1.1]1. 若积分 $display(int_a^(+oo) g(x) dx)$ 收敛，则 $display(int_a^(+oo) f(x) dx)$ 也收敛。
+
+#deft[定理1.1]2. 若积分 $display(int_a^(+oo) f(x) dx)$ 发散，则 $display(int_a^(+oo) g(x) dx)$ 也发散。
+
+#warn[
+  这里要求 $f(x)$ 和 $g(x)$ 的值域都是非负数的基础上，否则需要用下面的绝对收敛准则转化。
+]
+
+#def[推论1.1.1]设 $f(x)$ 在 $[a,+oo)$ 上连续，若当 $x$ 充分大时有 $0<=f(x)<=display(c/(x^p)) sp(p>1,sp c>0)$，则积分 $display(int_a^(+oo) f(x) dx)$ 收敛；若当 $x$ 充分大时有 $f(x)>=display(c/(x^p))sp(p<=1,sp c>0)$，则积分 $display(int_a^(+oo) f(x) dx)$ 发散。（代入第一 $p$ 反常积分的结论可证）
+
+#def[推论1.1.2]设 $f(x)$ 在 $[a,+oo)$ 上连续，且 $display(lim_(x->+oo)) x^p f(x) = A$。
+
+#deft[推论1.1.2]1. 若 $0<A<+oo$，即 $f(x) sim display(A/(x^p)) sp (x->+oo)$，则反常积分 $display(int_a^(+oo) f(x) dx)$ 与 $display(int_a^(+oo) A/(x^p) dx)$ 敛散性相同，即当 $p>1$ 时 $display(int_a^(+oo) f(x) dx)$ 收敛；当 $p<=1$ 时 $display(int_a^(+oo) f(x) dx)$ 发散。
+
+#deft[推论1.1.2]2. 若 $A=0$，$f(x)>=0$ 且 $p>1$，则 $display(int_a^(+oo) f(x) dx)$ 收敛。
+
+#deft[推论1.1.2]3. 若 $A=+oo$ 且 $p<=1$，则 $display(int_a^(+oo) f(x) dx)$ 发散。
+
+#def[定理1.2]（绝对收敛准则）设函数 $f(x)$ 在 $[a,+oo)$ 上连续，若积分 $display(int_a^(+oo) |f(x)| dx)$ 收敛，则 $display(int_a^(+oo) f(x) dx)$ 收敛。
+
+#prof[
+  #def[证明]（这里只证明第1.条）由于 $display(lim_(x->+oo)) x^p f(x) = A$，所以对 $epsilon=display(A/2)>0$，存在 $b>0$ 使得当 $x>b$ 时有 $display(-A/2 < x^p f(x) - A < A/2)$ 或
+  $
+  0<A/2 dot 1/(x^p) < f(x) < (3A)/2 dot 1/(x^p)
+  $
+  由推论1.1.1知当 $p>1$ 时 $display(int_a^(+oo) f(x) dx)$ 收敛；当 $p<=1$ 时 $display(int_a^(+oo) f(x) dx)$ 发散。
+]
+
+#note[
+  这条结论告诉我们，可以不讨论 $f(x)$ 和 $display(c/(x^p))$ 的大小关系，只需要找到 $p$ 使得 $f(x)$ 和 $display(A/(x^p))$ 同阶即可。
+  
+  在实际应用中，首先看能否找到当 $x->+oo$ 时，$f(x)$ 的等价量 $display(A/(x^p))$，如果找不到，再考虑第2.条或第3.条。
+]
+
+== 关于第二类反常积分的敛散性判别
+
+#def[定理2.1]（比较判别法）设 $f(x),g(x)$ 在 $[a,b)$ 上连续，且当 $x$ 充分靠近点 $b$ 时有 $0$ $<=$ $f(x)$ $<=$ $g(x)$，则
+
+#deft[定理2.1]1. 若积分 $display(int_a^b g(x) dx)$ 收敛，则积分 $display(int_a^b f(x) dx)$ 收敛。
+
+#deft[定理2.1]2. 若积分 $display(int_a^b f(x) dx)$ 发散，则积分 $display(int_a^b g(x) dx)$ 发散。
+
+#def[定理2.2]（绝对收敛准则）设函数 $f(x)$ 在 $[a,b)$ 上连续，$b$ 是瑕点，如果积分 $display(int_a^b abs(f(x)) dx)$ 收敛，则 $display(int_a^b f(x) dx)$ 收敛。这时，称 $display(int_a^b f(x) dx)$ 绝对收敛。
