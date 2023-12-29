@@ -237,7 +237,7 @@ $
 int u dif v = u v - int v dif u
 $
 
-#[def例7]求：$int sqrt(x^2 + a^2) dx sp (a>0)$。
+#def[例7]求：$int sqrt(x^2 + a^2) dx sp (a>0)$。
 
 #prof[
   $
@@ -252,7 +252,17 @@ $
   $
 ]
 
+若 $P_n (x)$ 为 $n$ 次多项式，则要求：
 
+1. $int P_n (x) e^(a x) dx$，令 $P_n (x) = u, v' = e^(a x)$。
+2. $int P_n (x) sin (a x + b) dx$，令 $P_n (x) = u, v' = sin (a x + b)$。
+3. $int P_n (x) cos (a x + b) dx$，令 $P_n (x) = u, v' = cos (a x + b)$。
+4. $int P_n (x) ln x dx$，令 $P_n (x) = ln x, v' = P_n (x)$。
+
+设 $p(x)$ 为一般函数，则要求：
+
+5. $int p(x) arcsin x dx$，令 $arcsin x = u, v' = p(x)$。
+6. $int p(x) arctan x dx$，令 $arctan x = u, v' = p(x)$。
 
 = 有理函数的积分
 
