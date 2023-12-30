@@ -18,9 +18,9 @@
   $
   int_a^b (dx)/(x^2) sp (0<a<b)
   $
-  （提示：把区间 $n$ 等分，取 $xi_i=sqrt(x_i x_(i-1))$。）
+  （提示：把区间 $n$ 等分，取 $xi_i=sqrt(x_i x_(i-1))$．）
 ]
-对于 $n->oo$，取 $x_i=a+display(i/n (b-a))$，有 $Delta x_i = display(1/n (b-a))$。
+对于 $n->oo$，取 $x_i=a+display(i/n (b-a))$，有 $Delta x_i = display(1/n (b-a))$．
 $
 int_a^b (dx)/(x^2)
 &= lim_(n->oo) 1/n (b-a) sum_(i=1)^n 1/(sqrt(x_i dot x_(i-1)))^2\
@@ -97,7 +97,7 @@ $
 int_0^(2pi) (dx)/(1+0.5cos x) <= int_0^(2 pi) 2 dx = 4pi\
 int_0^(2pi) (dx)/(1+0.5cos x) >= int_0^(2 pi) 2/3 dx = (4pi)/3\
 $
-原不等式得证。
+原不等式得证．
 
 = P236 习题5-2 3(2)
 #prob[
@@ -113,7 +113,7 @@ $
 int_0^1 (x^9)/sqrt(1+x) dx <= int_0^1 x^9 dx = 10\
 int_0^1 (x^9)/sqrt(1+x) dx >= int_0^1 x^9/sqrt(2) dx = 10/sqrt(2)\
 $
-原不等式得证。
+原不等式得证．
 
 = P236 习题5-2 5(1) #ac
 #prob[
@@ -127,7 +127,7 @@ F(x) &= (int_a^x f(t) g(t) dt)^2 - (int_a^x f^2(t) dt) (int_a^x g^2(t) dt) quad 
 &= int_a^x (f(t) f(x) (g(t) g(x) - f(t) f(x)) + g(t) g(x) (f(t) f(x) - g(t) g(x))) dt\
 &= - int_a^x (f(t) f(x) - g(t) g(x))^2 dt <= 0
 $
-故 $forall x in [a,b],sp F(x) <= F(a) = 0$。代入 $x=b$ 得 $F(b) <= 0$，即不等式成立。
+故 $forall x in [a,b],sp F(x) <= F(a) = 0$．代入 $x=b$ 得 $F(b) <= 0$，即不等式成立．
 
 = P236 习题5-2 5(2)
 #prob[
@@ -142,19 +142,19 @@ int_a^b f^2(x) dx + 2 int_a^b f(x) g(x) dx + int_a^b g^2(x) dx \
 <=>\
 (int_a^b f(x) g(x) dx)^2 <= (int_a^b f(x) dx) (int_a^b g(x) dx)
 $
-而该不等式已在习题 5-2 第 5(1) 题中证明，故原不等式得证。
+而该不等式已在习题 5-2 第 5(1) 题中证明，故原不等式得证．
 
 = P237 习题5-2 6
 #prob[
   设函数 $f(x)$ 在 $[a,b]$ 上连续，可微且 $f(a) = 0$，证明：
   $ M^2 <= (b-a) int_a^b f'^2 (x) dx $
-  其中 $M = display(sup_(a<=x<=b) abs(f(x)))$。
+  其中 $M = display(sup_(a<=x<=b) abs(f(x)))$．
 ]
 $
 (int_a^b f'(x) dx)^2 <= (b-a) int_a^b f'^2 (x) dx
 <=> (int_a^b f'(x) dot 1 dx) <= (int_a^b f'^2 (x) dx) (int_a^b 1 dx)
 $
-由柯西不等式知成立。进一步地，设 $M$ 在 $x=t$ 时取到，则有：
+由柯西不等式知成立．进一步地，设 $M$ 在 $x=t$ 时取到，则有：
 $
 M^2 <= (t-a) int_a^t f'^2(x) dx
 $
@@ -162,7 +162,7 @@ $
 $
 M^2 <= (b-a) int_a^b f'^2(x) dx
 $
-即原不等式得证。
+即原不等式得证．
 
 = P237 习题5-2 9
 #prob[
@@ -171,7 +171,7 @@ $
     display(1/x int_0^x t^n f(t) dt\, quad& x>0 sp ("其中 " n>0)),
     display(0\,quad& x = 0),
   ) $
-  在 $[0,+oo)$ 上连续递增。
+  在 $[0,+oo)$ 上连续递增．
 ]
 当 $x>0$ 时，有
 $
@@ -180,7 +180,7 @@ F'(x)
 = (x^(n+1) f(x) - f(x) int_0^x t^n dt)/(x^2)\
 &= n/(n+1) x^(n-1)f(x) > 0
 $
-故 $F(x)$ 在 $[0,+oo)$ 上连续递增。
+故 $F(x)$ 在 $[0,+oo)$ 上连续递增．
 
 = P237 习题5-2 10(2)
 #prob[
@@ -196,7 +196,7 @@ lim_(n->oo) int_n^(n+p) 1/x dx
 = lim_(n->oo) ln(abs((n+p)/n))
 = 0
 $
-由夹逼定理知，原极限为零，原命题得证。
+由夹逼定理知，原极限为零，原命题得证．
 
 = P237 习题5-2 11(2)
 #prob[
@@ -247,7 +247,7 @@ $
 
 = P237 习题5-2 13
 #prob[
-  设 $f(x)$ 是连续函数，且 $f(x) = x + 2 display(int_0^1 f(x) dx)$，求 $f(x)$。
+  设 $f(x)$ 是连续函数，且 $f(x) = x + 2 display(int_0^1 f(x) dx)$，求 $f(x)$．
 ]
 $
 f(x) = x + 2 int_0^1 f(x) dx
@@ -258,19 +258,19 @@ $
 x + c = x + 2 int_0^1 (x+c) dx
 => c/2 = 1/2 + c => c = -1
 $
-故 $f(x) = x - 1$。
+故 $f(x) = x - 1$．
 
 = P237 习题5-2 14 #wa
 #prob[
-  设 $f(x)$ 在 $[a,b]$ 上有连续的倒数，且 $f(a) = f(b) = 0$。证明：
+  设 $f(x)$ 在 $[a,b]$ 上有连续的倒数，且 $f(a) = f(b) = 0$．证明：
   $
   max_(a <= x <= b) |f'(x)| >= 
   4/((b-a)^2) int_a^b |f(x)| dx
   $
 ]
-不会做。
+不会做．
 
 = 其他题目
-见扫描件。
+见扫描件．
 == P238 习题5-2 16(5)
 == P238 习题5-3 1

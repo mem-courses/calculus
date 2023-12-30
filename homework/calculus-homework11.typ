@@ -100,7 +100,7 @@ int dx/(1 + cos x)
 = tan(1/2 x) + C
 $
 #note[
-  等价于 $-cot x + display(1/(sin x)) + C$。
+  等价于 $-cot x + display(1/(sin x)) + C$．
 ]
 = P203 习题4-2 11 #ac
 $
@@ -122,7 +122,7 @@ int x/(3 - 2 x^2) dx
 = -1/2 ln |3 - 2 x^2| + C
 $
 #warn[
-  系数别算漏了，这里既有幂次贡献的 $2$，也有系数贡献的 $2$。
+  系数别算漏了，这里既有幂次贡献的 $2$，也有系数贡献的 $2$．
   $
   int x/(3 - 2 x^2) dx
   = -1/4 int dif(3 - 2 x^2)/(3 - 2 x^2)
@@ -162,7 +162,7 @@ int (x^3)/(x^8 - 2) dx
 = 1/(8 sqrt(2)) ln lr(| (x^4 - sqrt(2))/(x^4 + sqrt(2)) |) + C
 $
 = P203 习题4-2 19 #ac
-令 $t=sqrt(x^2 - 1),sp |x| >=1$，有 $x^2 = t^2 + 1$。
+令 $t=sqrt(x^2 - 1),sp |x| >=1$，有 $x^2 = t^2 + 1$．
 $
 int dx/(x sqrt(x^2 - 1))
 &= int 1/x^2 (x/sqrt(x^2 - 1) dx)
@@ -203,7 +203,7 @@ int (ln^2 x)/x dx
 = 1/3 ln^3 x
 $
 = P203 习题4-2 25 #ac
-令 $t=sqrt(1-x),sp x in (-oo,1)$，有 $x=1-t^2$。
+令 $t=sqrt(1-x),sp x in (-oo,1)$，有 $x=1-t^2$．
 $
 int dx/sqrt(x (1-x))
 &= -2 int 1/sqrt(x) (-1/(2 sqrt(1-x)) dx)
@@ -303,7 +303,7 @@ int dx/(cos^4 x)
 = 1/3 tan^3 x + tan x + C
 $
 = P203 习题4-2 36 #ac
-令 $t=e^x$，则有 $dt=e^x dx=t dx$。
+令 $t=e^x$，则有 $dt=e^x dx=t dx$．
 $
 int dx/(1 + e^x)
 &= int 1/(1+t) dot (dt)/t
@@ -314,7 +314,7 @@ int dx/(1 + e^x)
 = x - ln(e^x + 1) + C
 $
 = P203 习题4-2 37 #ac
-令 $t=root(3,1-x)$，则有 $dt=display(-dx/(3 (root(3,1-x))^2) = -dx/(3t^2))$。
+令 $t=root(3,1-x)$，则有 $dt=display(-dx/(3 (root(3,1-x))^2) = -dx/(3t^2))$．
 $
 int x^2 root(3,1-x) dx
 &= int (1-t^3)^2 t (-3t^2) dt
@@ -323,7 +323,7 @@ int x^2 root(3,1-x) dx
 &= -3/10 (1-x)^(10/3) + 6/7 (1-x)^(7/3) - 3/4 (1-x)^(4/3) + C
 $
 = P203 习题4-2 38 #ac
-令 $t=1-5x^2$，则有 $dt=-10x dx$。
+令 $t=1-5x^2$，则有 $dt=-10x dx$．
 $
 int x^3 (1-5x^2)^10 dx
 &= int 1/5(1-t) t^10 dt
@@ -332,7 +332,7 @@ int x^3 (1-5x^2)^10 dx
 = 1/55 (1-5x^2)^11 - 1/60 (1-5x^2)^12 + C
 $
 = P203 习题4-2 39 #ac
-令 $t=1-x^2$，则 $dt=-2x dx$。
+令 $t=1-x^2$，则 $dt=-2x dx$．
 $
 int x^5/sqrt(1-x^2) dx
 &= -1/2 int (1-t)^2/sqrt(t) dt
@@ -359,7 +359,7 @@ int dx/((2x^2+1) sqrt(x^2 + 1))
 &= arctan (sin (arctan x)) + C
 $
 = P204 习题4-2 42 #ac
-令 $t=ln x$，则 $dt=display(dx/x)$。再令 $u=sqrt(1+t)$，则 $du = display(1/(2 u)) dt$，$t=u^2-1$
+令 $t=ln x$，则 $dt=display(dx/x)$．再令 $u=sqrt(1+t)$，则 $du = display(1/(2 u)) dt$，$t=u^2-1$
 $
 int (ln x dx)/(x sqrt(1 + ln x))
 &= int (t)/sqrt(1+t) dt
@@ -370,7 +370,7 @@ int (ln x dx)/(x sqrt(1 + ln x))
 &= 2/3 (1+ln x)^(3/2) - 2 (1+ln x)^(1/2) + C\
 $
 = P204 习题4-2 43 #wa
-已知：$a<x<b$。
+已知：$a<x<b$．
 $
 int dx/sqrt((x-a)(b-x))
 &= int dx/sqrt(((a-b)/2)^2 - (x-(a+b)/2)^2)
@@ -378,7 +378,7 @@ int dx/sqrt((x-a)(b-x))
 &= arcsin ((2x)/(a-b) - (a+b)/(a-b)) + C
 $
 #warn[
-  这里 $a-b<0$。*根号内的系数提出来的时候注意正负号！*
+  这里 $a-b<0$．*根号内的系数提出来的时候注意正负号！*
   $
   int dx/sqrt((x-a)(b-x))
   &= int dx/sqrt(((a-b)/2)^2 - (x-(a+b)/2)^2)
@@ -386,10 +386,10 @@ $
   &= - arcsin ((2x)/(a-b) - (a+b)/(a-b)) + C
   $
 
-  采用别的方法可以得到：$2 arcsin display(sqrt((x-a)/(b-a))) + C$。
+  采用别的方法可以得到：$2 arcsin display(sqrt((x-a)/(b-a))) + C$．
 ]
 = P204 习题4-2 44 #wa
-令 $t = e^x$，则 $dt = t dx$。再令 $u=sqrt(1+t)$，则 $du = display(1/(2 u)) dt$。
+令 $t = e^x$，则 $dt = t dx$．再令 $u=sqrt(1+t)$，则 $du = display(1/(2 u)) dt$．
 $
 int dx/sqrt(1 + e^x)
 &= int t/sqrt(1+t) dt
@@ -400,7 +400,7 @@ int dx/sqrt(1 + e^x)
 &= 2/3 (1+e^x)^(3/2) - 2 (1+e^x)^(1/2) + C
 $
 #warn[
-  令 $u=e^x+1$，则 $du=(u-1) dx$。再令 $v=sqrt(u)$，则 $dv=display(du/(2 v))$
+  令 $u=e^x+1$，则 $du=(u-1) dx$．再令 $v=sqrt(u)$，则 $dv=display(du/(2 v))$
   $
   int dx/sqrt(1 + e^x)
   &= int du/(sqrt(u) (u-1))
@@ -412,10 +412,10 @@ $
   &= ln|sqrt(e^x+1)-1| - ln|sqrt(e^x+1)+1| + C\
   &= ln(sqrt(e^x+1)-1) - ln(sqrt(e^x+1)+1) + C\
   $
-  采用别的方法可以得到：$x-2 ln(1+sqrt(1+e^x)) + C$。
+  采用别的方法可以得到：$x-2 ln(1+sqrt(1+e^x)) + C$．
 ]
 = P204 习题4-2 45 #ac
-令 $t=sqrt(e^x-1)$，则 $dt = display((e^x)/(2 sqrt(e^x-1))) dx$，且 $x = ln(t^2 + 1)$。
+令 $t=sqrt(e^x-1)$，则 $dt = display((e^x)/(2 sqrt(e^x-1))) dx$，且 $x = ln(t^2 + 1)$．
 $
 int (x e^x)/sqrt(e^x - 1) dx
 &= 2 int ln(t^2 + 1) dt

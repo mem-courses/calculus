@@ -23,5 +23,5 @@
 
 = xmr's Problem 1
 
-#prob[设 $x,y in RR$，求 $(x-y)^2 + (2x-5)^2 + 4y^2$ 的最小值。]
+#prob[设 $x,y in RR$，求 $(x-y)^2 + (2x-5)^2 + 4y^2$ 的最小值．]
 

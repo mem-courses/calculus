@@ -330,7 +330,7 @@ int dx/(x^3+1)
 $
 = P220 第四章综合题 25(1) #ac
 #prob[
-  推导递推公式：若 $I_n=int sin^n x dx$，则 $I_n = display((-sin^(n-1) x cos x)/n + (n-1)/n I_(n-2)) quad (n in NN_+)$。
+  推导递推公式：若 $I_n=int sin^n x dx$，则 $I_n = display((-sin^(n-1) x cos x)/n + (n-1)/n I_(n-2)) quad (n in NN_+)$．
 ]
 $
 I_n
@@ -346,7 +346,7 @@ I_n
 $
 = P220 第四章综合题 25(2) #ac
 #prob[
-  推导递推公式：若 $I_n = int cos^n x dx$，则 $I_n = display((sin x cos^(n-1) x)/n + (n-1)/n I_(n-2)) quad (n in NN_+)$。
+  推导递推公式：若 $I_n = int cos^n x dx$，则 $I_n = display((sin x cos^(n-1) x)/n + (n-1)/n I_(n-2)) quad (n in NN_+)$．
 ]
 $
 I_n 
