@@ -52,7 +52,7 @@ $
 
 #def[定理]任意的光滑（要求 $f(x)$ 及 $f'(x)$ 均连续）曲线弧都是可求长的。
 
-可以利用弧微分基本公式 $(dif s)^2 = (dx)^2 + (dy)^2$ 计算。
+弧长可以利用弧微分基本公式 $(dif s)^2 = (dx)^2 + (dy)^2$ 计算。
 
 1. 曲线 $y=f(x) sp (a<=x<=b)$ 的弧长为
 $
@@ -73,4 +73,25 @@ dif s
 =sqrt(r^2(theta) + r'^2(theta)) dif theta
 sp==> sp s
 =int_alpha^beta sqrt(r^2(theta) + r'^2(theta)) dif theta
+$
+
+== 旋转体的体积
+
+#def[结论1]连续曲线段 $y=f(x) sp (a<=x<=b)$ 绕 $x$ 轴一圈围成的立体体积为：
+$
+V_x = int_a^b pi f^2(x) dx
+$
+
+#def[结论2]（柱壳法）平面图形 $D:sp 0<=y<=f(x),sp a<=x<=b$ 绕 $y$ 轴形成的旋转体的体积为：
+$
+V_y = 2 pi int_a^b x f(x) dx
+$
+
+== 旋转体的侧面积
+
+#def[结论]连续曲线段 $y=f(x)$ 且 $f(x)>=0$ 绕 $x$ 旋转一周所得到的旋转体表面积为：
+$
+dif S = 2 pi y dif s
+sp ==> sp
+S = 2 pi int_a^b f(x) sqrt(1 + f'^2(x)) dx
 $
