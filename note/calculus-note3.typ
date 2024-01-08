@@ -126,7 +126,8 @@
 
 === 斜渐近线
 
-$y=a x+b$ 是曲线 $y=f(x)$ 的斜渐近线的充要条件是 $display(lim_(x->oo)(f(x)-a x-b)/x = 0)$．
+$y=a x+b$ 是曲线 $y=f(x)$ 的斜渐近线的充要条件是 $display(lim_(x->oo)(f(x)-a x-b)/x = 0)$．进一步地可以得到
+$ cases(display(a &= lim_(x->oo) (f(x))/x), display(b &= lim_(x->oo) (f(x) - a x))) $
 
 #note[当 $a=0$ 时，该渐近线又可称为水平渐近线，水平渐近线是斜渐近线的一种．]
 
