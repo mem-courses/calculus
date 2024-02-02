@@ -5,6 +5,9 @@
 
 #let definition_counter = state("definition_counter", 0)
 #let theorem_counter = state("theorem_counter", 0)
+#let problem_counter = state("problem_counter", 0)
+
+#let reset_indent = [#text()[#v(0pt, weak: true)];#text()[#h(0em)]]
 
 #let project(title: "", authors: (), date: none, body) = {
   // Set the document's basic properties.
@@ -59,6 +62,14 @@
     #it
   ]
 
+  show heading.where(level: 2): it => [
+    #theorem_counter.update(x => 0)
+    #it
+  ]
+
+  set par(justify: true, first-line-indent: 2em)
+  show heading: it => {text()[#v(1.6em, weak: true)];it;reset_indent}
+
   body
 }
 
@@ -71,59 +82,59 @@
 
 #let bb = (it) => [#strong[#it]]
 
-#let definition(it) = [
+#let definition(it) = {block(width: 100%)[
   #definition_counter.update(x => (x + 1))
   #strong[
     #hei[定义]#locate(loc => [#counter(heading).at(loc).at(0)]).#definition_counter.display()
   ]
   #math.space#it
-]
+];reset_indent}
 
-#let theorem(it, name: "") = [
+#let theorem(it, name: "", tag: "定理") = {block(width: 100%)[
   #theorem_counter.update(x => (x + 1))
   #strong[
-    #hei[定理]#locate(loc => [#counter(heading).at(loc).at(0)]).#theorem_counter.display()
+    #hei[#tag]#locate(loc => [#counter(heading).at(loc).at(0).#counter(heading).at(loc).at(1)]).#theorem_counter.display()
   ]
-  #if (name != "") [#kai[(#name)]]
+  #if (name != "") [(#kai[#name])]
   #math.space#it
-]
-#let lemma(it, name: "") = [
-  #theorem_counter.update(x => (x + 1))
-  #strong[
-    #hei[引理]#locate(loc => [#counter(heading).at(loc).at(0)]).#theorem_counter.display()
-  ]
-  #if (name != "") [#kai[(#name)]]
-  #math.space#it
-]
-#let corollary(it, name: "") = [
-  #theorem_counter.update(x => (x + 1))
-  #strong[
-    #hei[推论]#locate(loc => [#counter(heading).at(loc).at(0)]).#theorem_counter.display()
-  ]
-  #if (name != "") [#kai[(#name)]]
-  #math.space#it
-]
+];reset_indent}
+#let lemma(it, name: "") = theorem(it, name: name, tag: "引理")
+#let corollary(it, name: "") = theorem(it, name: name, tag: "推论")
 
-#let named_block = (it, name: "", color: red, inset: 10pt) => block(
-  below: 1em, stroke: 0.5pt + color,
+#let problem(it, name: "") = {block(width: 100%)[
+  #problem_counter.update(x => (x + 1))
+  #strong[
+    #hei[例]#problem_counter.display()
+  ]
+  #if (name != "") [(#kai[#name])]
+  #math.space#it
+];reset_indent}
+#let solution(it, tag: "解") = {block(width: 100%)[
+  #strong[#hei[#tag:]]
+  #math.space#it
+];reset_indent}
+
+#let named_block(it, name: "", color: red, inset: 11pt) = {block(
+  below: 1em, stroke: 0.5pt + color, radius: 3pt,
   width: 100%, inset: inset
 )[
   #place(
     top + left,
     dy: -6pt - inset, // Account for inset of block
-    dx: 6pt - inset,
+    dx: 8pt - inset,
     block(fill: white, inset: 2pt)[
 			#set text(font: "Noto Sans", fill: color)
 			#strong[#name]
 		]
   )
-  #let fontcolor = color.darken(40%)
+  #let fontcolor = color.darken(90%)
   #set text(fill: fontcolor)
   #it
-]
-#let proof(it) = named_block(it, name: "Proof", color: gray)
+];reset_indent}
+
+#let proof(it) = named_block(it, name: "Proof", color: gray.darken(30%))
 #let info(it) = named_block(it, name: "Info", color: gray)
 #let note(it) = named_block(it, name: "Note", color: blue)
-#let warn(it) = named_block(it, name: "Warning", color: orange)
+#let warning(it) = named_block(it, name: "Warning", color: red)
+#let example(it) = named_block(it, name: "Example", color: gray.darken(60%))
 #let prof(it) = proof(it)
-#let prof(..x) = { prob(bgcolor: luma(252), border: luma(135), ..x) }
