@@ -100,41 +100,49 @@ $
 
 == 有界集
 
-既有上界，又有下界的数集称为 *有界集*．因此 $ A "有界" quad <==> quad exists M_1, M_2 in RR,sp st forall x in A,sp M_2 <= x <= M_1 . $
+#definition[
+	既有上界，又有下界的数集称为*有界集*．因此 $ A "有界" quad <==> quad exists M_1, M_2 in RR,sp st forall x in A,sp M_2 <= x <= M_1 . $
 
-等价于 $ A "有界" quad<==>quad exists M>0,sp st forall x in A ,sp |x|<=M. $
+	等价于 $ A "有界" quad<==>quad exists M>0,sp st forall x in A ,sp |x|<=M. $
 
-若 $A$ 不是有界集，则称 $A$ 为无界集．因此 $ A "无界" quad<==>quad forall M>0,sp exists x_0 in A,sp st |x_0| >M. $
+	若 $A$ 不是有界集，则称 $A$ 为*无界集*．因此 $ A "无界" quad<==>quad forall M>0,sp exists x_0 in A,sp st |x_0| >M. $
+]
 
 == 确界
 
-设 $A subset RR, A != emptyset$，若存在常数 $alpha$，满足：
+#definition[
+	设 $A subset RR, A != emptyset$，若存在常数 $alpha$，满足：
 
-1. $forall x in A,sp x <= alpha.$（$alpha$ 是 $A$ 的一个上界）
-2. $forall eps>0,sp exists x_0 in A,sp st x_0>alpha-eps$（即 $alpha$ 是 $A$ 的最小上界）
+	1. $forall x in A,sp x <= alpha.$（$alpha$ 是 $A$ 的一个上界）
+	2. $forall eps>0,sp exists x_0 in A,sp st x_0>alpha-eps$（即 $alpha$ 是 $A$ 的最小上界）
 
-则称 $alpha$ 为数集 $A$ 的 *上确界*，记为 $alpha=sup A$．同理可定义数集 $A$ 的 *下确界*，记为 $beta=inf A$．
+	则称 $alpha$ 为数集 $A$ 的*上确界*，记为 $alpha=sup A$．同理可定义数集 $A$ 的*下确界*，记为 $beta=inf A$．
+]
 
 == 确界原理
 
+#theorem(name: "有界集确界原理")[
 - 非空有上界的数集，必有上确界．非空有下界的数集，必有下确界．
 - 非空有界数集，必有上、下确界．
+]
 
 （不需要找出确界，只需要证明有界性即可说明确界存在）
 
 = 数列的极限
 
-== 定义
+#definition[
+	设 ${a_n}$ 是一个数列，如果存在 $A in RR$，使得对于任意 $eps>0$ 都有 $N in N_+$ 使得对于任意 $n>N$ 都有 $|a_n-A|<eps$．那么称 ${a_n}$ 收敛于 $A$，并把 $A$ 称作*数列的极限*．
 
-设 ${a_n}$ 是一个数列，如果存在 $A in RR$，使得对于任意 $eps>0$ 都有 $N in N_+$ 使得对于任意 $n>N$ 都有 $|a_n-A|<eps$．那么称 ${a_n}$ 收敛于 $A$，并把 $A$ 称作数列的极限．
+	$
+	lim_(n->oo) a_n = A
+	quad <==> quad
+	forall eps>0,sp exists N in NN_+,sp st forall n>N,sp |a_n-A|<eps.
+	$
+]
 
-$
-lim_(n->oo) a_n = A
-quad <==> quad
-forall eps>0,sp exists N in NN_+,sp st forall n>N,sp |a_n-A|<eps.
-$
-
-如果存在 $A in RR$ 使得数列 ${a_n}$ 收敛于 $A$，则称数列 ${a_n}$ *收敛*，否则称其 *发散*．
+#definition[
+	如果存在 $A in RR$ 使得数列 ${a_n}$ 收敛于 $A$，则称数列 ${a_n}$ *收敛*，否则称其 *发散*．
+]
 
 #note[【证明数列收敛的方法】对于任意 $eps$ 先要求 $|a_n-A|<eps$ $=>$ 解不等式或利用其他性质得出 $N(eps)$ $=>$ 说明对于 $n>N(eps)$ 都成立 $=>$ 得证．]
 

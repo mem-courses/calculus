@@ -103,3 +103,27 @@
   #if (name != "") [#kai[(#name)]]
   #math.space#it
 ]
+
+#let named_block = (it, name: "", color: red, inset: 10pt) => block(
+  below: 1em, stroke: 0.5pt + color,
+  width: 100%, inset: inset
+)[
+  #place(
+    top + left,
+    dy: -6pt - inset, // Account for inset of block
+    dx: 6pt - inset,
+    block(fill: white, inset: 2pt)[
+			#set text(font: "Noto Sans", fill: color)
+			#strong[#name]
+		]
+  )
+  #let fontcolor = color.darken(40%)
+  #set text(fill: fontcolor)
+  #it
+]
+#let proof(it) = named_block(it, name: "Proof", color: gray)
+#let info(it) = named_block(it, name: "Info", color: gray)
+#let note(it) = named_block(it, name: "Note", color: blue)
+#let warn(it) = named_block(it, name: "Warning", color: orange)
+#let prof(it) = proof(it)
+#let prof(..x) = { prob(bgcolor: luma(252), border: luma(135), ..x) }
