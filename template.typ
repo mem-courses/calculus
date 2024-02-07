@@ -9,8 +9,8 @@
 
 #let reset_indent = [#text()[#v(0pt, weak: true)];#text()[#h(0em)]]
 
-#let project(title: "", authors: (), date: none, body) = {
-  // Set the document's basic properties.
+#let project(course: "", title: "", authors: (), date: none, body) = {
+  // 文档基本信息
   set document(author: authors.map(a => a.name), title: title)
   set page(
     paper: "a4",
@@ -18,6 +18,37 @@
     numbering: "1",
     number-align: center,
   )
+  
+  // 页眉
+  set page(
+    header: {
+      set text(font: font_song, 10pt, baseline: 8pt, spacing: 3pt)
+      
+      grid(
+        columns: (1fr, 1fr, 1fr),
+        align(left, course),
+        align(center, title),
+        align(right, date),
+      )
+      
+      line(length: 100%, stroke: 0.5pt)
+    }
+  )
+
+  // 页脚
+  set page(
+    footer: {
+      set text(font: font_song, 10pt, baseline: 8pt, spacing: 3pt)
+      set align(center)
+      
+      grid(
+        columns: (1fr, 1fr),
+        align(left, authors.map(a => a.name).join(", ")),
+        align(right, counter(page).display("1")),
+      )
+    }
+  )
+
 
   set text(font: font_song, lang: "zh", size: 12pt)
   show math.equation: set text(weight: 400)
@@ -30,9 +61,8 @@
 
   // Title row.
   align(center)[
-    #block(text(weight: 700, 1.5em, title))
+    #block(text(weight: 700, 1.5em, [#title]))
     #v(1.1em, weak: true)
-    #date
   ]
 
   // Author information.
@@ -50,7 +80,7 @@
       ]),
     ),
   )
-
+  
   // Main body.
   set par(justify: true)
 
@@ -100,6 +130,7 @@
 ];reset_indent}
 #let lemma(it, name: "") = theorem(it, name: name, tag: "引理")
 #let corollary(it, name: "") = theorem(it, name: name, tag: "推论")
+#let property(it, name: "") = theorem(it, name: name, tag: "性质")
 
 #let problem(it, name: "") = {block(width: 100%)[
   #problem_counter.update(x => (x + 1))
@@ -127,8 +158,9 @@
 			#strong[#name]
 		]
   )
-  #let fontcolor = color.darken(90%)
+  #let fontcolor = color.darken(20%)
   #set text(fill: fontcolor)
+  #set par(justify: true, first-line-indent: 0em)
   #it
 ];reset_indent}
 
