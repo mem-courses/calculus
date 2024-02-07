@@ -1,7 +1,8 @@
 #import "../template.typ": *
 
 #show: project.with(
-  title: "Calculus II  Note #1 级数",
+	course: "Calculus II",
+  title: "Note #1 级数",
   authors: ((
 		name: "memset0",
 		email: "memset0@outlook.com",
@@ -10,32 +11,36 @@
   date: "January 24, 2024",
 )
 
-#let ss = [$display(sum_(n=1)^(+oo))$]
+#let ss = [$display(attach(inline(sum), t: +oo, b: n=1))$]
+#let sss = [$display(attach(sum, t: +oo, b: n=1))$]
+#let int = math.integral
+#let dx = [$dif x$]
+#let dy = [$dif y$]
 
 = 级数
 
 == 级数及级数收敛的定义
 
 #definition[
-	给定数列 ${a_n}$，将其每一项依次用“$+$”号连接起来的表达式 $a_1 + a_2 + dots.c + a_n + dots.c = display(sum_(n=1)^oo a_n)$ 称为#bb[无穷级数]，
+	给定数列 ${a_n}$，将其每一项依次用“$+$”号连接起来的表达式 $a_1 + a_2 + dots.c + a_n + dots.c = ss a_n$ 称为#bb[无穷级数]，
 ]
 
 #definition[
-	在级数 $display(sum_(n=1)^(+oo) a_n)$ 中，前 $n$ 项的和 $display(S_n = a_1 + a_2 + dots.c + a_n)$ 	称为它的第 $n$ 个#bb[部分和]。所得到的数列 ${S_n}$ 称为#bb[部分和数列]。
+	在级数 $ss a_n$ 中，前 $n$ 项的和 $display(S_n = a_1 + a_2 + dots.c + a_n)$ 	称为它的第 $n$ 个#bb[部分和]。所得到的数列 ${S_n}$ 称为#bb[部分和数列]。
 ]
 
 #definition[
-	对于级数 $display(sum_(n=1)^oo u_n)$，若它的部分和数列 ${S_n}$ 收敛，则称该无穷级数#bb[收敛]。且称 $S=display(lim_(n->oo) S_n = S)$ 为该级数的#bb[和]；若数列 ${S_n}$ 发散，则称该无穷级数#bb[发散]。
+	对于级数 $ss a_n$，若它的部分和数列 ${S_n}$ 收敛，则称该无穷级数#bb[收敛]。且称 $S=display(lim_(n->oo) S_n = S)$ 为该级数的#bb[和]；若数列 ${S_n}$ 发散，则称该无穷级数#bb[发散]。
 ]
 
 #theorem(name: "柯西收敛准则")[
-	级数 $display(sum_(n=1)^(+oo) a_n)$ 收敛的充要条件式：$forall eps > 0,sp exists N>0$，当 $n>N$ 时，$forall p in NN_+$，均有
+	级数 $ss a_n$ 收敛的充要条件是：$forall eps > 0,sp exists N>0$，当 $n>N$ 时，$forall p in NN_+$，均有
 	$ |S_(n+p) - S_n| = |a_(n+1) + a_(n+2) + dots.c + a_(n+p)| < eps $
 ]
 
 #example[
 	#problem[
-		证明级数 $display(sum_(n=1)^(+oo) 1/(n^2))$ 收敛。
+		证明级数 $sss display(1/(n^2))$ 收敛。
 	]
 
 	#solution(tag: "证明")[
@@ -52,7 +57,7 @@
 #theorem[
 	若级数 $ss a_n, ss b_n$ 均收敛，则对任意 $k_1,k_2 in RR$，$ss (k_1 a_n + k_2 b_n)$ 也收敛，且
 	$
-	ss (k_1 a_n + k_2 b_n) = k_1 ss a_n + k_2 ss b_n
+	sss (k_1 a_n + k_2 b_n) = k_1 sss a_n + k_2 sss b_n
 	$
 ]
 
@@ -84,7 +89,7 @@
 	若级数 $ss a_n$ 收敛，则 $display(lim_(n->+oo) a_n) = 0$。
 
 	#warning[
-		这是必要条件而非充分条件，例： 级数 $ss display(ln(1+1/n))$ 的一般项趋于 $0$ 而级数发散。
+		这是必要条件而非充分条件，例： 级数 $sss display(ln(1+1/n))$ 的一般项趋于 $0$ 而级数发散。
 	]
 ]
 
@@ -103,16 +108,110 @@
 ]
 
 #theorem(name: "比较判别法")[
-	设 $ss a_n,ss b_n$ 均为正项级数，且 $a_n<=k b_n (k>0,sp n=1,2,dots)$，则：
+	对于正项级数 $ss a_n,ss b_n$，若存在 $N$ 使得当 $n>N$ 时 $a_n<=k b_n sp (k>0)$ 恒成立，则：
 
 	(1) 若 $ss b_n$ 收敛，则 $ss a_n$ 必收敛。
 
 	(2) 若 $ss a_n$ 发散，则 $ss b_n$ 必发散。
 ]
 
-$ \ $比较判别法也可用极限形式表示。
+\
+
+比较判别法也可用极限形式表示。
 
 #theorem(name: "极限判别法")[
+	对于正项级数 $ss a_n, ss b_n$，如果 $display(lim_(n->+oo) (a_n)/(b_n)) = l$，那么
 
+	(1) 当 $0<l<+oo$ 时，级数 $ss a_n, ss b_n$ 具有相同的敛散性；
+	
+	(2) 当 $l=0$ 时，若 $ss b_n$ 收敛，则 $ss a_n$ 也收敛；
+	
+	(3) 当 $l=+oo$ 时，若 $ss b_n$ 发散，则 $ss a_n$ 也发散。
+
+	#proof[
+		(1) 123
+
+
+		(3) 是 (2) 倒过来的情况，证明只需要注意到“若 $ss a_n$ 发散，则 $ss a_n$ 发散”是“若 $ss b_n$ 收敛，则 $ss b_n$ 收敛”的逆否命题。
+	]
 ]
 
+这一定理的记忆可以类比无穷小的概念：若 $l=1$，则 $a_n$ 是 $b_n$ 的等价无穷小；若 $l=0$，则 $a_n$ 是 $b_n$ 的高阶无穷小。一般来说，我们找个同阶无穷小来判定敛散性会比较方便。
+
+#example[
+	#problem[
+		判断级数 $sss display((1/n - ln(1+1/n)))$ 的敛散性。
+	]
+
+	#solution[
+		因为当 $x->0$ 时，$display(x-ln(1+x) = x - (x - x^2/2 + o(x^2)) = x^2/2 + o(x^2))$。所以
+
+		$ lim_(x->0) (x-ln(1+x))/(x^2) = 1/2 $
+		
+		从而有
+
+		$ lim_(n->+oo) n^2 (1/n - ln(1+1/n)) = 1/2 $
+
+		而级数 $sss display(1/(n^2))$ 收敛，因此级数 $sss display((1/n - ln(1+1/n)))$ 也收敛。
+	]
+]
+
+\
+
+#property[
+	通常称 $sss display(1/(n^p))$ 为 #bb[$p$-级数]。当 $p<=1$ 时，$p$-级数发散；当 $p>1$ 时，$p$-级数收敛。
+
+	#proof[
+		当 $p<=1$ 时，$display(1/(n^p)>=1/n)$，而调和级数发散，因此当 $p<=1$ 时，级数 $sss display(1/(n^p))$ 发散。
+
+		当 $p>1$ 时，对函数 $f(x)=display(1/(x^(p-1)) sp (x>=1))$ 在区间 $[n,n+1]$ 上应用拉格朗日中值定理，$exists theta_n in (0,1)$ 使得
+
+		$ 1/((n+1)^(p-1)) - 1/(n^(p-1)) = f(n+1)-f(n) = f'(n+theta_n) = - (p-1)/(n+theta_n)^p $
+
+		则
+
+		$ 1/(p-1) (1/(n^(p-1)) - 1/((n+1)^(p-1))) = 1/((n+theta_n)^p) > 1/((n+1)^p) $
+
+		又正项级数 $sss display((1/(n^(p-1)) - 1/((n+1)^(p-1))))$ 收敛，根据比较判别法，当 $p>1$ 时，级数 $sss display(1/(n^p))$ 收敛。
+	]
+]
+
+#theorem(name: "比值判别法，达朗贝尔判别法")[
+	对于正项级数 $ss a_n$，若 $display(lim_(n->+oo) (a_(n+1))/(a_n)) = l$，则
+
+	(1) 当 $0<=l<1$ 时，级数 $ss a_n$ 收敛；
+	
+	(2) 当 $l>1$ 时，级数 $ss a_n$ 发散。
+
+	#proof[
+		(1) 123
+
+		(2) 123
+	]
+]
+
+
+#theorem(name: "根值判别法，柯西判别法")[
+	对于正项级数 $ss a_n$，若 $display(lim_(n->+oo) root(n,a_n)) = l$，则
+
+	(1) 当 $0<=l<1$ 时，级数 $ss a_n$ 收敛；
+	
+	(2) 当 $l>1$ 时，级数 $ss a_n$ 发散。
+
+	#proof[
+		(1) 123
+
+		(2) 123
+	]
+]
+
+
+#theorem(name: "积分判别法")[
+	设函数 $f(x)$ 在 $[1, +oo)$ 上单调递减，则级数 $ss f(n)$ 与反常积分 $display(int_1^(+oo) f(x) dx)$ 具有相同的敛散性。
+
+	#proof[
+		(1) 123
+
+		(2) 123
+	]
+]
