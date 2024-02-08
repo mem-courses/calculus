@@ -81,7 +81,7 @@
   )
   
   // Main body.
-  set par(justify: true)
+  set par(justify: false)
 
   show "。": "．"
 
@@ -96,7 +96,7 @@
     #it
   ]
 
-  set par(justify: true, first-line-indent: 2em)
+  set par(first-line-indent: 2em)
   show heading: it => {text()[#v(1.6em, weak: true)];it;reset_indent}
 
   body
@@ -130,6 +130,7 @@
 #let lemma(it, name: "") = theorem(it, name: name, tag: "引理")
 #let corollary(it, name: "") = theorem(it, name: name, tag: "推论")
 #let property(it, name: "") = theorem(it, name: name, tag: "性质")
+#let conclusion(it, name: "") = theorem(it, name: name, tag: "结论")
 
 #let problem(it, name: "") = {block(width: 100%)[
   #problem_counter.update(x => (x + 1))
@@ -159,7 +160,7 @@
   )
   #let fontcolor = color.darken(20%)
   #set text(fill: fontcolor)
-  #set par(justify: true, first-line-indent: 0em)
+  #set par(first-line-indent: 0em)
   #it
 ];reset_indent}
 
