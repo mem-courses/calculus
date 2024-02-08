@@ -14,7 +14,7 @@
   set document(author: authors.map(a => a.name), title: title)
   set page(
     paper: "a4",
-    margin: (left: 12mm, right: 12mm, top: 16mm, bottom: 16mm),
+    margin: (left: 12mm, right: 12mm, top: 20mm, bottom: 20mm),
     numbering: "1",
     number-align: center,
   )
@@ -23,7 +23,7 @@
   set page(
     header: {
       set text(font: font_song, 10pt, baseline: 8pt, spacing: 3pt)
-      
+
       grid(
         columns: (1fr, 1fr, 1fr),
         align(left, course),
@@ -49,7 +49,6 @@
     }
   )
 
-
   set text(font: font_song, lang: "zh", size: 12pt)
   show math.equation: set text(weight: 400)
 
@@ -68,7 +67,7 @@
   // Author information.
   pad(
     top: 0.8em,
-    bottom: 2.8em,
+    bottom: 0.8em,
     x: 2em,
     grid(
       columns: (1fr,) * calc.min(3, authors.len()),
