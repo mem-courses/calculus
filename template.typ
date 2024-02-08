@@ -81,7 +81,7 @@
   )
   
   // Main body.
-  set par(justify: false)
+  set par(justify: true)
 
   show "。": "．"
 
