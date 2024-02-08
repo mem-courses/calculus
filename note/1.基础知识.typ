@@ -15,62 +15,51 @@
 
 == 三角恒等变换
 
-=== 和差角公式
+#[
+	#set text(size: 11.5pt)
+	#table(
+		columns: (1fr, auto),
+		inset: 11pt,
+		stroke: 0.5pt,
+		align: center + horizon,
+		[和差角公式], [$
+			sin(u pm v) = sin u cos v pm cos u sin v quad quad
+			cos(u pm v) = cos u cos v mp sin u sin v
+		$],
+		[倍角公式], [$
+			sin 2theta &= 2 sin theta cos theta quad quad 
+			cos 2theta &= cos^2 theta - sin^2 theta = 2 cos^2 theta - 1 = 1 - 2 sin^2 theta\
+		$],
+		[半角公式], [$
+			sin theta/2 = pm sqrt((1-cos theta)/2) quad quad 
+			cos theta/2 = pm sqrt((1+cos theta)/2) quad quad 
+			tan theta/2 = (sin theta)/(1 + cos theta) = (1 - cos theta)/(sin theta)
+		$],
+		[和差化积], [$
+			sin u + sin v = 2 sin (u+v)/2 cos (u-v)/2 quad quad 
+			sin u - sin v = 2 cos (u+v)/2 sin (u-v)/2\
+			cos u + cos v = 2 cos (u+v)/2 cos (u-v)/2 quad quad 
+			cos u - cos v = -2 sin (u+v)/2 sin (u-v)/2\
+		$],
+		[积化和差], [$
+			sin u cos v = 1/2(sin(u+v) + sin(u-v)) quad quad 
+			cos u sin v = 1/2(sin(u+v) - sin(u-v))\
+			cos u cos v = 1/2(cos(u+v) + cos(u-v)) quad quad 
+			sin u sin v = -1/2(cos(u+v) + cos(u-v))\
+		$],
+		[万能公式], [$
+			sin u = display(2 tan u/2) / display(1 + tan^2 u/2) quad quad 
+			cos u = display(1 - tan^2 u/2) / display(1 + tan^2 u/2) quad quad 
+			tan u = display(2 tan u/2) / display(1 - tan^2 u/2)\
+		$],
+		[辅助角公式], [
+			设 $A,B != 0$，那么 $A sin x + B cos x = sqrt(A^2 + B^2) sin(x + phi)$
+			
+			其中 $phi$ 满足：$display(sin phi = display(B/sqrt(A^2 + B^2)\, sp cos phi = display(A/sqrt(A^2 + B^2))))$	。
+		],
+	)
+]
 
-$
-sin(u pm v) = sin u cos v pm cos u sin v quad quad
-cos(u pm v) = cos u cos v mp sin u sin v
-$
-
-=== 倍角公式
-
-$
-sin 2theta &= 2 sin theta cos theta\
-cos 2theta &= cos^2 theta - sin^2 theta = 2 cos^2 theta - 1 = 1 - 2 sin^2 theta\
-$
-
-=== 半角公式
-
-$
-sin theta/2 = pm sqrt((1-cos theta)/2) quad quad 
-cos theta/2 = pm sqrt((1+cos theta)/2)\
-tan theta/2 = (sin theta)/(1 + cos theta) = (1 - cos theta)/(sin theta)
-$
-
-=== 和差化积
-
-$
-sin u + sin v = 2 sin (u+v)/2 cos (u-v)/2 quad quad
-sin u - sin v = 2 cos (u+v)/2 sin (u-v)/2\
-cos u + cos v = 2 cos (u+v)/2 cos (u-v)/2 quad quad
-cos u - cos v = -2 sin (u+v)/2 sin (u-v)/2\
-$
-
-=== 积化和差
-
-$
-sin u cos v = 1/2(sin(u+v) + sin(u-v)) quad quad
-cos u sin v = 1/2(sin(u+v) - sin(u-v))\
-cos u cos v = 1/2(cos(u+v) + cos(u-v)) quad quad
-sin u sin v = -1/2(cos(u+v) + cos(u-v))\
-$
-
-=== 万能公式
-
-$
-sin u = display(2 tan u/2) / display(1 + tan^2 u/2) quad quad
-cos u = display(1 - tan^2 u/2) / display(1 + tan^2 u/2) quad quad
-tan u = display(2 tan u/2) / display(1 - tan^2 u/2)
-$
-
-=== 辅助角公式
-
-设 $A,B != 0$，那么 $A sin x + B cos x = sqrt(A^2 + B^2) sin(x + phi)$，其中 $phi$ 满足：
-
-$ cases(
-	sin phi = display(B/sqrt(A^2 + B^2)),
-	cos phi = display(A/sqrt(A^2 + B^2)),
-) $
 
 == 二项式定理
 
@@ -128,6 +117,8 @@ $
 	1. 非空有上界的数集，必有上确界。非空有下界的数集，必有下确界。
 
 	2. 非空有界数集，必有上、下确界。
+	
+	#note[
+		有界集确界原理告诉我们，在判断是否数集是否存在确界时，不需要找出确界，只需要证明有界性即可说明确界存在。
+	]
 ]
-
-有界集确界原理告诉我们，在判断是否数集是否存在确界时，不需要找出确界，只需要证明有界性即可说明确界存在。
