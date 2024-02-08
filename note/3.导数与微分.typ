@@ -1,13 +1,14 @@
 #import "../template.typ": *
 
 #show: project.with(
-  title: "Calculus Note #2",
-  authors: ((
-    name: "memset0",
-    email: "memset0@outlook.com",
-    phone: "3230104585"
-  ),),
-  date: "October 31, 2023",
+	course: "Calculus I",
+	title: "Note #3 导数与微分",
+	authors: ((
+		name: "memset0",
+		email: "memset0@outlook.com",
+		phone: "3230104585"
+	),),
+	date: "October 31, 2023",
 )
 
 = 导数
@@ -55,8 +56,8 @@ $
 
 #note[#def[定理]初等函数在定义区间内可导，且导数仍为初等函数．]
 
-#prof[
-  #def[证明思路]通过构造性定义和两个重要极限得到 $(C)'=0$、$(sin x)' = cos x$、$(ln x)' = 1/x$，再利用求导法则得到其他基本初等函数的求导公式．
+#proof[
+	#def[证明思路]通过构造性定义和两个重要极限得到 $(C)'=0$、$(sin x)' = cos x$、$(ln x)' = 1/x$，再利用求导法则得到其他基本初等函数的求导公式．
 ]
 
 == 四则运算求导法则
@@ -69,23 +70,23 @@ $
 
 3. $display([u(x)/v(x)]' = (u'(x) v(x) - u(x) v'(x))/(v^2(x))) quad (v(x) != 0)$
 
-#prof[
-  乘法求导法则的证明：设 $f(x) = u(x) v(x)$，则有
-  $ f'(x)
-  &= lim_(h->0)(f(x+h)-f(x))/h
-  = lim_(h->0)(u(x+h) v(x+h) - u(x) v(x)) / h\
-  &= lim_(h->0) [frac(u(x+h)-u(x),h) v(x+h) + u(x) frac(v(x+h) - v(x), h)]\
-  &= u'(x) v(x) + u(x) v'(x)\
-  $
-  除法求导法则的证明：设 $f(x) = display(u(x)/v(x))$，则有
-  $ f'(x)
-  &= lim_(h->0)(f(x+h) - f(x))/h
-  = lim_(h->0)(frac(u(x+h),v(x+h))-frac(u(x),v(x)))/(h)\
-  &= lim_(h->0) [ frac(
-    (u(x+h)-u(x))/h v(x) - u(x) (v(x+h) - v(x))/h
-  ,v(x+h) v(x)) ]\
-  &= (u'(x) v(x) - u(x) v'(x))/(v^2(x))
-  $
+#proof[
+	乘法求导法则的证明：设 $f(x) = u(x) v(x)$，则有
+	$ f'(x)
+	&= lim_(h->0)(f(x+h)-f(x))/h
+	= lim_(h->0)(u(x+h) v(x+h) - u(x) v(x)) / h\
+	&= lim_(h->0) [frac(u(x+h)-u(x),h) v(x+h) + u(x) frac(v(x+h) - v(x), h)]\
+	&= u'(x) v(x) + u(x) v'(x)\
+	$
+	除法求导法则的证明：设 $f(x) = display(u(x)/v(x))$，则有
+	$ f'(x)
+	&= lim_(h->0)(f(x+h) - f(x))/h
+	= lim_(h->0)(frac(u(x+h),v(x+h))-frac(u(x),v(x)))/(h)\
+	&= lim_(h->0) [ frac(
+		(u(x+h)-u(x))/h v(x) - u(x) (v(x+h) - v(x))/h
+	,v(x+h) v(x)) ]\
+	&= (u'(x) v(x) - u(x) v'(x))/(v^2(x))
+	$
 ]
 
 == 反函数的求导法则
@@ -97,20 +98,20 @@ f'(x) = 1/([f^(-1)(y)]') sp "或表示为" sp dy/dx = 1/(sp dx/dy sp)
 $
 
 #note[
-  1. 设 $y = arcsin x$，则 $x = sin y,sp y in (display(-pi/2\,pi/2))$，则：
+	1. 设 $y = arcsin x$，则 $x = sin y,sp y in (display(-pi/2\,pi/2))$，则：
 
-  $
-  (arcsin x)' &= 1/((sin y)') = 1/(cos y) = 1/(sqrt(1 - sin^2 y)) = 1/sqrt(1-x^2)\
-  (arccos x)' &= (pi/2 - arcsin x)' = -1/sqrt(1-x^2)\
-  (arctan x)' &= 1/((tan y)') = cos^2 y = 1/(1 + tan^2 y) = 1/(1+x^2)\
-  (arccot x)' &= (pi/2 - arctan x)' = -1/(1+x^2)\
-  $
+	$
+	(arcsin x)' &= 1/((sin y)') = 1/(cos y) = 1/(sqrt(1 - sin^2 y)) = 1/sqrt(1-x^2)\
+	(arccos x)' &= (pi/2 - arcsin x)' = -1/sqrt(1-x^2)\
+	(arctan x)' &= 1/((tan y)') = cos^2 y = 1/(1 + tan^2 y) = 1/(1+x^2)\
+	(arccot x)' &= (pi/2 - arctan x)' = -1/(1+x^2)\
+	$
 
-  2. 设 $y=a^x$，则 $x = log_a y,sp y in (0,+oo)$，则：
+	2. 设 $y=a^x$，则 $x = log_a y,sp y in (0,+oo)$，则：
 
-  $
-  (a^x)' = 1/((log_a y)') = y ln a = a^x ln a
-  $
+	$
+	(a^x)' = 1/((log_a y)') = y ln a = a^x ln a
+	$
 ]
 
 == 复合函数的求导法则
@@ -119,18 +120,18 @@ $
 
 多层复合函数求导的情形：由外向内逐层求导．
 
-#prof[
-  #def[证明] $y=f(u)$ 在点 $u$ 可导 $=>$ $display(lim_(Du -> 0) Dy/Du = f'(u))$
+#proof[
+	#def[证明] $y=f(u)$ 在点 $u$ 可导 $=>$ $display(lim_(Du -> 0) Dy/Du = f'(u))$
 
-  $=>$ $Dy = f'(u) Du + alpha Du$（当 $Du->0$ 时 $alpha->0$）
+	$=>$ $Dy = f'(u) Du + alpha Du$（当 $Du->0$ 时 $alpha->0$）
 
-  $=>$ $display(Dy / Dx = f'(u) Du/Dx + alpha Du/Dx) quad (Delta x!=0)$
+	$=>$ $display(Dy / Dx = f'(u) Du/Dx + alpha Du/Dx) quad (Delta x!=0)$
 
-  由于 $u=g(x)$ 在点 $x$ 可导，所以 $u=g(x)$ 在点 $x$ 连续 $=>$ 当 $Dx->0$ 时 $Du->0$，同时有 $alpha->0$．
+	由于 $u=g(x)$ 在点 $x$ 可导，所以 $u=g(x)$ 在点 $x$ 连续 $=>$ 当 $Dx->0$ 时 $Du->0$，同时有 $alpha->0$．
 
-  $=> display(Dy/Dx = lim_(Dx->0) Dy/Dx = lim)$
+	$=> display(Dy/Dx = lim_(Dx->0) Dy/Dx = lim)$
 
-  我们可以用类似 $display(Dy/Dx = Dy/Du dot Du/Dx)$ 的语言来表述，但这不严谨（有可能 $Du=0$）．
+	我们可以用类似 $display(Dy/Dx = Dy/Du dot Du/Dx)$ 的语言来表述，但这不严谨（有可能 $Du=0$）．
 ]
 
 = 微分
@@ -149,20 +150,19 @@ $ dy=f'(x)dx <==> dy/dx=f'(x) $
 
 所以导数又称微商，可以将 $display(dy/dx)$ 看作 $dy$ 和 $dx$ 的商．
 
-#prof[
-  #def[充分性证明]已知 $y=f(x)$ 在点 $x_0$ 可导，那么：
-  $ lim_(x->x_0) Dy/Dx=f'(x_0) => Dy/Dx=f'(x_0)+alpha $  
+#proof[
+	#def[充分性证明]已知 $y=f(x)$ 在点 $x_0$ 可导，那么：
+	$ lim_(x->x_0) Dy/Dx=f'(x_0) => Dy/Dx=f'(x_0)+alpha $  
 
-  且 $display(lim_(Dx->0) alpha=0)$，故
-  $ Dy = f'(x_0) Dx+alpha Dx=f'(x_0) Dx+ o(Dx) $
+	且 $display(lim_(Dx->0) alpha=0)$，故
+	$ Dy = f'(x_0) Dx+alpha Dx=f'(x_0) Dx+ o(Dx) $
 
-  #def[必要性证明]已知 $y=f(x)$ 在点 $x_0$ 可微，那么：
-  $ Dy=f(x_0+Dx)-f(x_0) = A Dx+o(Dx)\
-  => lim_(Dx->0) Dy/Dx=lim_(Dx->0) (A+(o(Dx))/Dx) = A $
+	#def[必要性证明]已知 $y=f(x)$ 在点 $x_0$ 可微，那么：
+	$ Dy=f(x_0+Dx)-f(x_0) = A Dx+o(Dx)\
+	=> lim_(Dx->0) Dy/Dx=lim_(Dx->0) (A+(o(Dx))/Dx) = A $
 
-  故 $f'(x)$ 在 $x_0$ 可导且 $f'(x_0) = A$．
+	故 $f'(x)$ 在 $x_0$ 可导且 $f'(x_0) = A$．
 ]
-
 
 
 = 求导的方法及应用
@@ -204,21 +204,21 @@ $
 若曲线上任一点的直角坐标 $(x,y)$ 分别可被表示为关于某第三变量 $t$ 的函数，即$display(cases(x=phi(t),y=psi(t)))$，则有以下结论．
 
 1. 若 $x=phi(t),y=psi(t)$ 均可导且 $phi(t)!=0$，则：
-  $ dy/dx
-  = (dif psi(t))/(dif phi(t))
-  = (psi'(t) dt)/(phi(t) dt)
-  = (psi'(t))/(phi'(t))
-  $
+	$ dy/dx
+	= (dif psi(t))/(dif phi(t))
+	= (psi'(t) dt)/(phi(t) dt)
+	= (psi'(t))/(phi'(t))
+	$
 
 2. 若 $x=phi(t),y=psi(t)$ 均二阶可导且 $phi(t)!=0$，则：
-  $ ddy/(dx^2)
-  = (dif (display(dy/dx)))/dx
-  = (dif (display((psi'(t))/(phi'(t)))))/(dif phi(t))
-  = display((psi''(t)phi'(t) - psi'(t)phi''(t))/((phi'(t))^2)dt)/(phi'(t)dt)
-  = (psi''(t)phi'(t) - psi'(t)phi''(t))/((phi'(t))^3)
-  $
+	$ ddy/(dx^2)
+	= (dif (display(dy/dx)))/dx
+	= (dif (display((psi'(t))/(phi'(t)))))/(dif phi(t))
+	= display((psi''(t)phi'(t) - psi'(t)phi''(t))/((phi'(t))^2)dt)/(phi'(t)dt)
+	= (psi''(t)phi'(t) - psi'(t)phi''(t))/((phi'(t))^3)
+	$
 
-#warn[注意到与 $display(dy/dx)$ 不同，$display(ddy/(dx^2))$ 须看成整体的记号，如果认为是 $(dx)^2$ 而直接进行与其他微分相消的话就可能出现错误．]
+#warning[注意到与 $display(dy/dx)$ 不同，$display(ddy/(dx^2))$ 须看成整体的记号，如果认为是 $(dx)^2$ 而直接进行与其他微分相消的话就可能出现错误．]
 
 == 极坐标方程下的导数
 
@@ -230,27 +230,17 @@ r^2 = x^2+y^2, sp tan theta=y/x sp (x!=0)
 $
 
 #prob[
-  #def[例题]求曲线 $r=a sin 2 theta$（$a$ 是常数）在 $theta=display(pi/4)$ 处的法线方程．
+	#def[例题]求曲线 $r=a sin 2 theta$（$a$ 是常数）在 $theta=display(pi/4)$ 处的法线方程．
 
-  令 $display(cases(
-    x=r cos theta=a sin 2theta cos theta=2a sin theta cos^2 theta,
-    y=r sin theta=a sin 2theta sin theta=2a sin^2 theta cos theta,
-  ))$，所以
+	令 $display(cases(
+		x=r cos theta=a sin 2theta cos theta=2a sin theta cos^2 theta,
+		y=r sin theta=a sin 2theta sin theta=2a sin^2 theta cos theta,
+	))$，所以
 
-  $ dy/dx
-  = display(dy/(dif theta))/display(dx/(dif theta))
-  = display(2a cos^3 theta - 4a sin^2 theta cos theta)/display(4a sin theta cos^2 theta - 2a sin^3 theta)
-  $
+	$ dy/dx
+	= display(dy/(dif theta))/display(dx/(dif theta))
+	= display(2a cos^3 theta - 4a sin^2 theta cos theta)/display(4a sin theta cos^2 theta - 2a sin^3 theta)
+	$
 
-  代入 $display(theta=pi/4)$ 得 $display(dy/dx = -1)$，所以法线方程为 $display(y-sqrt(2)/2 a = x-sqrt(2)/2 a) => y=x$．
+	代入 $display(theta=pi/4)$ 得 $display(dy/dx = -1)$，所以法线方程为 $display(y-sqrt(2)/2 a = x-sqrt(2)/2 a) => y=x$．
 ]
-
-== 导数的几何应用
-
-=== 切线方程
-
-函数 $y=f(x)$ 在 $x=x_0$ 处的切线方程为：$y-y_0 = f'(x_0) (x-x_0)$。
-
-=== 法线方程
-
-函数 $y=f(x)$ 在 $x=x_0$ 处的法线方程为：$y-y_0 = display(-1/(f' (x_0))) (x-x_0)$。

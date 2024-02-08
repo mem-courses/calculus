@@ -21,13 +21,13 @@
 
 2. $int x^alpha dx = display(1/(alpha+1)) x^(alpha+1) + C, sp (alpha != -1,sp alpha in CC)$
 
-#warn[
+#warning[
   注意 $alpha!=-1$ 的限制，否则应为下一种情况．
 ]
 
 3. $int 1/x dx = ln |x| + C$
 
-#warn[
+#warning[
   注意到 $display((ln(-x))' = ((-x)')/(-x) = -1/(-x) = 1/x)$，所以此处应有绝对值．
 ]
 
@@ -67,7 +67,7 @@
 
 19. $int csc x dx = ln |csc x - cot x| + C$
 
-#prof[
+#proof[
   求 $int sec x dx$：
 
   #def[解法一]
@@ -122,7 +122,7 @@ $
 
 #def[例1]求：$display(int sec^6 x dx)$
 
-#prof[
+#proof[
   $
   int sec^6 x dx
   &= int (tan^2 x + 1)^2 sec^2 x dx
@@ -142,7 +142,7 @@ $
 
 #def[例2]求：$display(int (dx)/(x^2 + a^2))$．
 
-#prof[
+#proof[
   $
   int (dx)/(x^2+a^2)
   = 1/(a^2) int (dx)/((x/a)^2 + 1)
@@ -153,7 +153,7 @@ $
 
 #def[例3]求：$display(int (dx)/(x^2 - a^2))$．
 
-#prof[
+#proof[
   $
   int (dx)/(x^2-a^2)
   &= int 1/(2a) ((x+a) - (x-a))/((x+a)(x-a)) dx
@@ -172,7 +172,7 @@ $
 
 #def[例4]求：$int sqrt(a^2 - x^2) dx sp (a>0)$．
 
-#prof[
+#proof[
   令 $display(x = a sin t\,sp t in (-pi/2,pi/2))$，则
   $
   sqrt(a^2 - x^2) = sqrt(a^2 - a^2 sin^2 t) = a cos t
@@ -190,7 +190,7 @@ $
 
 #def[例5]求：$display(int (dx)/sqrt(x^2 + a^2)) sp (a>0)$．
 
-#prof[
+#proof[
   令 $display(x = a tan t\,sp t in (-pi/2,pi/2))$，则
   $
   sqrt(x^2 + a^2) = sqrt(a^2 tan^23 t + a^2) = a sec t
@@ -209,7 +209,7 @@ $
 
 #def[例6]求：$display(int dx / sqrt(x^2 - a^2)) sp (a > 0)$．
 
-#prof[
+#proof[
   当 $x>a$ 时，令 $x = a sec t,sp t in display((0, pi/2))$，则
   $
   sqrt(x^2 - a^2) = sqrt(a^2 sec^2 t - a^2) = a tan t
@@ -242,7 +242,7 @@ $
 
 #def[例7]求：$int sqrt(x^2 + a^2) dx sp (a>0)$．
 
-#prof[
+#proof[
   $
   int sqrt(x^2 + a^2) dx
   &= x sqrt(x^2 + a^2) - int (x^2)/sqrt(x^2 + a^2) dx
@@ -326,7 +326,7 @@ $
 #def[推论3]（定积分中值定理）若 $f(x)$ 在 $[a,b]$ 上连续，则至少存在一点 $xi in [a,b]$ 使
 $ int_a^b f(x) dx = f(xi) (b-a) $
 
-#prof[
+#proof[
   设 $display(M = max_([a,b]) f(x)\,sp m = min_([a,b]) f(x))$，由性质 4 可得：
   $
   m <= 1/(b-a) int_a^b f(x) dx <= M
@@ -490,7 +490,7 @@ $
 
 实际上当该积分是 $p<=0$ 时是正常积分．从这个例子中可以看出，把正常积分看成反常积分处理一定是收敛的．当积分中含有参数时，参数取某些值时是正常积分，取某些值时是反常积分，则把积分看成反常积分，对解决问题是有利的．
 
-#warn[
+#warning[
   对比第一 $p$ 反常积分和第二 $p$ 反常积分：
 
   - 反常积分 $display(int_a^(+oo) (dx)/(x^p))$，当 $p>1$ 时收敛，当 $p<=1$ 时发散．
@@ -510,7 +510,7 @@ $
 
 #deft[定理1.1]2. 若积分 $display(int_a^(+oo) f(x) dx)$ 发散，则 $display(int_a^(+oo) g(x) dx)$ 也发散．
 
-#warn[
+#warning[
   这里要求 $f(x)$ 和 $g(x)$ 的值域都是非负数的基础上，否则需要用下面的绝对收敛准则转化．
 ]
 
@@ -526,7 +526,7 @@ $
 
 #def[定理1.2]（绝对收敛准则）设函数 $f(x)$ 在 $[a,+oo)$ 上连续，若积分 $display(int_a^(+oo) |f(x)| dx)$ 收敛，则 $display(int_a^(+oo) f(x) dx)$ 收敛．
 
-#prof[
+#proof[
   #def[证明]（这里只证明第1条）由于 $display(lim_(x->+oo)) x^p f(x) = A$，所以对 $epsilon=display(A/2)>0$，存在 $b>0$ 使得当 $x>b$ 时有 $display(-A/2 < x^p f(x) - A < A/2)$ 或
   $
   0<A/2 dot 1/(x^p) < f(x) < (3A)/2 dot 1/(x^p)

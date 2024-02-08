@@ -1,7 +1,8 @@
 #import "../template.typ": *
 
 #show: project.with(
-  title: "Calculus Note #3",
+	course: "Calculus I",
+  title: "Note #4 中值定理",
   authors: ((
     name: "memset0",
     email: "memset0@outlook.com",
@@ -29,7 +30,7 @@
 
 1. （费马引理）若 $f'(x_0)$ 存在，则 $f'(x_0) = 0$。
 
-#prof[
+#proof[
   #def[证明]设 $forall x_0 + Dx in union.big (x_0),sp f(x_0 + Dx) <= f(x_0)$．则
   $
   f'(x_0) = lim_(Dx->0) (f(x_0+Dx) - f(x_0))/Dx
@@ -53,7 +54,7 @@
 
 （极值的第二充分条件）设 $f(x)$ 在点 $f(x_0)$ 处具有二阶导数且 $f'(x_0),sp f''(x_0) != 0$．若 $f''(x_0)<0$（$f''(x_0)>0$）则 $f(x)$ 在点 $x_0$ 处取极大值（极小值）．进一步的，若 $f(x)$ 在点 $x_0$ 有直到 $n$ 阶导数，且 $f'(x_0)=f''(x_0)=dots.c=f^((n-1))(x_0) = 0$，$f^((n))(x_0)!=0$．当 $n$ 为 *偶数* 时，$x_0$ 是极值点；否则，$x_0$ 不是极值点．
 
-#prof[
+#proof[
   #def[证明]利用泰勒公式：$ f(x) - f(x_0) = (f^((n))(x_0))/(n!) (x-x_0)^n + o((x-x_0)^n) $
   则当 $x->x_0$ 时，$f(x)-f(x_0)$ 的符号应由 $display((f^((n))(x_0))/(n!)) (x-x_0)^n$ 的符号决定．
 ]
@@ -68,7 +69,7 @@
 
 (3) 若 $f'(x)=0,sp x in I^O$，则 $f(x)$ 在 $I$ 上恒等于常数 $c$；
 
-#prof[
+#proof[
   #def[证明]任取 $x_1,x_2 in I sp (x_1<x_2)$，由拉格朗日中值定理得
   $ f(x_2) - f(x_1) = f'(xi) (x_2-x_1),quad xi in (x_1,x_2) in I $
   依次代入 (1)(2)(3) 的条件，可以得到对应结论．
@@ -102,13 +103,13 @@
 
 #deft[曲线凹凸性的判定定理]2. 若 $x in (a,b)$ 有 $f''(x)<0$，则曲线 $y=f(x)$ 在 $(a,b)$ 内是凸的；
 
-#warn[本书中的凹函数是指下凸函数，凸函数是指上凸函数．]
+#warning[本书中的凹函数是指下凸函数，凸函数是指上凸函数．]
 
 == 拐点
 
 拐点就是使连续函数的凹凸性发生改变的点．
 
-#warn[注意拐点的表示方法是 $(x_0,f(x_0))$，这点与极值点不同。]
+#warning[注意拐点的表示方法是 $(x_0,f(x_0))$，这点与极值点不同。]
 
 === 拐点的必要条件
 
@@ -133,7 +134,7 @@ $ cases(display(a &= lim_(x->oo) (f(x))/x), display(b &= lim_(x->oo) (f(x) - a x
 
 一个函数最多有两条斜渐进线，如果要检查斜渐近线是否存在，只需要分别判断 $display(lim_(x->+oo) (f(x))/x)$ 和 $display(lim_(x->-oo) (f(x))/x)$ 是否收敛到常数即可．
 
-#prof[
+#proof[
   在曲线上任取一点 $M(x,f(x))$ 作到 $y=a x+b$ 的垂线，垂足为 $n$．若 $y=a x + b$ 是 $f(x)$ 的渐近线，则当 $x->oo$ 时 $|M N| -> 0$，其中 $display(|M N| = (|f(x) - a x - b|)/sqrt(a^2+1))$．由 $sqrt(a^2 + 1) != 0$，可以得到上面的判定条件．
 ]
 
@@ -148,7 +149,7 @@ $x=x_0$ 是曲线 $y=f(x)$ 的垂直渐近线的充分必要条件是 $display(l
 
 如果 $y=f(x)$ 满足在区间 $[a,b]$ 上连续，在区间 $(a,b)$ 内可导，且 $f(a)=f(b)$，那么至少存在一点 $xi in (a,b)$ 使得 $f'(xi) = 0$．
 
-#prof[
+#proof[
   #def[证明]因为 $f'(x)$ 在 $[a,b]$ 连续，所以 $f'(x)$ 在 $[a,b]$ 上存在最大值 $M$ 和最小值 $m$．
   
   - 若 $M=m$，则 $f(x)$ 恒等于 $M$，$forall xi in (a,b),sp f'(xi)=0$；
@@ -156,7 +157,7 @@ $x=x_0$ 是曲线 $y=f(x)$ 的垂直渐近线的充分必要条件是 $display(l
   - 若 $M>m$，则其中至少有一个不在 $x=a$ 或 $x=b$ 时取到，不妨设 $M!=f(a)$，则至少存在一点 $xi in (a,b) st f(xi) = M$．根据费马引理，有 $f'(xi) = 0$．
 ]
 
-#warn[定理条件只是充分的，本定理可推广为：如果 $y=f(x)$ 在 $(a,b)$ 内可导且 $display(lim_(x->a^+) f(x))$ $=$ $display(lim_(x->b^-) f(x))$，那么 $exists xi in (a,b) st f'(xi) = 0$．]
+#warning[定理条件只是充分的，本定理可推广为：如果 $y=f(x)$ 在 $(a,b)$ 内可导且 $display(lim_(x->a^+) f(x))$ $=$ $display(lim_(x->b^-) f(x))$，那么 $exists xi in (a,b) st f'(xi) = 0$．]
 
 == 拉格朗日中值定理
 
@@ -164,7 +165,7 @@ $x=x_0$ 是曲线 $y=f(x)$ 的垂直渐近线的充分必要条件是 $display(l
 
 #note[这可看作是拉格朗日定理的参数方程形式．]
 
-#prof[
+#proof[
   #def[证明]问题转化为证 $f'(xi) = display((f(b) - f(a))/(b-a)) = 0$，作辅助函数
   $
   F(x) = f(x) - (f(b)-f(a))/(b-a) x
@@ -182,7 +183,7 @@ $x=x_0$ 是曲线 $y=f(x)$ 的垂直渐近线的充分必要条件是 $display(l
 
 如果 $f(x)$ 及 $F(x)$ 满足在 $[a,b]$ 上连续，在 $(a,b)$ 内可导，且在 $(a,b)$ 内 $F'(x) != 0$，那么至少存在一点 $xi in (a,b)$ 使得 $display((f(b)-f(a))/(F(b)-F(a)) = (f'(xi))/(F'(xi)))$．
 
-#prof[
+#proof[
   #def[证明]要证 $display((f(b)-f(a))/(F(b)-F(a)) F'(xi) - f'(xi) = 0)$，构造辅助函数
   $
   phi(x) = (f(b)-f(a))/(F(b)-F(a)) F(x) - f(x)
@@ -204,7 +205,7 @@ $x=x_0$ 是曲线 $y=f(x)$ 的垂直渐近线的充分必要条件是 $display(l
 
 #def[例1]求 $display(lim_(x->+oo) (x^n)/(e^(lambda x))) sp (n>0,lambda >0)$．
 
-#prof[
+#proof[
   (1) $n in NN^+$ 的情形：
   $ "原式"
   &= lim_(x->+oo) (n x^(n-1))/(lambda e^(lambda x)) = lim_(x->+oo) (n(n-1) x^(n-2))/(lambda^2 e^(lambda x)) = dots.c = lim_(x->+oo) (n!)/(lambda^n e^(lambda x)) = 0
