@@ -7,7 +7,7 @@
 #let theorem_counter = state("theorem_counter", 0)
 #let problem_counter = state("problem_counter", 0)
 
-#let reset_indent = [#text()[#v(0pt, weak: true)];#text()[#h(0em)]]
+#let fake_par = [#text()[#v(0pt, weak: true)];#text()[#h(0em)]]
 
 #let project(course: "", title: "", authors: (), date: none, body) = {
   // 文档基本信息
@@ -97,7 +97,7 @@
   ]
 
   set par(first-line-indent: 2em)
-  show heading: it => {text()[#v(1.6em, weak: true)];it;reset_indent}
+  show heading: it => {text()[#v(1.6em, weak: true)];it;fake_par}
 
   body
 }
@@ -117,7 +117,7 @@
     #hei[定义]#locate(loc => [#counter(heading).at(loc).at(0)]).#definition_counter.display()
   ]
   #math.space#it
-];reset_indent}
+];fake_par}
 
 #let theorem(it, name: "", tag: "定理") = {block(width: 100%)[
   #theorem_counter.update(x => (x + 1))
@@ -126,7 +126,7 @@
   ]
   #if (name != "") [(#kai[#name])]
   #math.space#it
-];reset_indent}
+];fake_par}
 #let lemma(it, name: "") = theorem(it, name: name, tag: "引理")
 #let corollary(it, name: "") = theorem(it, name: name, tag: "推论")
 #let property(it, name: "") = theorem(it, name: name, tag: "性质")
@@ -139,11 +139,11 @@
   ]
   #if (name != "") [(#kai[#name])]
   #math.space#it
-];reset_indent}
+];fake_par}
 #let solution(it, tag: "解") = {block(width: 100%)[
   #strong[#hei[#tag:]]
   #math.space#it
-];reset_indent}
+];fake_par}
 
 #let named_block(it, name: "", color: red, inset: 11pt) = {block(
   below: 1em, stroke: 0.5pt + color, radius: 3pt,
@@ -162,7 +162,7 @@
   #set text(fill: fontcolor)
   #set par(first-line-indent: 0em)
   #it
-];reset_indent}
+];fake_par}
 
 #let example(it) = named_block(it, name: "Example", color: gray.darken(60%))
 #let proof(it) = named_block(it, name: "Proof", color: rgb(120, 120, 120))
