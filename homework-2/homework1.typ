@@ -54,9 +54,16 @@ $
 	$ sss root(n,0.001) $
 ]
 
-$ "原式"
-&= sss root(n,0.001)
 $
+lim_(n->+oo) a_n
+&= lim_(n->+oo) root(n,0.001)
+= exp lim_(n->+oo) 1/n ln(0.001)
+= e^0
+= 1
+!= 0
+$
+
+故该级数发散。 
 
 == P243 1(5)
 
@@ -133,17 +140,45 @@ $
 	$ sss ((n!)^2)/((2n)!) $
 ]
 
+$
+lim_(n->+oo) (a_(n+1))/(a_n) 
+&= lim_(n->+oo) (1 times 2 times dots.c times (n+1))/((n+2) times (n+3) times dots.c times (2n+2)) times ((n+1) times (n+2) times dots.c times (2n))/(1 times 2 times dots.c times n)\
+&= lim_(n->+oo) (n+1)^2/((2n+1) (2n+2))
+= 1/4 < 1
+$
+
+根据比值判别法可得，该级数收敛。
+
 == P253 2(3)
 #prob[
 	用比值判别法或根值判别法判定级数的敛散性：
 	$ sss (n^2)/((2+1/n)^n) $
 ]
 
+$
+lim_(n->+oo) root(n,a_n)
+&= lim_(n->+oo) root(n,(n^2)/((2+1/n)^n))
+= lim_(n->+oo) (root(n,n^2))/(2+1/n)
+= 1/2 < 1
+$
+
+根据根值判别法可得，该级数收敛。
+
 == P253 2(5)
 #prob[
 	用比值判别法或根值判别法判定级数的敛散性：
-	$ sss n^2 dot.c sin pi/(2^n) $
+	$ sss n^2 dot.c sin (pi/(2^n)) $
 ]
+
+当 $x>0$ 时，有 $sin x < x$ 成立，故
+$
+a_n = n^2 dot.c sin (pi/(2^n)) < (pi dot n^2)/(2^n)
+$
+同 2(3) 的思路，我们有
+$
+lim_(n->+oo) root(n,(pi dot n^2)/(2^n)) = 1/2 < 1
+$
+故根据根值判别法可得，级数 $sss display((pi dot n^2)/(2^n))$ 收敛。再根据比较判别法得，原级数收敛。
 
 == P253 3(1)
 #prob[
@@ -151,11 +186,33 @@ $
 	$ sum_(n=2)^(+oo) (ln n)/(n^2) $
 ]
 
+注意到：
+$
+lim_(n->+oo) display((ln n)/(n^2))/display(1/(n^(3/2)))
+&= lim_(n->+oo) (ln n)/(n^(1/2))
+= 0
+$
+
+根据 $p-$ 级数的性质，有 $ss n^(-3/2)$ 收敛，故根据比较判别法的极限形式，原级数也收敛。
+
 == P253 3(3)
 #prob[
 	用比较判别法的极限形式研究级数的敛散性：
 	$ sum_(n=2)^(+oo) (sqrt(n+2) - sqrt(n-2))/(n^a) $
 ]
+
+$
+(sqrt(n+2) - sqrt(n-2))/(n^a) = ((n+2) - (n-2))/(n^a (sqrt(n+2) + sqrt(n-2))) = 4/(n^a (sqrt(n+2) + sqrt(n-2)))
+$
+
+注意到
+
+$
+lim_(n->+oo) display(4/(n^a (sqrt(n+2) + sqrt(n-2))))/display(n^(a+1/2))  = 2
+$
+
+故原级数与级数 $sss display(1/(n^(a+1/2)))$ 有相同的敛散性。根据 $p-$ 级数的性质，当 $a<=1/2$ 时原级数发散；当 $a>1/2$ 时原级数收敛。
+
 
 // == P253 4(2)
 // == P253 5(1)
