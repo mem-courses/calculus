@@ -27,7 +27,7 @@
       grid(
         columns: (1fr, 1fr, 1fr),
         align(left, course),
-        align(center, title),
+        []/* align(center, title)*/,
         align(right, date),
       )
       
@@ -52,13 +52,11 @@
   set text(font: font_song, lang: "zh", size: 12pt)
   show math.equation: set text(weight: 400)
 
-  // Set paragraph spacing.
-  show par: set block(above: 1.2em, below: 1.2em)
+  show par: set block(above: 0.8em, below: 0.8em)
 
   set heading(numbering: "1.1)")
   set par(leading: 0.75em)
 
-  // Title row.
   align(center)[
     #block(text(weight: 700, 1.5em, [#title]))
     #v(1.1em, weak: true)
