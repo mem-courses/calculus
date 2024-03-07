@@ -1,8 +1,8 @@
-#let prob(bgcolor: luma(248), border: luma(88), text) = block(
+#let prob(bgcolor: luma(252), border: luma(88), text) = block(
   fill: bgcolor,
   width: 100%,
-  inset: 0.8em,
-  radius: 4pt,
+  inset: 1em,
+  radius: 3pt,
   stroke: border + 0.5pt,
   text
 )
