@@ -2,13 +2,16 @@
 
 #show: project.with(
 	course: "Calculus II",
-  title: "Homework #1",
-  authors: ((
-		name: "Yulun Wu",
+	course_fullname: "Calculus (A) II",
+	course_code: "821T0160",
+	title: "Homework #1",
+	authors: ((
+		name: "Yulun WU",
 		email: "memset0@outlook.com",
-		phone: "3230104585"
+		id: "3230104585"
 	),),
-  date: "January 24, 2024",
+	semester: "Spring-Summer 2024",
+	date: "January 24, 2024",
 )
 
 #let ss = [$display(attach(inline(sum), t: +oo, b: n=1))$]

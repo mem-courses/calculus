@@ -1,11 +1,15 @@
 #import "../template.typ": *
 
 #show: project.with(
-  title: "Calculus I  Note #5 微积分的应用",
+	course: "Calculus I",
+	course_fullname: "Calculus (A) I",
+	course_code: "821T0150",
+	semester: "Autumn-Winter 2023",
+  title: "Note #5 微积分的应用",
   authors: ((
     name: "memset0",
     email: "memset0@outlook.com",
-    phone: "3230104585"
+    id: "3230104585"
   ),),
   date: "January 7, 2024",
 )

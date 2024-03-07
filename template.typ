@@ -7,9 +7,20 @@
 #let theorem_counter = state("theorem_counter", 0)
 #let problem_counter = state("problem_counter", 0)
 
+#let indent = 2em
 #let fake_par = [#text()[#v(0pt, weak: true)];#text()[#h(0em)]]
 
-#let project(course: "", title: "", authors: (), date: none, body) = {
+#let project(
+  course: "", title: "", authors: (), date: none, body,
+  course_fullname: "", semester: "", course_code: "",
+) = {
+  if (course_fullname == "") {
+    course_fullname = course
+  }
+  if (course_code != "") {
+    course_fullname = course_fullname + " (" + course_code + ")"
+  }
+
   // 文档基本信息
   set document(author: authors.map(a => a.name), title: title)
   set page(
@@ -22,16 +33,22 @@
   // 页眉
   set page(
     header: {
-      set text(font: font_song, 10pt, baseline: 8pt, spacing: 3pt)
+      locate(loc => {
+        if (counter(page).at(loc).at(0) == 1) {
+          return none
+        }
 
-      grid(
-        columns: (1fr, 1fr, 1fr),
-        align(left, course),
-        []/* align(center, title)*/,
-        align(right, date),
-      )
-      
-      line(length: 100%, stroke: 0.5pt)
+        set text(font: font_song, 10pt, baseline: 8pt, spacing: 3pt)
+
+        grid(
+          columns: (1fr, 1fr, 1fr),
+          align(left, course),
+          []/* align(center, title)*/,
+          align(right, date),
+        )
+        
+        line(length: 100%, stroke: 0.5pt)
+      })
     }
   )
 
@@ -44,7 +61,7 @@
       grid(
         columns: (1fr, 1fr),
         align(left, authors.map(a => a.name).join(", ")),
-        align(right, counter(page).display("1")),
+        align(right, counter(page).display("1/1", both: true)),
       )
     }
   )
@@ -52,32 +69,35 @@
   set text(font: font_song, lang: "zh", size: 12pt)
   show math.equation: set text(weight: 400)
 
-  show par: set block(above: 0.8em, below: 0.8em)
+  // Set paragraph spacing.
+  show par: set block(above: 1.2em, below: 1.2em)
 
-  set heading(numbering: "1.1)")
+  set heading(numbering: "1.1.")
   set par(leading: 0.75em)
 
-  align(center)[
-    #block(text(weight: 700, 1.5em, [#title]))
-    #v(1.1em, weak: true)
+  block(
+    below: 4em, stroke: 0.5pt + black, radius: 2pt,
+    width: 100%, inset: 1em, outset: -0.2em
+  )[
+    #text(size: 0.84em)[#grid(
+      columns: (auto, 1fr, auto),
+      align(left, strong(course_fullname)),
+      [],
+      align(right, strong(semester)),
+    )]
+    #v(0.75em)
+    #align(center)[#text(size: 1.5em)[#title]]
+    #v(0.75em)
+    #block(..authors.map(author => align(center)[
+      #text(size: 0.84em)[#grid(
+        columns: (auto, 1fr, auto),
+        align(left, author.name + " (" + author.id +")"),
+        [],
+        align(right, author.email),
+      )]
+    ]))
   ]
 
-  // Author information.
-  pad(
-    top: 0.8em,
-    bottom: 0.8em,
-    x: 2em,
-    grid(
-      columns: (1fr,) * calc.min(3, authors.len()),
-      gutter: 1em,
-      ..authors.map(author => align(center)[
-        *#author.name* \
-        #author.email \
-        #author.phone
-      ]),
-    ),
-  )
-  
   // Main body.
   set par(justify: true)
 
@@ -86,7 +106,9 @@
   show heading.where(level: 1): it => [
     #definition_counter.update(x => 0)
     #theorem_counter.update(x => 0)
+    #set text(size: 1.2em)
     #it
+    #v(0.15em)
   ]
 
   show heading.where(level: 2): it => [
@@ -94,13 +116,13 @@
     #it
   ]
 
-  set par(first-line-indent: 2em)
+  set par(first-line-indent: indent)
   show heading: it => {text()[#v(1.6em, weak: true)];it;fake_par}
 
   body
 }
 
-#import "./global.typ": *
+#import "./functions.typ": *
 
 #let song(it) = text(it, font: font_song)
 #let fangsong(it) = text(it, font: font_fangsong)

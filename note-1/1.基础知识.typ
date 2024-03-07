@@ -2,11 +2,14 @@
 
 #show: project.with(
 	course: "Calculus I",
+	course_fullname: "Calculus (A) I",
+	course_code: "821T0150",
+	semester: "Autumn-Winter 2023",
   title: "Note #1 基础知识",
   authors: ((
 		name: "memset0",
 		email: "memset0@outlook.com",
-		phone: "3230104585"
+		id: "3230104585"
 	),),
   date: "October 22, 2023",
 )
