@@ -193,6 +193,7 @@
 #let tip(it) = named_block(it, name: "Tip", color: rgb(0, 133, 91))
 #let hint(it) = named_block(it, name: "Hint", color: rgb(0, 133, 91))
 #let success(it) = named_block(it, name: "Success", color: rgb(62, 138, 0))
+#let important(it) = named_block(it, name: "Important", color: rgb(62, 138, 0))
 #let help(it) = named_block(it, name: "Help", color: rgb(153, 110, 36))
 #let warning(it) = named_block(it, name: "Warning", color: rgb(184, 95, 0))
 #let attention(it) = named_block(it, name: "Attention", color: rgb(216, 58, 49))

@@ -272,9 +272,9 @@
 	若级数 $ss a_n$ 绝对收敛，则级数 $ss a_n$ 必收敛。
 
 	#proof[
-		（*法一*）注意到 $0<=a_n+|a_n|<=2|a_n|$，因为 $ss |a_n|$ 收敛，所以 $ss 2|a_n|$ 也收敛，由比较判别法得 $ss (|a_n|+a_n)$ 收敛。而 $a_n=(|a_n|+a_n)-a_n$，由级数性质知 $ss a_n$ 收敛。
+		【*法一*】注意到 $0<=a_n+|a_n|<=2|a_n|$，因为 $ss |a_n|$ 收敛，所以 $ss 2|a_n|$ 也收敛，由比较判别法得 $ss (|a_n|+a_n)$ 收敛。而 $a_n=(|a_n|+a_n)-a_n$，由级数性质知 $ss a_n$ 收敛。
 
-		（*法二*）如果级数 $ss a_n$ 绝对收敛，由柯西收敛准则，$forall eps > 0$，$exists N > 0$，当 $n>N$ 时，$forall p in NN_+$ 有
+		【*法二*】如果级数 $ss a_n$ 绝对收敛，由柯西收敛准则，$forall eps > 0$，$exists N > 0$，当 $n>N$ 时，$forall p in NN_+$ 有
 		$ |a_(n+1)| + |a_(n+2)| + dots.c + |a_(n+p)| < eps $
 		因此
 		$ |a_(n+1) + a_(n+2) + dots.c + a_(n+p)| < |a_(n+1)| + |a_(n+2)| + dots.c + |a_(n+p)| < eps $
@@ -439,7 +439,7 @@
 	(1) 如果级数 $sf(0) a_n x^n$ 在 $x=x_1(x_1!=0)$ 处收敛，则它在满足不等式 $|x|<|x_1|$ 的一切 $x$ 处绝对收敛。
 
 	(2) 如果级数 $sf(0) a_n x^n$ 在 $x=x_2$ 处发散，则它在满足不等式 $|x|>|x_2|$ 的一切 $x$ 处发散。
-
+ 
 	#proof[
 		下证 (1)。因为 $sf(0) a_n x_1^n$ 收敛，所以 $dp(lim_(n->+oo) a_n x_1^n=0)$，$exists M>0$，使得 $|a_n x_1^n|<=M sp (n=0,1,2,dots.c)$。
 
@@ -448,5 +448,106 @@
 		|a_n x^n| = abs(a_n x_1^n dot (x^n)/(x_1^n)) = |a_n x_1^n| dot abs(x/x_1)^n <= M abs(x/x_1)^n
 		$
 		而等比级数 $dp(ssf(0) M abs(x/x_1)^n)$ 收敛，故 $sf(0) a_n x^n$ 收敛，因此级数 $ss a_n x^n$ 绝对收敛。
+
+		得到 (1) 后通过反证法可证明 (2)。
+	]
+]
+
+可以发现，幂级数 $ss a_n x^n$ 的收敛域是一个以 $x=0$ 为中心的区间。
+
+#definition[
+	设幂级数 $ss a_n x^n$ 的收敛域的长度为 $2R$，则称 $R$ 为幂级数 $ss a_n x^n$ 的#bb[收敛半径]，称 $(-R,R)$ 为该幂级数的#bb[收敛区间]。
+]
+
+#theorem[
+	设幂级数 $ss a_n x^n$ 的所有系数 $a_n!=0$，且 $dp(lim_(n->+oo) abs(a_(n+1)/a_n)) = rho$ 或 $dp(lim_(n->+oo) root(n,abs(a_n))) = rho$，则幂级数 $ss a_n x^n$ 的收敛半径 $R$ 满足
+
+	(1) 当 $0<rho<+oo$ 时，收敛半径 $R=dp(1/rho)$；
+
+	(2) 当 $p=0$ 时，收敛半径 $R = +oo$；
+
+	(3) 当 $rho=+oo$ 时，收敛半径 $R=0$。
+
+	#note[
+		直接计算，就是 $dp(R = lim_(n->+oo) abs(a_n/a_(n+1)))$ 或 $R = dp(lim_(n->+oo) 1/root(n,abs(a_n)))$。
+
+		如果不满足所有系数 $a_n!=0$，则通过修改下面的证明过程来完成。该证明过程需要掌握（期中必考）。
+	]
+
+	#proof[
+		以 $dp(lim_(n->+oo) abs(a_(n+1)/a_n))=rho$ 的情况举例：如果 $0<rho<+oo$，
+
+		- 当 $abs(x)<dp(1/rho)$ 时，$rho abs(x)<1$，$ss a_n x^n$ 绝对收敛；
+
+		- 当 $abs(x)>dp(1/rho)$ 时，$rho abs(x)>1$，$ss abs(a_n x^n)$ 发散，故 $ss a_n x^n$ 发散。
+
+		故收敛半径 $R = dp(1/rho)$。类似的，可以处理 $rho=0$ 和 $rho=+oo$ 的情况。
+	]
+]
+
+#important[
+	【求幂级数的收敛域】
+
+	- 先根据上面的做法来确定收敛半径 $R$。（童雯雯老师要求写上：所以，收敛半径为 $(-R,R)$）
+	- 检验 $x=-R$ 和 $x=+R$ 时是否收敛，从而确定收敛域。
+]
+
+=== 幂级数的运算
+
+#theorem[
+	设 $sf(0) a_n x^n$ 和 $sf(0) b_n x^n$ 在 $x=0$ 的某邻域内相等，则它们的同幂次项相等，即
+	$ a_n=b_n sp (n=0,1,2,dots.c) $
+]
+
+#theorem[
+	设 $sf(0) a_n x^n$ 和 $sf(0) b_n x^n$ 的收敛半径分别为 $R_1$ 和 $R_2$，则令 $R=min{R_1,R_2}$，有以下运算成立：
+
+	- 加法：$sf(0) a_n x^n + sf(0) b_n x^n = ss (a_n + b_n) x^n quad (|x|<R)$；
+
+	- 减法：$sf(0) a_n x^n - sf(0) b_n x^n = ss (a_n - b_n) x^n quad (|x|<R)$；
+
+	- 数乘：$lambda sf(0) a_n x^n = sf(0) lambda a_n x^n, sp |x|<R_1$，其中 $lambda$ 是常数；
+
+	- 乘法：$(sf(0) a_n x^n) (sf(0) b_n x^n) = (sf(0) c_n x^n), sp |x|<R$，其中 $c_n=dp(sum_(k=0)^n a_k b_(n-k))$。
+
+	#note[
+		可以理解为，在收敛半径内，幂级数符合多项式的若干性质。
+	]
+]
+
+=== 幂级数的分析性质
+
+#theorem[
+	设幂级数 $sf(0) a_n x^n$ 的收敛半径为 $R>0$，且 $S(x) = sf(0) a_n x^n, sp |x|<R$，则
+
+	1. $S(x)$ 在幂级数的收敛区间 $(-R,R)$ 内连续。即
+	$ forall x_0 in (-R,R), quad dp(lim_(x->x_0) S(x) = S(x_0)) $
+
+	2. 幂级数 $sf(0) a_n x^n$ 在 $(-R,R)$ 内可以逐项微分、逐项积分，且经过这些运算后所得的幂级数与原幂级数有相同的收敛半径（但是收敛域可能改变）。即
+	$ S'(x) = ssf(0) (a_n x^n)' = ssf(0) n a_n x^(n-1), sp |x|<R $
+	
+	$ int_0^x S(x) dif x = ssf(0) int_0^x a_n x^n dif x = ssf(0) dp(a_n/(n+1) x^(n+1)), sp |x|<R $
+
+	#corollary[
+		设 $S(x)$ 是幂级数 $sf(0) a_n x^n$ 在收敛区间 $(-R,R)$ 内的核函数，则 $S(x)$ 在 $(-R,R)$ 内任意阶可导，且可逐项求导，收敛半径仍是 $R$，即
+	]
+
+	#corollary[
+		若幂级数 $sf(0) a_n x^n$ 在收敛区间的端点 $x=R$ 处收敛，则 $S(x) = sf(0) a_n x^n$ 在 $x=R$ 处左方连续，即 $dp(lim->(R^-) sf(0) a_n x^n = sf(0) a_n R^n)$，或 $dp(lim_(x->R^-) S(x) = S(R))$。对应到另一侧同理。
+	]
+
+	#example[
+		#problem[
+			求幂级数 $sss dp(x^(2n+1)/(2n))$ 的收敛域。
+		]
+
+		#solution[
+			设 $S(x) = sss dp(x^(2n)/(2n))$，则 $S(0)=0$，$sss dp(x^(2n+1)/(2n)) = x S(x)$。注意到
+			$
+			S'(x) = (sss (x^(2n))/(2n))'  =sss x^(2n-1) = x/(1-x^2), sp |x|<1\
+			=> S(x) = int_0^x S'(x) dif x = int_0^x x/(1-x^2) dif x = -1/2 ln(1-x^2),sp |x|<1
+			$
+			所以收敛区间为 $(-1,1)$。当 $x=pm 1$ 时，此级数为 $ssf(0) dp(1/(2n))$ 发散，所以收敛域为 $(-1,1)$。
+		]
 	]
 ]
