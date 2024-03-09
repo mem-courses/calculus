@@ -70,7 +70,7 @@
   show math.equation: set text(weight: 400)
 
   // Set paragraph spacing.
-  show par: set block(above: 1.2em, below: 1.2em)
+  show par: set block(above: 1.05em, below: 1.05em)
 
   set heading(numbering: "1.1.")
   set par(leading: 0.75em)
@@ -178,7 +178,7 @@
 			#strong[#name]
 		]
   )
-  #let fontcolor = color.darken(20%)
+  #let fontcolor = color.darken(0%)
   #set text(fill: fontcolor)
   #set par(first-line-indent: 0em)
   #it

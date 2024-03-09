@@ -15,7 +15,9 @@
 )
 
 #let ss = [$display(attach(inline(sum), t: +oo, b: n=1))$]
+#let sf(x) = [$display(attach(inline(sum), t: +oo, b: n=#x))$]
 #let sss = [$display(attach(sum, t: +oo, b: n=1))$]
+#let ssf(x) = [$display(attach(sum, t: +oo, b: n=#x))$]
 #let int = math.integral
 #let dx = [$dif x$]
 #let dy = [$dif y$]
@@ -237,7 +239,16 @@
 	则交错级数 $ss (-1)^(n-1) a_n$ 收敛且其和 $S<=a_1$。
 
 	#proof[
-		根据条件有 $forall eps>0$，当 $n$ 足够大时有 $0<a_n<eps$。根据 $n$ 的奇偶性讨论后可用柯西收敛准则判别。
+		$
+		S_(2m) = (a_1-a_2)+(a_3-a_4)+dots.c+(a_(2m-1)-a_(2m))
+		$
+		由 ${a_n}$ 单调递减知 ${S_(2m)}$ 单调增。另一方面：
+		$
+		S_(2m) = a_1 - (a_2-a_3) - (a_4-a_5)-dots.c-(a_(2m-2)-a_(2m-1))-a_(2m)<a_1
+		$
+		根据单调有界定理知 $S_(2m)$ 有上界，故 ${S_(2m)}$ 收敛。记 $dp(lim_(m->+oo) S_(2m) = S<a_1)$。
+
+		而 $S_(2m+1)=S_(2m)+a_(2m+1)$，由条件 $dp(lim_(n->+oo) a_n)=0$ 和极限的四则运算法则得 $dp(lim_(m->+oo) S_(2m+1)=S)$。故原级数收敛且其和为 $S$。
 	]
 ]
 
@@ -257,17 +268,17 @@
 	若级数 $ss |a_n|$ 收敛，则称级数 $ss a_n$ #bb[绝对收敛]，若级数 $ss a_n$ 收敛而级数 $ss |a_n|$ 发散，则称级数 $ss a_n$ #bb[条件收敛]。
 ]
 
-#theorem[
-	如果级数 $ss a_n$ 绝对收敛，则级数 $ss a_n$ 必收敛。
+#theorem(name: "级数的绝对收敛准则")[
+	若级数 $ss a_n$ 绝对收敛，则级数 $ss a_n$ 必收敛。
 
 	#proof[
-		（*法一*）如果级数 $ss a_n$ 绝对收敛，由柯西收敛准则，$forall eps > 0$，$exists N > 0$，当 $n>N$ 时，$forall p in NN_+$ 有
+		（*法一*）注意到 $0<=a_n+|a_n|<=2|a_n|$，因为 $ss |a_n|$ 收敛，所以 $ss 2|a_n|$ 也收敛，由比较判别法得 $ss (|a_n|+a_n)$ 收敛。而 $a_n=(|a_n|+a_n)-a_n$，由级数性质知 $ss a_n$ 收敛。
+
+		（*法二*）如果级数 $ss a_n$ 绝对收敛，由柯西收敛准则，$forall eps > 0$，$exists N > 0$，当 $n>N$ 时，$forall p in NN_+$ 有
 		$ |a_(n+1)| + |a_(n+2)| + dots.c + |a_(n+p)| < eps $
 		因此
 		$ |a_(n+1) + a_(n+2) + dots.c + a_(n+p)| < |a_(n+1)| + |a_(n+2)| + dots.c + |a_(n+p)| < eps $
 		故根据柯西收敛准则，级数 $ss a_n$ 收敛。
-
-		（*法二*）令 $b_n = display(1/2(a_n + |a_n|))$，显然 $b_n>=0$ 且 $b_n<=|a_n|$。根据比较判别法知 $ss b_n$ 收敛。又因为 $ss a_n = ss (2 b_n - |a_n|)$，两个级数都收敛，故  $ss a_n$ 也收敛。
 	]
 ]
 
@@ -287,7 +298,9 @@
 	(3) $l = 1$ 时，绝对值的比值判别法失效。
 
 	#note[
-		第 (1), (3) 条都可以由比值判别法和绝对收敛的性质直接导出。第 (2) 条成立主要是因为 $l>1$ 时，$display(lim_(n->+oo) |a_n| = +oo) != 0$，故 $display(lim_(n->+oo) a_n)!=0$ 也成立，级数必不收敛。
+		第 (1), (3) 条都可以由比值判别法和绝对收敛准则导出。第 (2) 条成立主要是因为 $l>1$ 时，
+		$ display(lim_(n->+oo) |a_n| = +oo) != 0 $
+		故 $display(lim_(n->+oo) a_n)!=0$ 也成立，级数必不收敛。
 	]
 ]
 
@@ -353,35 +366,33 @@
 ]
 
 
-=== 阿贝尔判别法与狄利克雷判别法
+// === 阿贝尔判别法与狄利克雷判别法
 
-#lemma(name: "阿贝尔变换")[
-	设 ${a_n}$ 与 ${b_n}$ 是两数列，即 $B_n = display(sum_(k=1)^n b_k)$，则 
-	$ sum_(k=1)^n a_k b_k = a_n B_n + sum_(k=1)^(n-1) (a_k-a_(k+1)) B_k $
-]
+// #lemma(name: "阿贝尔变换")[
+// 	设 ${a_n}$ 与 ${b_n}$ 是两数列，即 $B_n = display(sum_(k=1)^n b_k)$，则 
+// 	$ sum_(k=1)^n a_k b_k = a_n B_n + sum_(k=1)^(n-1) (a_k-a_(k+1)) B_k $
+// ]
 
-#corollary(name: "阿贝尔引理")[
-	若数列 ${a_n}$ 与级数 $ss b_n$ 的部分和数列 ${B_n}$ 满足：
+// #corollary(name: "阿贝尔引理")[
+// 	若数列 ${a_n}$ 与级数 $ss b_n$ 的部分和数列 ${B_n}$ 满足：
 
-	(1) 数列 ${a_n}$ 单调，且 $exists A>0$，$forall n in NN_+$ 均有 $|a_n| <= A$;
+// 	(1) 数列 ${a_n}$ 单调，且 $exists A>0$，$forall n in NN_+$ 均有 $|a_n| <= A$;
 
-	(2) $exists eps>0$，$forall n in NN_+$，均有 $|B_n| < eps$；
+// 	(2) $exists eps>0$，$forall n in NN_+$，均有 $|B_n| < eps$；
 
-	则 $forall n in NN_+$，有 $display(lr(| sum_(k=1)^n a_k b_k <= 3 A eps |))$。
+// 	则 $forall n in NN_+$，有 $display(lr(| sum_(k=1)^n a_k b_k <= 3 A eps |))$。
 
-	#proof[
-		根据阿贝尔变换，
-		$
-		lr(|sum_(k=1)^n a_k b_k|)
-		&= lr(| a_n B_n + sum_(k=1)^(n-1) (a_k - a_(k+1)) B_k |)
-		&= lr(|a_n B_n|) + sum_(k=1)^(n-1) |a_k - a_(k+1)| dot.c |B_k|
-		$
-	]
-]
+// 	#proof[
+// 		根据阿贝尔变换，
+// 		$
+// 		lr(|sum_(k=1)^n a_k b_k|)
+// 		&= lr(| a_n B_n + sum_(k=1)^(n-1) (a_k - a_(k+1)) B_k |)
+// 		&= lr(|a_n B_n|) + sum_(k=1)^(n-1) |a_k - a_(k+1)| dot.c |B_k|
+// 		$
+// 	]
+// ]
 
-= 幂级数
-
-== 函数项级数
+== 函数项级数\*
 
 #definition[
 	设 $u_1(x),u_2(x),dots.c,u_n(x),dots.c$ 是定义在 $I in RR$ 上的函数，则 
@@ -397,4 +408,45 @@
 函数项级数 $ss u_n(x)$ 的所有收敛点的全体称为#bb[收敛域]，所有发散点的全体称为#bb[发散域]。
 ]
 
-#pagebreak()
+#definition[
+	称
+	$ S_n  = u_1(x) + u_2(x) + dots.c + u_n(x) $
+	为函数项级数 $ss u_n(x)$ 的（第 $n$ 个）#bb[部分和函数]。若 $dp(lim_(n->+oo) S_n(x) = S(x))$，则称 $S(x)$ 为函数项技术 $ss u(x)$ 的#bb[和函数]。
+]
+
+#note[
+	在判定函数项级数的敛散性时，常常与比值判别法、根值判别法连用。对于 $l=1$ 的特殊情况，此时 $x$ 一般为确定值，再用数项级数的方法进行判断。
+]
+
+== 幂级数
+
+#definition[
+	称函数项级数
+	$ a_0+a_1 (x-x_0)+dots.c+a_n (x-x_0)^n +dots.c = ssf(0) a_n (x-x_0)^n $
+	为关于 $x-x_0$ 的#bb[幂级数]，其中 $a_n$ 称为#bb[幂级数系数]。
+	
+	特别地，取 $x_0=0$，称
+	$ a_0 +a_1 x + dots.c + a_n x^n = ssf(0) a_n x^n $
+	为关于 $x$ 的幂级数。
+
+	显然，任何幂级数 $sf(0) a_n x^n$ 在 $x=0$ 处收敛。
+]
+
+=== 幂级数的收敛半径与收敛域
+
+#theorem(name: "阿贝尔定理")[
+
+	(1) 如果级数 $sf(0) a_n x^n$ 在 $x=x_1(x_1!=0)$ 处收敛，则它在满足不等式 $|x|<|x_1|$ 的一切 $x$ 处绝对收敛。
+
+	(2) 如果级数 $sf(0) a_n x^n$ 在 $x=x_2$ 处发散，则它在满足不等式 $|x|>|x_2|$ 的一切 $x$ 处发散。
+
+	#proof[
+		下证 (1)。因为 $sf(0) a_n x_1^n$ 收敛，所以 $dp(lim_(n->+oo) a_n x_1^n=0)$，$exists M>0$，使得 $|a_n x_1^n|<=M sp (n=0,1,2,dots.c)$。
+
+		由于 $|x|<|x_1|$，有 $dp(|x/x_1|<1)$，
+		$
+		|a_n x^n| = abs(a_n x_1^n dot (x^n)/(x_1^n)) = |a_n x_1^n| dot abs(x/x_1)^n <= M abs(x/x_1)^n
+		$
+		而等比级数 $dp(ssf(0) M abs(x/x_1)^n)$ 收敛，故 $sf(0) a_n x^n$ 收敛，因此级数 $ss a_n x^n$ 绝对收敛。
+	]
+]
