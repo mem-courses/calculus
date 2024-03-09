@@ -130,10 +130,17 @@ $
 	用比较判别法判定级数的敛散性：
 	$ sss (n^(n-1))/((2n^2+n+1)^((n+1)/2)) $
 ]
-$ "原式" &=
-sss sqrt(((n^2)^(n-1))/((2n^2+n+1)^(n+1)))
+$ "原式"
+&= sss sqrt(((n^2)^(n-1))/((2n^2+n+1)^(n+1)))\
+&= sss 1/(n^2) ((n^2)/(2n^2+n+1))^(n/2)
 $
-TBD
+
+注意到 $dp(n^2/(2n+n+1)<1)$，所以
+$
+(n^(n-1))/((2n^2+n+1)^((n+1)/2)) < 1/n^2
+$
+
+根据 $p-$ 级数的性质可知 $sss dp(1/n^2)$ 收敛，故原级数也收敛。
 
 == P253 1(2)
 #prob[
@@ -248,14 +255,53 @@ $
 	$ sum_(n=2)^(+oo) 1/(n ln n (ln ln n)) $
 ]
 
+根据积分判别法，该级数的敛散性与反常积分
+$
+int_2^(+oo) 1/(x ln x (ln ln x)) dif x
+$
+相同。根据：
+$
+int_2^(+oo) 1/(x ln x (ln ln x)) dif x
+&= int_2^(+oo) dif(ln x)/(ln x (ln ln x))\
+&= int_(ln 2)^(+oo) (dif u)/(u ln u)\
+&= int_(ln 2)^(+oo) dif(ln u)/(ln u)\
+&= int_(ln ln 2)^(+oo) (dif v)/v\
+&= (ln v)|_(ln ln 2)^(+oo)\
+&= +oo
+$
+可知原级数发散。
+
 == P253 5(1)
 #prob[
 	研究级数的敛散性：
 	$ sss int_n^(n+1) e^(-sqrt(x)) dif x $
 ]
+根据分段积分的定义，有
+$
+S = sss int_n^(n+1) e^(-sqrt(x)) dif x
+= int_1^(+oo) e^(-sqrt(x)) dif x
+$
+令 $u=-sqrt(x)$，则 $dif x = 2 u dif u$。代入得
+$
+S
+&= int_1^(+oo) e^(-u) dot 2 u dif u\
+&= 2 int_(-1)^(-oo) u e^u dif u\
+&= 2 (u-1) e^u |_(-1)^(-oo)\
+$
+是收敛的。所以原级数收敛。
 
 == P253 5(3)
 #prob[
 	研究级数的敛散性：
 	$ sss 1/(sqrt(3)^n) (1+1/n)^(n^2) $
 ]
+注意到：
+$
+lim_(n->+oo) (1/sqrt(3))^n (1+1/n)^(n^2)
+&= exp lim_(n->+oo) (-n/2 ln 3 + n^2 ln (1+1/n))\
+&= exp lim_(x->0^+) (-(ln 3)/(2x) + ln(1+x)/(x^2))\
+&= exp lim_(x->0^+) (2ln(1+x) - ln 3 dot x)/(2x^2)\
+&= exp lim_(x->0^+) (2x-x^2+o(x^2) - ln 3 dot x)/(2x^2)\
+&= exp lim_(x->0^+) (2-ln 3)/(2x)=+oo
+$
+由于级数的通项不趋于 $0$，故该级数发散。
